@@ -5,7 +5,7 @@ import { useFavorites } from "../../../contexts/FavoritesContext";
 import { AuthContext } from "../../../contexts/AuthContext";
 
 
-export default function MatchaDetails() {
+export default function HojichaDetails() {
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function MatchaDetails() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3030/api/collection/matcha/${id}`)
+        fetch(`http://localhost:3030/api/collection/hojicha/${id}`)
             .then(response => response.json())
             .then(data => setItem(data))
             .catch(err => console.log(err));
@@ -101,11 +101,14 @@ export default function MatchaDetails() {
                 <h2 className="text-4xl my-10">How to prepare</h2>
                 <div className="flex flex-col justify-center gap-10 items-center">
                     <div className="mt-10">
+                        <div className="pb-20">
+                            <h3 className="text-5xl">Basic Bancha (Hojicha, Genmaicha, etc.)</h3>
+                        </div>
                         <div className="flex justify-center items-center max-w-2xl text-2xl border-2 rounded-xl p-8 font-laila">
-                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-brands fa-envira"></i>2g</p>
-                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-solid fa-mug-saucer"></i>60ml</p>
-                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-solid fa-temperature-three-quarters"></i>80℃</p>
-                            <p className="px-5 flex justify-center items-center gap-2"><i className="fa-regular fa-clock"></i>15 sec.</p>
+                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-brands fa-envira"></i>10g</p>
+                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-solid fa-mug-saucer"></i>240ml</p>
+                            <p className="border-r-2 border-black px-5 flex justify-center items-center gap-2"><i className="fa-solid fa-temperature-three-quarters"></i>100℃</p>
+                            <p className="px-5 flex justify-center items-center gap-2"><i className="fa-regular fa-clock"></i>30 sec.</p>
                         </div>
                     </div>
 
@@ -113,23 +116,23 @@ export default function MatchaDetails() {
 
                         <div className="flex items-center gap-5">
                             <div className="max-w-[200px]">
-                                <img src="\src\assets\prep\matcha\matcha1.png" alt="" />
+                                <img src="\src\assets\prep\hojicha\hojicha1.png" alt="" />
                             </div>
-                            <p className="text-xl leading-loose text-start">Sift 2g of matcha (1.5 heaped tea ladles or 1 level teaspoon)</p>
+                            <p className="text-xl leading-loose text-start">Use 10g of leaves (hojicha: 4 tablespoons, genmaicha: 2 tablespoons)</p>
                         </div>
 
                         <div className="flex items-center gap-5 ">
                             <div className="max-w-[200px]">
-                                <img src="\src\assets\prep\matcha\matcha2.png" alt="" />
+                                <img src="\src\assets\prep\hojicha\hojicha2.png" alt="" />
                             </div>
-                            <p className="text-xl leading-loose text-start">Add 60ml of hot water (80°C)</p>
+                            <p className="text-xl leading-loose text-start">Add 240ml of hot water (100°C)</p>
                         </div>
 
                         <div className="flex items-center gap-5">
                             <div className="max-w-[200px]" >
-                                <img src="\src\assets\prep\matcha\matcha3.png" alt="" />
+                                <img src="\src\assets\prep\hojicha\hojicha3.png" alt="" />
                             </div>
-                            <p className="text-xl leading-loose text-start">Whisk vigorously for 15 seconds</p>
+                            <p className="text-xl leading-loose text-start">Serve 30 seconds after beginning to pour the hot water.</p>
                         </div>
 
                     </div>

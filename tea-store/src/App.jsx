@@ -24,6 +24,7 @@ import SenchaDetails from './components/shopping/sencha/SenchaDetails';
 import ShopMatcha from './components/shopping/matcha/ShopMatcha';
 import MatchaDetails from './components/shopping/matcha/MatchaDetails';
 import ShopHojicha from './components/shopping/hojicha/ShopHojicha';
+import HojichaDetails from './components/shopping/hojicha/HojichaDetails';
 
 
 
@@ -55,6 +56,7 @@ function App() {
                                 <Route path='/collection/matcha' element={<ShopMatcha />} />
                                 <Route path='/collection/matcha/:id' element={<MatchaDetails />} />
                                 <Route path='/collection/hojicha' element={<ShopHojicha />} />
+                                <Route path='/collection/hojicha/:id' element={<HojichaDetails />} />
 
                             </Routes>
                         </div>
