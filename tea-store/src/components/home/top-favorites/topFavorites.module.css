@@ -1,0 +1,23 @@
+.header {
+    @apply text-3xl my-5
+  }
+
+.cardHolder {
+    @apply flex flex-wrap justify-evenly
+}
+
+.card {
+    @apply flex flex-col flex-wrap justify-center items-center text-xl border rounded-3xl p-10 bg-slate-100 hover:scale-105 hover:bg-lime-200
+}
+
+.cardImage {
+    @apply w-52
+}
+
+.cardInfoHolder {
+    @apply flex flex-col gap-2
+}
+
+.cardInfoPrice {
+    @apply font-bold
+}
