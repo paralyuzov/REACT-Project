@@ -269,12 +269,11 @@ export default function Header() {
           </li>
 
           <li className="relative group">
-            <a
+            <p
               className="hover:text-lime-400 duration-400 ease-in-out"
-              href="javascript:void(0)"
             >
               Stories about the tea
-            </a>
+            </p>
             <div className="absolute top-0 -left-20 transition group-hover:translate-y-6 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-40 min-w-[350px] transform ">
               <div className="relative top-6 p-2 bg-white rounded-xl shadow-xl w-full border-2 border-slate-200 ">
                 <div className="relative z-10">

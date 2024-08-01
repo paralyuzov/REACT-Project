@@ -17,6 +17,7 @@ import PrepOneCup from './components/about/preparing-tea/one-cup/PrepOneCup';
 import PrepOnePot from './components/about/preparing-tea/one-pot/PrepOnePot';
 import TypesOfTea from './components/about/types-of-tea/TypesOfTea';
 import ShopGyokuro from './components/shopping/gyokuro/ShopGyokuro';
+import { FavoriteProvider } from './contexts/FavoritesContext';
 
 
 
@@ -26,25 +27,27 @@ function App() {
         <>
             <AuthContextProvider>
                 <CardProvider>
-                    <Header />
-                    <div>
-                        <Routes>
+                    <FavoriteProvider>
+                        <Header />
+                        <div>
+                            <Routes>
 
-                            <Route path='/' element={<Main />} />
-                            <Route path='/about-the-tea' element={<AboutTheTea />} />
-                            <Route path='/preparing-tea' element={<Preparing />} />
-                            <Route path='/preparing-tea/sencha' element={<PrepSencha />} />
-                            <Route path='/preparing-tea/gyokuro' element={<PrepGyokuro />} />
-                            <Route path='/preparing-tea/matcha' element={<PrepMatcha />} />
-                            <Route path='/preparing-tea/hojicha' element={<PrepHojicha />} />
-                            <Route path='/preparing-tea/one-cup-teabags' element={<PrepOneCup />} />
-                            <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
-                            <Route path='/types-of-tea' element={<TypesOfTea />} />
-                            <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
+                                <Route path='/' element={<Main />} />
+                                <Route path='/about-the-tea' element={<AboutTheTea />} />
+                                <Route path='/preparing-tea' element={<Preparing />} />
+                                <Route path='/preparing-tea/sencha' element={<PrepSencha />} />
+                                <Route path='/preparing-tea/gyokuro' element={<PrepGyokuro />} />
+                                <Route path='/preparing-tea/matcha' element={<PrepMatcha />} />
+                                <Route path='/preparing-tea/hojicha' element={<PrepHojicha />} />
+                                <Route path='/preparing-tea/one-cup-teabags' element={<PrepOneCup />} />
+                                <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
+                                <Route path='/types-of-tea' element={<TypesOfTea />} />
+                                <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
 
-                        </Routes>
-                    </div>
-                    <Footer />
+                            </Routes>
+                        </div>
+                        <Footer />
+                    </FavoriteProvider>
                 </CardProvider>
             </AuthContextProvider>
         </>
