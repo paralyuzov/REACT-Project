@@ -1,0 +1,38 @@
+
+.header {
+    @apply bg-white
+}
+
+.nav-top {
+    @apply flex justify-between font-kreon
+}
+
+.nav-left {
+    @apply flex items-center gap-4 px-5
+}
+
+.nav-left i {
+    @apply px-3 text-xl
+}
+
+.logo {
+    @apply flex items-center
+}
+
+.logo img {
+    @apply w-32 saturate-200 contrast-150
+}
+
+.logo h2 {
+    @apply text-3xl 
+}
+
+.search {
+    @apply  w-full h-8 py-2 px-2 border-2 rounded-xl text-gray-700 leading-tight placeholder-shown:border-gray-500
+}
+
+
+
+.nav-bottom ul{
+    @apply flex justify-around py-5 text-xl font-laila font-medium
+}

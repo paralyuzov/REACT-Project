@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+export default {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        laila: ['Laila', 'sans-serif'],
+        kreon: ['Kreon', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

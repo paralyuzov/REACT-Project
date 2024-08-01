@@ -1,6 +1,7 @@
 import { createContext, useState, useContext } from "react";
 import Popup from "../components/popup/Popup";
 
+
 export const CartContext = createContext();
 
 export function CardProvider(props) {
