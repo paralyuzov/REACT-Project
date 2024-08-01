@@ -30,6 +30,7 @@ import OrganicDetails from './components/shopping/organic/OrganicDetails';
 import ShopTeabags from './components/shopping/teabags/ShopTeabags';
 import TeabagsDetails from './components/shopping/teabags/TeabagsDetails';
 import ShopUtensils from './components/shopping/utensils/ShopUtensils';
+import UtensilsDetails from './components/shopping/utensils/UtensilsDetails';
 
 
 
@@ -67,6 +68,7 @@ function App() {
                                 <Route path='/collection/teabags' element={<ShopTeabags />} />
                                 <Route path='/collection/teabags/:id' element={<TeabagsDetails />} />
                                 <Route path='/collection/utensils' element={<ShopUtensils />} />
+                                <Route path='/collection/utensils/:id' element={<UtensilsDetails />} />
 
                             </Routes>
                         </div>
