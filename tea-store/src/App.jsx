@@ -15,6 +15,7 @@ import PrepMatcha from './components/about/preparing-tea/matcha/PrepMatcha';
 import PrepHojicha from './components/about/preparing-tea/hojicha/PrepHojicha';
 import PrepOneCup from './components/about/preparing-tea/one-cup/PrepOneCup';
 import PrepOnePot from './components/about/preparing-tea/one-pot/PrepOnePot';
+import TypesOfTea from './components/about/types-of-tea/TypesOfTea';
 
 
 
@@ -37,6 +38,7 @@ function App() {
                             <Route path='/preparing-tea/hojicha' element={<PrepHojicha />} />
                             <Route path='/preparing-tea/one-cup-teabags' element={<PrepOneCup />} />
                             <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
+                            <Route path='/types-of-tea' element={<TypesOfTea />} />
 
                         </Routes>
                     </div>
