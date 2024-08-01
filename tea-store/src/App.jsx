@@ -28,6 +28,7 @@ import HojichaDetails from './components/shopping/hojicha/HojichaDetails';
 import ShopOrganic from './components/shopping/organic/ShopOrganic';
 import OrganicDetails from './components/shopping/organic/OrganicDetails';
 import ShopTeabags from './components/shopping/teabags/ShopTeabags';
+import TeabagsDetails from './components/shopping/teabags/TeabagsDetails';
 
 
 
@@ -63,6 +64,7 @@ function App() {
                                 <Route path='/collection/organic' element={<ShopOrganic />} />
                                 <Route path='/collection/organic/:id' element={<OrganicDetails />} />
                                 <Route path='/collection/teabags' element={<ShopTeabags />} />
+                                <Route path='/collection/teabags/:id' element={<TeabagsDetails />} />
 
                             </Routes>
                         </div>
