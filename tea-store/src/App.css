@@ -1,26 +1,38 @@
 #root {
-  max-width: 1440px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center; 
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.carousel-inner {
+  display: flex;
+  width: 300%;
+  animation: slide 20s infinite;
+}
+.carousel-item {
+  width: 33.3333%;
+  flex-shrink: 0;
+}
+.carousel-item img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
 }
 
 @keyframes slide {
-  0%,
-  5%,
-  33.333%,
-  38.333%,
-  66.666%,
-  71.666%,
-  100% {
+  0%, 5%, 33.333%, 38.333%, 66.666%, 71.666%, 100% {
     transform: translateX(0%);
   }
-  38.333%,
-  66.666% {
+  38.333%, 66.666% {
     transform: translateX(-33.3333%);
   }
-  71.666%,
-  100% {
+  71.666%, 100% {
     transform: translateX(-66.6666%);
   }
 }
