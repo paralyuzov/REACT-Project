@@ -32,6 +32,7 @@ import TeabagsDetails from './components/shopping/teabags/TeabagsDetails';
 import ShopUtensils from './components/shopping/utensils/ShopUtensils';
 import UtensilsDetails from './components/shopping/utensils/UtensilsDetails';
 import Register from './components/user/sign-up/Register';
+import Login from './components/user/sign-in/Login';
 
 
 
@@ -71,6 +72,7 @@ function App() {
                                 <Route path='/collection/utensils' element={<ShopUtensils />} />
                                 <Route path='/collection/utensils/:id' element={<UtensilsDetails />} />
                                 <Route path='/signup' element={<Register />} />
+                                <Route path='/signin' element={<Login />} />
 
                             </Routes>
                         </div>
