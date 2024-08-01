@@ -1,6 +1,7 @@
 
 import './App.css'
 import Header from './components/header/Header'
+import Main from './components/home/Main'
 
 import { AuthContextProvider } from './contexts/AuthContext'
 import { CardProvider } from './contexts/CartContext'
@@ -11,7 +12,10 @@ function App() {
     <>
       <AuthContextProvider>
         <CardProvider>
-          <Header/>
+          <Header />
+          <div>
+            <Main />
+          </div>
         </CardProvider>
       </AuthContextProvider>
     </>

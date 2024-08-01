@@ -1,0 +1,27 @@
+.container {
+  @apply bg-yellow-200 my-10 flex flex-col  justify-center items-center gap-5;
+}
+
+.title {
+  @apply text-4xl py-8 font-bold;
+}
+
+.subtitle {
+  @apply text-wrap max-w-[350px] text-center items-center text-xl font-medium tracking-wider;
+}
+
+.cardHolder {
+  @apply flex gap-6 justify-center  items-center p-6;
+}
+
+.card {
+  @apply flex flex-col justify-center items-center border-2 border-black bg-white hover:scale-105;
+}
+
+.cardTitle {
+  @apply mt-10 text-2xl underline;
+}
+
+.cardInfo {
+  @apply my-5 text-xl w-1/2;
+}

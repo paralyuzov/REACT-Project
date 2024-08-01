@@ -1,3 +1,5 @@
+import "./Carousel.css";
+
 export default function Carousel() {
     return (
         <div className="w-full max-w-full mh-auto mx-auto carousel">
