@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext'
 import { CardProvider } from './contexts/CartContext'
+import { FavoriteProvider } from './contexts/FavoritesContext';
 
 import './App.css'
 import Footer from './components/footer/Footer'
@@ -17,7 +18,7 @@ import PrepOneCup from './components/about/preparing-tea/one-cup/PrepOneCup';
 import PrepOnePot from './components/about/preparing-tea/one-pot/PrepOnePot';
 import TypesOfTea from './components/about/types-of-tea/TypesOfTea';
 import ShopGyokuro from './components/shopping/gyokuro/ShopGyokuro';
-import { FavoriteProvider } from './contexts/FavoritesContext';
+import GyokuroDetails from './components/shopping/gyokuro/GyokuroDetails';
 
 
 
@@ -43,6 +44,7 @@ function App() {
                                 <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
                                 <Route path='/types-of-tea' element={<TypesOfTea />} />
                                 <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
+                                <Route path='/collection/gyokuro/:id' element={<GyokuroDetails />} />
 
                             </Routes>
                         </div>

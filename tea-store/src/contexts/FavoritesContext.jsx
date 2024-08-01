@@ -28,7 +28,7 @@ export function FavoriteProvider({ children }) {
             });
             if (response.ok) {
                 const data = await response.json();
-                await setFavorites(data)
+                setFavorites(data)
             } else {
                 console.error('Failed to fetch favorites');
             }
@@ -38,6 +38,7 @@ export function FavoriteProvider({ children }) {
     };
 
     const addFavorite = async (teaId) => {
+    
         try {
             const response = await fetch('http://localhost:3030/api/favorites/add-favorite', {
                 method: 'POST',
@@ -71,7 +72,7 @@ export function FavoriteProvider({ children }) {
             });
             if (response.ok) {
                 setFavorites(prevFavorites => prevFavorites.filter(item => item._id !== teaId));
-                await  fetchFavorites()
+                await fetchFavorites()
             }
         } catch (error) {
             console.error('Failed to remove favorite', error);
@@ -79,7 +80,7 @@ export function FavoriteProvider({ children }) {
     };
 
     const isFavorite = (teaId) => {
-         return favorites.some(item => item._id === teaId);
+        return favorites.some(item => item._id === teaId);
     };
 
 
