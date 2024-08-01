@@ -58,7 +58,7 @@ export default function TeabagsDetails() {
 
     return (
         <div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center my-5">
                 <div className="bg-slate-200">
                     <img src={item.image} alt="" />
                 </div>
