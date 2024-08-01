@@ -10,6 +10,7 @@ import AboutTheTea from './components/about/about-the-tea/AboutTheTea';
 import Preparing from './components/about/preparing-tea/Preparing';
 import PrepSencha from './components/about/preparing-tea/sencha/PrepSencha';
 import PrepGyokuro from './components/about/preparing-tea/gyokuro/PrepGyokuro';
+import PrepMatcha from './components/about/preparing-tea/matcha/PrepMatcha';
 
 
 
@@ -28,6 +29,7 @@ function App() {
                             <Route path='/preparing-tea' element={<Preparing />} />
                             <Route path='/preparing-tea/sencha' element={<PrepSencha />} />
                             <Route path='/preparing-tea/gyokuro' element={<PrepGyokuro />} />
+                            <Route path='/preparing-tea/matcha' element={<PrepMatcha />} />
 
                         </Routes>
                     </div>
