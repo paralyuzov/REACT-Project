@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer'
 import Header from './components/header/Header'
 import Main from './components/home/Main'
 import AboutTheTea from './components/about/about-the-tea/AboutTheTea';
+import Preparing from './components/about/preparing-tea/Preparing';
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
                             <Route path='/' element={<Main />} />
                             <Route path='/about-the-tea' element={<AboutTheTea />} />
+                            <Route path='/preparing-tea' element={<Preparing />} />
 
                         </Routes>
                     </div>
