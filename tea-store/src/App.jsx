@@ -21,6 +21,7 @@ import ShopGyokuro from './components/shopping/gyokuro/ShopGyokuro';
 import GyokuroDetails from './components/shopping/gyokuro/GyokuroDetails';
 import ShopSencha from './components/shopping/sencha/ShopSencha';
 import SenchaDetails from './components/shopping/sencha/SenchaDetails';
+import ShopMatcha from './components/shopping/matcha/ShopMatcha';
 
 
 
@@ -49,6 +50,7 @@ function App() {
                                 <Route path='/collection/gyokuro/:id' element={<GyokuroDetails />} />
                                 <Route path='/collection/sencha' element={<ShopSencha />} />
                                 <Route path='/collection/sencha/:id' element={<SenchaDetails />} />
+                                <Route path='/collection/matcha' element={<ShopMatcha />} />
 
                             </Routes>
                         </div>
