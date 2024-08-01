@@ -17,13 +17,13 @@ export default function Footer() {
                     <div>
                         <h2 className="text-2xl border-b-[1px] border-black" >Shopping</h2>
                         <div className="flex flex-col  gap-5 pt-5 text-xl">
-                            <a className="hover:font-semibold" href="">Matcha</a>
-                            <a className="hover:font-semibold" href="">Guykuro</a>
-                            <a className="hover:font-semibold" href="">Sencha</a>
-                            <a className="hover:font-semibold" href="">Hojicha,Genmaicha</a>
-                            <a className="hover:font-semibold" href="">Teabags</a>
-                            <a className="hover:font-semibold" href="">Organic</a>
-                            <a className="hover:font-semibold" href="">Utensils</a>
+                            <Link className="hover:font-semibold" to={"/collection/matcha"}>Matcha</Link>
+                            <Link className="hover:font-semibold" to={"/collection/gyokuro"}>Gyokuro</Link>
+                            <Link className="hover:font-semibold" to={"/collection/sencha"}>Sencha</Link>
+                            <Link className="hover:font-semibold" to={"/collection/hojicha"}>Hojicha,Genmaicha</Link>
+                            <Link className="hover:font-semibold" to={"/collection/teabags"}>Teabags</Link>
+                            <Link className="hover:font-semibold" to={"/collection/organic"}>Organic</Link>
+                            <Link className="hover:font-semibold" to={"/collection/utensils"}>Utensils</Link>
                         </div>
                     </div>
 
@@ -46,10 +46,10 @@ export default function Footer() {
             <div className="bg-[#F0EBE0]">
 
                 <div className="flex text-xl justify-around pt-5">
-                    <a href="javascript:void(0)"><i className="fa-brands fa-instagram"></i></a>
-                    <a href="javascript:void(0)"><i className="fa-brands fa-square-facebook"></i></a>
-                    <a href="javascript:void(0)"><i className="fa-brands fa-x-twitter"></i></a>
-                    <a href="javascript:void(0)"><i className="fa-brands fa-youtube"></i></a>
+                    <Link href="/"><i className="fa-brands fa-instagram"></i></Link>
+                    <Link href="/"><i className="fa-brands fa-square-facebook"></i></Link>
+                    <Link href="/"><i className="fa-brands fa-x-twitter"></i></Link>
+                    <Link href="/"><i className="fa-brands fa-youtube"></i></Link>
                 </div>
                 <div>
                     <p className="text-center text-l mt-5">© Copyright 2024</p>
