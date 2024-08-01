@@ -19,6 +19,8 @@ import PrepOnePot from './components/about/preparing-tea/one-pot/PrepOnePot';
 import TypesOfTea from './components/about/types-of-tea/TypesOfTea';
 import ShopGyokuro from './components/shopping/gyokuro/ShopGyokuro';
 import GyokuroDetails from './components/shopping/gyokuro/GyokuroDetails';
+import ShopSencha from './components/shopping/sencha/ShopSencha';
+import SenchaDetails from './components/shopping/sencha/SenchaDetails';
 
 
 
@@ -45,6 +47,8 @@ function App() {
                                 <Route path='/types-of-tea' element={<TypesOfTea />} />
                                 <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
                                 <Route path='/collection/gyokuro/:id' element={<GyokuroDetails />} />
+                                <Route path='/collection/sencha' element={<ShopSencha />} />
+                                <Route path='/collection/sencha/:id' element={<SenchaDetails />} />
 
                             </Routes>
                         </div>

@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { useCart } from "../../../contexts/CartContext";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 
-export default function ShopGyokuro() {
+export default function ShopSencha() {
 
     const { addToCart } = useCart();
-    const [items, setItems] = useState([]);
     const isAuthenticated = useContext(AuthContext)
 
+    const [items, setItems] = useState([]);
+
     useEffect(() => {
-        fetch('http://localhost:3030/api/collection/gyokuro')
+        fetch('http://localhost:3030/api/collection/sencha')
             .then(response => response.json())
             .then(data => setItems(data))
             .catch(err => console.log(err));
@@ -20,20 +21,19 @@ export default function ShopGyokuro() {
         <div>
             <div className="flex justify-between items-center font-kreon border-b-2 mb-5">
                 <div className="flex flex-col justify-center items-center gap-10">
-                    <h2 className="text-4xl">Gyokuro</h2>
-                    <p className="text-2xl">Treat yourself to an elegant experience
-                        with natural sweetness.</p>
+                    <h2 className="text-4xl">Sencha</h2>
+                    <p className="text-2xl">Relax with teas that have sweetness, sharpness,and the fragrance of young tea leaves.</p>
                 </div>
                 <div className="max-w-3xl flex-shrink">
-                    <img src="\src\assets\shopping\gyokuro\gyokuro.webp" alt="" />
+                    <img src="\src\assets\shopping\sencha\sencha.webp" alt="" />
                 </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-7 font-laila text-start">
+            <div className="grid grid-cols-4 auto-rows-auto gap-7 font-laila text-start">
                 {items.map(item => (
 
                     <div key={item._id} className="flex flex-col gap-5 tracking-widest">
-                        <Link to={`/collection/gyokuro/${item._id}`}>
+                        <Link to={`/collection/sencha/${item._id}`}>
                             <div className="bg-gray-200  border-2 rounded-3xl hover:bg-lime-100 hover:ease-in-out duration-700 cursor-pointer">
                                 <img src={item.image} alt="" />
                             </div>
@@ -52,6 +52,7 @@ export default function ShopGyokuro() {
                 ))}
 
             </div>
+
         </div>
     );
 }
