@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Shopping() {
     return (
         <div>
@@ -12,55 +14,68 @@ export default function Shopping() {
                 </div>
             </div>
             <div className="flex gap-20 justify-center items-start flex-wrap mt-20">
-
-                <div className="flex flex-col gap-3 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category1.png" alt="" />
+                <Link to={"/collection/matcha"}>
+                    <div className="flex flex-col gap-3 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category1.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Matcha,Uji-Shimizu</p>
                     </div>
-                    <p className="font-bold text-xl">Matcha,Uji-Shimizu</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category8.png" alt="" />
+                <Link to={"/collection/gyokuro"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category8.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Gyokuro</p>
                     </div>
-                    <p className="font-bold text-xl">Gyokuro</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category7.png" alt="" />
+                <Link to={"/collection/sencha"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category7.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Sencha</p>
                     </div>
-                    <p className="font-bold text-xl">Sencha</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category6.png" alt="" />
+                <Link to={"/collection/hojicha"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category6.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Hojicha,Genmaicha</p>
                     </div>
-                    <p className="font-bold text-xl">Hojicha,Genmaicha</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category5.png" alt="" />
+                <Link to={"/collection/teabags"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category5.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Teabags</p>
                     </div>
-                    <p className="font-bold text-xl">Teabags</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category4.png" alt="" />
+                <Link to={"/collection/organic"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category4.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Organic</p>
                     </div>
-                    <p className="font-bold text-xl">Organic</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
-                    <div>
-                        <img src="\src\assets\category3.png" alt="" />
+                <Link to={"/collection/utensils"}>
+                    <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
+                        <div>
+                            <img src="\src\assets\category3.png" alt="" />
+                        </div>
+                        <p className="font-bold text-xl">Utensils</p>
                     </div>
-                    <p className="font-bold text-xl">Utensils</p>
-                </div>
+                </Link>
 
             </div>
 

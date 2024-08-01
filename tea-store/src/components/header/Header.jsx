@@ -12,12 +12,14 @@ export default function Header() {
   return (
     <header className="header border-y-2">
       <div className="nav-top">
-        <div className="logo">
-          <img src="\src\assets\th (1).jpg" alt="picture" />
-          <h2>
-            <Link to="/">MAJKO TEA</Link>
-          </h2>
-        </div>
+        <Link to={"/"}>
+          <div className="logo">
+            <img src="\src\assets\th (1).jpg" alt="picture" />
+            <h2>
+              MAJKO TEA
+            </h2>
+          </div>
+        </Link>
 
         <div className="nav-left">
           <Search />
@@ -52,7 +54,7 @@ export default function Header() {
                           <li className="flex justify-center items-center gap-5 border-b-[1px] pb-1">
                             <Link
                               className="hover:text-lime-400 duration-500 ease-in-out"
-                              to="/signin"
+                              to={"/signin"}
                             >
                               <i className="fa-solid fa-right-to-bracket"></i>
                               Sign in
@@ -61,7 +63,7 @@ export default function Header() {
                           <li className="flex justify-center items-center gap-5 border-b-[1px] pb-1">
                             <Link
                               className="hover:text-lime-400 duration-500 ease-in-out"
-                              to="/signup"
+                              to={"/signup"}
                             >
                               <i className="fa-solid fa-user-plus "></i>
                               Sign up
@@ -83,7 +85,7 @@ export default function Header() {
 
             </button>
           </Link>
-          <Link to="/cart">
+          <Link to={"/cart"}>
             <button className="relative text-xl  rounded-full p-2 hover:bg-blue-400">
               <i className="fa-solid fa-cart-shopping"></i>
               <div className="flex justify-center items-center absolute border-2 bg-red-500 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
@@ -117,7 +119,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/about-the-tea"
+                            to={"/about-the-tea"}
                           >
                             About the tea
                           </Link>
@@ -130,7 +132,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/types-of-tea"
+                            to={"/types-of-tea"}
                           >
                             Types of tea
                           </Link>
@@ -143,7 +145,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/preparing-tea"
+                            to={"/preparing-tea"}
                           >
                             Preparing Tea
                           </Link>
@@ -175,7 +177,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/matcha"
+                            to={"/collection/matcha"}
                           >
                             Matcha,Uji-Shimizu
                           </Link>
@@ -188,7 +190,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/gyokuro"
+                            to={"/collection/gyokuro"}
                           >
                             Gyokuro
                           </Link>
@@ -201,7 +203,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/sencha"
+                            to={"/collection/sencha"}
                           >
                             Sencha
                           </Link>
@@ -214,7 +216,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/hojicha-genmaicha"
+                            to={"/collection/hojicha"}
                           >
                             Hojicha,Genmaicha
                           </Link>
@@ -227,7 +229,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/teabags"
+                            to={"/collection/teabags"}
                           >
                             Teabags
                           </Link>
@@ -253,7 +255,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to="/collection/utensils"
+                            to={"/collection/utensils"}
                           >
                             Utensils
                           </Link>
