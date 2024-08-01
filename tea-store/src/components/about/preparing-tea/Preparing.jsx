@@ -49,7 +49,7 @@ export default function Preparing() {
                         </div>
                     </Link>
 
-                    <Link to="/preparing-tea/hojicha-genmaicha">
+                    <Link to="/preparing-tea/hojicha">
                         <div className="flex flex-col justify-between items-center gap-5 hover:scale-105 cursor-pointer">
                             <div>
                                 <img src="\src\assets\types-hojicha.png" alt="" />
