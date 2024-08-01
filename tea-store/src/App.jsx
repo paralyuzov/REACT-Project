@@ -25,6 +25,9 @@ import ShopMatcha from './components/shopping/matcha/ShopMatcha';
 import MatchaDetails from './components/shopping/matcha/MatchaDetails';
 import ShopHojicha from './components/shopping/hojicha/ShopHojicha';
 import HojichaDetails from './components/shopping/hojicha/HojichaDetails';
+import ShopOrganic from './components/shopping/organic/ShopOrganic';
+import OrganicDetails from './components/shopping/organic/OrganicDetails';
+import ShopTeabags from './components/shopping/teabags/ShopTeabags';
 
 
 
@@ -57,6 +60,9 @@ function App() {
                                 <Route path='/collection/matcha/:id' element={<MatchaDetails />} />
                                 <Route path='/collection/hojicha' element={<ShopHojicha />} />
                                 <Route path='/collection/hojicha/:id' element={<HojichaDetails />} />
+                                <Route path='/collection/organic' element={<ShopOrganic />} />
+                                <Route path='/collection/organic/:id' element={<OrganicDetails />} />
+                                <Route path='/collection/teabags' element={<ShopTeabags />} />
 
                             </Routes>
                         </div>
