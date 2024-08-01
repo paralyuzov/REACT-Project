@@ -1,0 +1,26 @@
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@keyframes slide {
+  0%,
+  5%,
+  33.333%,
+  38.333%,
+  66.666%,
+  71.666%,
+  100% {
+    transform: translateX(0%);
+  }
+  38.333%,
+  66.666% {
+    transform: translateX(-33.3333%);
+  }
+  71.666%,
+  100% {
+    transform: translateX(-66.6666%);
+  }
+}
