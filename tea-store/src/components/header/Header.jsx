@@ -251,7 +251,7 @@ export default function Header() {
                           />
                           <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            to={"/collection/teabags"}
+                            to={"/collection/teabag"}
                           >
                             Teabags
                           </Link>
