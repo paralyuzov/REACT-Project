@@ -16,7 +16,7 @@ export function FavoriteProvider({ children }) {
         if (userId && accessToken) {
             fetchFavorites();
         }
-    }, [userId, accessToken]);
+    }, [userId, accessToken,favorites]);
 
     const fetchFavorites = async () => {
         try {
@@ -51,7 +51,6 @@ export function FavoriteProvider({ children }) {
             if (response.ok) {
                 const newFavorite = await response.json();
                 setFavorites(prevFavorites => [...prevFavorites, newFavorite]);
-                await fetchFavorites()
             } else {
                 console.error('Failed to add favorite');
             }
@@ -72,7 +71,6 @@ export function FavoriteProvider({ children }) {
             });
             if (response.ok) {
                 setFavorites(prevFavorites => prevFavorites.filter(item => item._id !== teaId));
-                await fetchFavorites()
             }
         } catch (error) {
             console.error('Failed to remove favorite', error);
