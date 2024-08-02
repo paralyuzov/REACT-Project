@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -6,8 +6,15 @@ import { useCart } from "../../contexts/CartContext";
 import Search from "./Search";
 
 export default function Header() {
-  const { isAuthenticated } = useContext(AuthContext)
+  const { isAuthenticated, changeAuthState } = useContext(AuthContext)
   const { calcTotalQuantity } = useCart();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+
+    localStorage.removeItem('accessToken');
+    changeAuthState({});
+    navigate('/');
+  };
 
   return (
     <header className="header border-y-2">
@@ -40,13 +47,13 @@ export default function Header() {
                           </a>
                         </li>
                         <li className="flex justify-center items-center gap-5 ">
-                          <a
+                          <button
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            href=""
+                            onClick={handleLogout}
                           >
                             <i className="fa-solid fa-right-from-bracket"></i>
                             Logout
-                          </a>
+                          </button>
                         </li>
                       </ul>
                       </>) : (<>
