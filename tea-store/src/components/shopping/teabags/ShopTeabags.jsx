@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useCart } from "../../../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
+import requester from "../../../api/requester";
 
 export default function ShopTeabags() {
 
@@ -10,10 +11,16 @@ export default function ShopTeabags() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3030/api/collection/teabags')
-            .then(response => response.json())
-            .then(data => setItems(data))
-            .catch(err => console.log(err))
+        const fetchItems = async () => {
+            try {
+                const data = await requester.get(`http://localhost:3030/api/collection/teabags`);
+                setItems(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchItems()
     }, [])
 
     return (

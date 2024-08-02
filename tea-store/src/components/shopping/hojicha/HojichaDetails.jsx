@@ -3,6 +3,7 @@ import { useCart } from "../../../contexts/CartContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFavorites } from "../../../contexts/FavoritesContext";
 import { AuthContext } from "../../../contexts/AuthContext";
+import requester from "../../../api/requester";
 
 
 export default function HojichaDetails() {
@@ -20,10 +21,16 @@ export default function HojichaDetails() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3030/api/collection/hojicha/${id}`)
-            .then(response => response.json())
-            .then(data => setItem(data))
-            .catch(err => console.log(err));
+        const fetchItems = async () => {
+            try {
+                const data = await requester.get(`http://localhost:3030/api/collection/hojicha/${id}`);
+                setItem(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchItems()
     }, [id, isFavorite])
 
 

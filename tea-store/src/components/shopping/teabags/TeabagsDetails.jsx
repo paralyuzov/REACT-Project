@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../../../contexts/CartContext";
 import { useFavorites } from "../../../contexts/FavoritesContext";
 import { AuthContext } from "../../../contexts/AuthContext";
+import requester from "../../../api/requester";
 
 
 export default function TeabagsDetails() {
@@ -20,11 +21,17 @@ export default function TeabagsDetails() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3030/api/collection/teabags/${id}`)
-            .then(response => response.json())
-            .then(data => setItem(data))
-            .catch(err => console.log(err))
-    }, [])
+        const fetchItems = async () => {
+            try {
+                const data = await requester.get(`http://localhost:3030/api/collection/teabags/${id}`);
+                setItem(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchItems()
+    }, [id, isFavorite])
 
     const handleQuantityChange = (delta) => {
         setQuantity((prevQuantity) => Math.max(1, prevQuantity + delta));
