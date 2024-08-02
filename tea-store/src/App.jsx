@@ -36,6 +36,7 @@ import Login from './components/user/sign-in/Login';
 import SearchResult from './components/search-result/SearchResult';
 import Cart from './components/cart/Cart';
 import Favorites from './components/favorites/Favorites';
+import Recipe from './components/blog/recipe/Recipe';
 
 
 
@@ -79,6 +80,7 @@ function App() {
                                 <Route path='/search' element={<SearchResult />} />
                                 <Route path='/cart' element={<Cart />} />
                                 <Route path='/favorites' element={<Favorites />} />
+                                <Route path='/blog/recipe' element={<Recipe />} />
 
                             </Routes>
                         </div>
