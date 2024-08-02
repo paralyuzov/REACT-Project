@@ -16,6 +16,14 @@ export default function Header() {
     navigate('/');
   };
 
+  const handleClick = (path) => {
+    if (!isAuthenticated) {
+      navigate('/signin');
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
     <header className="header border-y-2">
       <div className="nav-top">
@@ -86,20 +94,21 @@ export default function Header() {
             </div>
 
           </i>
-          <Link to={'/favorites'}>
-            <button className="rounded-full p-2 hover:bg-red-500">
-              <i className="fa-regular fa-heart"></i>
-
-            </button>
-          </Link>
-          <Link to={"/cart"}>
-            <button className="relative text-xl  rounded-full p-2 hover:bg-blue-400">
-              <i className="fa-solid fa-cart-shopping"></i>
-              <div className="flex justify-center items-center absolute border-2 bg-red-500 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
-                {calcTotalQuantity()}
-              </div>
-            </button>
-          </Link>
+          <button
+            className="rounded-full p-2 hover:bg-red-500"
+            onClick={() => handleClick('/favorites')}
+          >
+            <i className="fa-regular fa-heart"></i>
+          </button>
+          <button
+            className="relative text-xl rounded-full p-2 hover:bg-blue-400"
+            onClick={() => handleClick('/cart')}
+          >
+            <i className="fa-solid fa-cart-shopping"></i>
+            <div className="flex justify-center items-center absolute border-2 bg-red-500 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
+              {calcTotalQuantity()}
+            </div>
+          </button>
 
         </div>
       </div>
