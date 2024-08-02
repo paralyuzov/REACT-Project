@@ -15,5 +15,12 @@ export function useForm(initialValues, submitCallback) {
         submitCallback(values);
     }
 
-    return { values, changeHandler, submitHandler };
+    const updateValues = (newValues) => {
+        setValues(prevValues => ({
+            ...prevValues,
+            ...newValues
+        }));
+    };
+
+    return { values, changeHandler, submitHandler,updateValues };
 }
