@@ -41,4 +41,32 @@ async function login(email, password) {
     return user
 }
 
-module.exports = { register, login }
+async function update(id, username, email, tel) {
+    const user = await User.findById(id);
+
+    if (!user) {
+        throw new Error('User not found');
+    }
+
+    const existingEmail = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
+    if (existingEmail && existingEmail._id.toString() !== id) {
+        throw new Error('This email already exists!');
+    }
+
+    const existingUsername = await User.findOne({ username }).collation({ locale: 'en', strength: 2 });
+    if (existingUsername && existingUsername._id.toString() !== id) {
+        throw new Error('This username already exists!');
+    }
+
+    if (username) user.username = username;
+    if (email) user.email = email;
+    if (tel) user.tel = tel;
+
+    await user.save();
+
+    return user;
+}
+
+
+
+module.exports = { register, login, update }
