@@ -16,7 +16,7 @@ export function FavoriteProvider({ children }) {
         if (userId && accessToken) {
             fetchFavorites();
         }
-    }, [userId, accessToken,favorites]);
+    }, [userId, accessToken, favorites]);
 
     const fetchFavorites = async () => {
         try {
@@ -38,7 +38,7 @@ export function FavoriteProvider({ children }) {
     };
 
     const addFavorite = async (teaId) => {
-    
+
         try {
             const response = await fetch('http://localhost:3030/api/favorites/add-favorite', {
                 method: 'POST',
@@ -81,9 +81,11 @@ export function FavoriteProvider({ children }) {
         return favorites.some(item => item._id === teaId);
     };
 
+    const favoriteCount = favorites.length;
+
 
     return (
-        <FavoriteContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
+        <FavoriteContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, favoriteCount }}>
             {children}
         </FavoriteContext.Provider>
     );

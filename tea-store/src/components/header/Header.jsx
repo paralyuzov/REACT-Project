@@ -4,11 +4,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useCart } from "../../contexts/CartContext";
 import Search from "./Search";
+import { useFavorites } from "../../contexts/FavoritesContext";
 
 export default function Header() {
   const { isAuthenticated, changeAuthState } = useContext(AuthContext)
   const { calcTotalQuantity } = useCart();
   const navigate = useNavigate();
+  const { favoriteCount } = useFavorites();
+
   const handleLogout = () => {
 
     localStorage.removeItem('accessToken');
@@ -95,17 +98,20 @@ export default function Header() {
 
           </i>
           <button
-            className="rounded-full p-2 hover:bg-red-500"
+            className=" relative rounded-full p-2 hover:bg-red-400"
             onClick={() => handleClick('/favorites')}
           >
             <i className="fa-regular fa-heart"></i>
+            <div className="flex justify-center items-center absolute border-2 bg-red-400 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
+              {favoriteCount}
+            </div>
           </button>
           <button
-            className="relative text-xl rounded-full p-2 hover:bg-blue-400"
+            className="relative text-xl rounded-full p-2 hover:bg-blue-400" 
             onClick={() => handleClick('/cart')}
           >
             <i className="fa-solid fa-cart-shopping"></i>
-            <div className="flex justify-center items-center absolute border-2 bg-red-500 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
+            <div className="flex justify-center items-center absolute border-2 bg-blue-500 text-white text rounded-full w-8 h-8 bottom-0 right-0 translate-x-4 translate-y-4">
               {calcTotalQuantity()}
             </div>
           </button>
