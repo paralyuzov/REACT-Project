@@ -45,23 +45,7 @@ export default function UtensilsDetails() {
         addToCart({ ...item, quantity })
     }
 
-    const handleClick = async () => {
-        if (!isAuthenticated.accessToken) {
-            navigate("/signin")
-            return;
-        }
-        try {
-            if (favorite) {
-                await removeFavorite(item._id);
-            } else {
-                await addFavorite(item._id);
-            }
-        } catch (error) {
-            console.error('Failed to update favorites:', error);
-        }
-    };
-
-
+   
 
     return (
         <div>
@@ -89,13 +73,6 @@ export default function UtensilsDetails() {
                     <div>
                         <div className="flex flex-col justify-center items-center gap-10 text-2xl">
                             <button onClick={handleAddToCart} className="px-5 py-5 border-2  w-1/2 bg-[#f8c659] text-white hover:bg-[#f9bf42]">Add to cart</button>
-                            <button
-                                className={`px-5 py-2 ${favorite ? 'text-red-500' : 'hover:text-red-500'}`}
-                                onClick={handleClick}
-                            >
-                                <i className={`fa-regular fa-heart ${favorite ? 'fa-solid' : 'fa-regular'}`}></i>
-                                {favorite ? 'Remove from Favorites' : 'Add to Favorites'}
-                            </button>
                         </div>
                     </div>
                 </div>
