@@ -15,8 +15,10 @@ export function FavoriteProvider({ children }) {
     useEffect(() => {
         if (userId && accessToken) {
             fetchFavorites();
+        } else {
+            setFavorites([]);
         }
-    }, [userId, accessToken, favorites]);
+    }, [userId, accessToken]);
 
     const fetchFavorites = async () => {
         try {
@@ -51,6 +53,7 @@ export function FavoriteProvider({ children }) {
             if (response.ok) {
                 const newFavorite = await response.json();
                 setFavorites(prevFavorites => [...prevFavorites, newFavorite]);
+                fetchFavorites()
             } else {
                 console.error('Failed to add favorite');
             }
