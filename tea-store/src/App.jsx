@@ -40,6 +40,7 @@ import Recipe from './components/blog/recipe/Recipe';
 import RecipeDetails from './components/blog/recipe/RecipeDetails';
 import Story from './components/blog/story/Story';
 import StoryDetails from './components/blog/story/StoryDetails';
+import ScrollToTop from './shared/scrollToTop';
 
 
 
@@ -51,6 +52,7 @@ function App() {
                 <CardProvider>
                     <FavoriteProvider>
                         <Header />
+                        <ScrollToTop />
                         <div>
                             <Routes>
 
