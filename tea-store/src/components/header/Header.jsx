@@ -49,13 +49,13 @@ export default function Header() {
                     <div>
                       {isAuthenticated ? (<> <ul className="flex flex-col justify-center gap-2 px-5 text-xs" >
                         <li className="flex justify-center items-center gap-5 border-b-[1px] pb-1">
-                          <a
+                          <Link
                             className="hover:text-lime-400 duration-500 ease-in-out"
-                            href=""
+                            to={"/profile"}
                           >
                             <i className="fa-regular fa-address-card"></i>
                             Profile
-                          </a>
+                          </Link>
                         </li>
                         <li className="flex justify-center items-center gap-5 ">
                           <button
