@@ -35,6 +35,7 @@ import Register from './components/user/sign-up/Register';
 import Login from './components/user/sign-in/Login';
 import SearchResult from './components/search-result/SearchResult';
 import Cart from './components/cart/Cart';
+import Favorites from './components/favorites/Favorites';
 
 
 
@@ -77,6 +78,7 @@ function App() {
                                 <Route path='/signin' element={<Login />} />
                                 <Route path='/search' element={<SearchResult />} />
                                 <Route path='/cart' element={<Cart />} />
+                                <Route path='/favorites' element={<Favorites />} />
 
                             </Routes>
                         </div>
