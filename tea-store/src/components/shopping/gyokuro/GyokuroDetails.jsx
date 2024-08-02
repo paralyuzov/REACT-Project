@@ -51,7 +51,7 @@ export default function GyokuroDetails() {
 
 
     const handleClick = async () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

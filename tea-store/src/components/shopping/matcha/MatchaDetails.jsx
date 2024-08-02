@@ -40,7 +40,7 @@ export default function MatchaDetails() {
     };
 
     const handleAddToCart = () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

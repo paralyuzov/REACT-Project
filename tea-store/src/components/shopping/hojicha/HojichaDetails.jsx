@@ -40,7 +40,7 @@ export default function HojichaDetails() {
     };
 
     const handleAddToCart = () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }
@@ -49,7 +49,7 @@ export default function HojichaDetails() {
 
 
     const handleClick = async () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

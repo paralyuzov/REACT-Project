@@ -41,7 +41,7 @@ export default function OrganicDetails() {
     };
 
     const handleAddToCart = () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

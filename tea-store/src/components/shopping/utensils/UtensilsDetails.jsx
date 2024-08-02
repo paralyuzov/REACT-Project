@@ -38,7 +38,7 @@ export default function UtensilsDetails() {
     }
 
     const handleAddToCart = () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

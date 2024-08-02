@@ -46,7 +46,7 @@ export default function TeabagsDetails() {
     }
 
     const handleClick = async () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }
