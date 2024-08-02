@@ -50,7 +50,7 @@ export default function OrganicDetails() {
 
 
     const handleClick = async () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

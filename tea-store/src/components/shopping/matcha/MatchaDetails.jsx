@@ -49,7 +49,7 @@ export default function MatchaDetails() {
 
 
     const handleClick = async () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }

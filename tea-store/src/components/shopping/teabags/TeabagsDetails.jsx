@@ -38,7 +38,7 @@ export default function TeabagsDetails() {
     }
 
     const handleAddToCart = () => {
-        if (isAuthenticated) {
+        if (!isAuthenticated.accessToken) {
             navigate("/signin")
             return;
         }
