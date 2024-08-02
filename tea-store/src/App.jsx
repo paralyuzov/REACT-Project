@@ -39,6 +39,7 @@ import Favorites from './components/favorites/Favorites';
 import Recipe from './components/blog/recipe/Recipe';
 import RecipeDetails from './components/blog/recipe/RecipeDetails';
 import Story from './components/blog/story/Story';
+import StoryDetails from './components/blog/story/StoryDetails';
 
 
 
@@ -85,6 +86,7 @@ function App() {
                                 <Route path='/blog/recipe' element={<Recipe />} />
                                 <Route path='/blog/recipe/:id' element={<RecipeDetails />} />
                                 <Route path='/blog/story' element={<Story />} />
+                                <Route path='/blog/story/:id' element={<StoryDetails />} />
 
                             </Routes>
                         </div>
