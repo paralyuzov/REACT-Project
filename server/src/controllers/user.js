@@ -17,7 +17,9 @@ userRouter.post('/login',
             const accessToken = createToken(result);
             res.status(200).json({
                 _id: result._id,
+                username: result.username,
                 email: result.email,
+                tel: result.tel,
                 accessToken
 
             })
@@ -45,7 +47,9 @@ userRouter.post('/register',
             const accessToken = createToken(result);
             res.status(201).json({
                 _id: result._id,
+                username: result.username,
                 email: result.email,
+                tel: result.tel,
                 accessToken
 
             })

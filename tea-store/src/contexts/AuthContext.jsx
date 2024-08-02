@@ -5,7 +5,9 @@ const BASE_URL = 'http://localhost:3030';
 
 export const AuthContext = createContext({
     _id: "",
+    username: "",
     email: "",
+    tel: "",
     accessToken: "",
     isAuthenticated: false,
     changeAuthState: (authState = {}) => null
@@ -31,7 +33,9 @@ export function AuthContextProvider(props) {
         }
         setAuthState({
             _id: state._id,
+            username: state.username,
             email: state.email,
+            tel: state.tel,
             accessToken: state.accessToken,
             isAuthenticated: !!state.email,
         });
@@ -52,7 +56,9 @@ export function AuthContextProvider(props) {
             const data = await response.json();
             setAuthState({
                 _id: data.id,
+                username: data.username,
                 email: data.email,
+                tel: data.tel,
                 accessToken: token,
                 isAuthenticated: true,
             });
@@ -60,7 +66,9 @@ export function AuthContextProvider(props) {
             console.error('Token verification failed', error);
             setAuthState({
                 _id: "",
+                username: "",
                 email: "",
+                tel: "",
                 accessToken: "",
                 isAuthenticated: false,
             });
@@ -70,7 +78,9 @@ export function AuthContextProvider(props) {
 
     const contextData = {
         _id: authState._id,
+        username: authState.username,
         email: authState.email,
+        tel: authState.tel,
         accessToken: authState.accessToken,
         isAuthenticated: authState.isAuthenticated,
         changeAuthState
