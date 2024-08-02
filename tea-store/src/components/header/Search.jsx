@@ -14,6 +14,7 @@ export default function Search() {
     const handleSearch = () => {
         if (query.trim()) {
             navigate(`/search?q=${query}`);
+            setQuery("")
         } else {
             setIsInputEmpty(true)
         }
