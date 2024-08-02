@@ -77,8 +77,8 @@ function App() {
                                 <Route path='/collection/hojicha/:id' element={<HojichaDetails />} />
                                 <Route path='/collection/organic' element={<ShopOrganic />} />
                                 <Route path='/collection/organic/:id' element={<OrganicDetails />} />
-                                <Route path='/collection/teabags' element={<ShopTeabags />} />
-                                <Route path='/collection/teabags/:id' element={<TeabagsDetails />} />
+                                <Route path='/collection/teabag' element={<ShopTeabags />} />
+                                <Route path='/collection/teabag/:id' element={<TeabagsDetails />} />
                                 <Route path='/collection/utensils' element={<ShopUtensils />} />
                                 <Route path='/collection/utensils/:id' element={<UtensilsDetails />} />
                                 <Route path='/signup' element={<Register />} />

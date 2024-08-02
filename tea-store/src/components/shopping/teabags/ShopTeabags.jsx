@@ -39,7 +39,7 @@ export default function ShopTeabags() {
                 {items.map(item => (
 
                     <div key={item._id} className="flex flex-col gap-5 tracking-widest">
-                        <Link to={`/collection/teabags/${item._id}`}>
+                        <Link to={`/collection/${item.type}/${item._id}`}>
                             <div className="bg-gray-200  border-2 rounded-3xl hover:bg-lime-100 hover:ease-in-out duration-700 cursor-pointer">
                                 <img src={item.image} alt="" />
                             </div>
