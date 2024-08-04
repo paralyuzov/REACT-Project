@@ -42,6 +42,7 @@ import Story from './components/blog/story/Story';
 import StoryDetails from './components/blog/story/StoryDetails';
 import ScrollToTop from './shared/scrollToTop';
 import Profile from './components/user/profile/Profile';
+import AuthGuard from './components/guard/AuthGuard';
 
 
 
@@ -84,14 +85,16 @@ function App() {
                                 <Route path='/signup' element={<Register />} />
                                 <Route path='/signin' element={<Login />} />
                                 <Route path='/search' element={<SearchResult />} />
-                                <Route path='/cart' element={<Cart />} />
-                                <Route path='/favorites' element={<Favorites />} />
                                 <Route path='/blog/recipe' element={<Recipe />} />
                                 <Route path='/blog/recipe/:id' element={<RecipeDetails />} />
                                 <Route path='/blog/story' element={<Story />} />
                                 <Route path='/blog/story/:id' element={<StoryDetails />} />
-                                <Route path='/profile' element={<Profile />} />
-                                
+
+                                <Route element={<AuthGuard />} >
+                                    <Route path='/cart' element={<Cart />} />
+                                    <Route path='/profile' element={<Profile />} />
+                                    <Route path='/favorites' element={<Favorites />} />
+                                </Route>
 
                             </Routes>
                         </div>
