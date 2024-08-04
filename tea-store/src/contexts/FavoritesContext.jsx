@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext, createContext } from "react";
 import { AuthContext } from "./AuthContext";
+import FavoritesModal from "../components/modals/FavoritesModal";
 
 
 const FavoriteContext = createContext();
@@ -11,6 +12,7 @@ export function useFavorites() {
 export function FavoriteProvider({ children }) {
     const { _id: userId, accessToken } = useContext(AuthContext);
     const [favorites, setFavorites] = useState([]);
+    const [modal, setModal] = useState(null);
 
     useEffect(() => {
         if (userId && accessToken) {
@@ -52,8 +54,8 @@ export function FavoriteProvider({ children }) {
             });
             if (response.ok) {
                 const newFavorite = await response.json();
-                setFavorites(prevFavorites => [...prevFavorites, newFavorite]);
-                fetchFavorites()
+                setFavorites(prevFavorites => [...prevFavorites, newFavorite])
+                setModal({ title: newFavorite.title, image: newFavorite.image, message: "Item added to your favorites!" });
             } else {
                 console.error('Failed to add favorite');
             }
@@ -74,6 +76,8 @@ export function FavoriteProvider({ children }) {
             });
             if (response.ok) {
                 setFavorites(prevFavorites => prevFavorites.filter(item => item._id !== teaId));
+                const removeItem = await response.json();
+                setModal({ title: removeItem.title, image: removeItem.image, message: "Item removed from your favorites!" });
             }
         } catch (error) {
             console.error('Failed to remove favorite', error);
@@ -90,6 +94,7 @@ export function FavoriteProvider({ children }) {
     return (
         <FavoriteContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, favoriteCount }}>
             {children}
+            {modal && <FavoritesModal title={modal.title} image={modal.image} message={modal.message} onClose={() => setModal(null)} />}
         </FavoriteContext.Provider>
     );
 }
