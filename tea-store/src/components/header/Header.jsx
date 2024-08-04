@@ -8,13 +8,14 @@ import { useFavorites } from "../../contexts/FavoritesContext";
 
 export default function Header() {
   const { isAuthenticated, changeAuthState } = useContext(AuthContext)
-  const { calcTotalQuantity } = useCart();
+  const { calcTotalQuantity, emptyCart } = useCart();
   const navigate = useNavigate();
   const { favoriteCount } = useFavorites();
 
   const handleLogout = () => {
 
     localStorage.removeItem('accessToken');
+    emptyCart()
     changeAuthState({});
     navigate('/');
   };
@@ -107,7 +108,7 @@ export default function Header() {
             </div>
           </button>
           <button
-            className="relative text-xl rounded-full p-2 hover:bg-blue-400" 
+            className="relative text-xl rounded-full p-2 hover:bg-blue-400"
             onClick={() => handleClick('/cart')}
           >
             <i className="fa-solid fa-cart-shopping"></i>

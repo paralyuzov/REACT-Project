@@ -51,8 +51,12 @@ export function CardProvider(props) {
         return cart.reduce((sum, item) => sum + (item.quantity * item.price), 0);
     };
 
+    const emptyCart = () => {
+        setCart([])
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity }}>
+        <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity, emptyCart }}>
             {props.children}
             {modal && <ModalCart title={modal.title} quantity={modal.quantity} image={modal.image} onClose={() => setModal(null)} />}
         </CartContext.Provider>
