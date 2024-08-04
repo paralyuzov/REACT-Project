@@ -43,6 +43,7 @@ import StoryDetails from './components/blog/story/StoryDetails';
 import ScrollToTop from './shared/scrollToTop';
 import Profile from './components/user/profile/Profile';
 import AuthGuard from './components/guard/AuthGuard';
+import PageNotFound from './components/page-not-found/PageNotFound';
 
 
 
@@ -95,7 +96,8 @@ function App() {
                                     <Route path='/profile' element={<Profile />} />
                                     <Route path='/favorites' element={<Favorites />} />
                                 </Route>
-
+                                <Route path='*' element={<PageNotFound />} />
+                                
                             </Routes>
                         </div>
                         <Footer />
