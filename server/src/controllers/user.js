@@ -35,6 +35,7 @@ userRouter.post('/login',
 userRouter.post('/register',
     body('email').trim().isEmail().withMessage('Please enter valid email'),
     body('password').trim().isLength({ min: 6 }).withMessage('Password must be atleast 6 characters'),
+    body('username').trim().notEmpty().withMessage('Username cannot be empty'),
     async (req, res) => {
         try {
             const validation = validationResult(req);

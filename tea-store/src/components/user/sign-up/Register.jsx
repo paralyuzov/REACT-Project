@@ -8,7 +8,9 @@ const initialValues = { name: "", email: "", password: "", repass: "", tel: "" }
 
 export default function Register() {
 
-    const [err, setErr] = useState("")
+    const [error, setError] = useState("");
+    const [modal, setModal] = useState(false);
+
 
     const register = useRegister();
     const navigate = useNavigate();
@@ -17,14 +19,17 @@ export default function Register() {
 
         if (values.password !== values.repass) {
 
-            return setErr("Password missmatch!")
+            setError("Password missmatch!")
+            setModal(true);
+            return
         }
 
         try {
             await register(values.name, values.email, values.password, values.tel);
             navigate('/');
         } catch (error) {
-            setErr(error.message)
+            setError(error.message)
+            setModal(true)
         }
     }
 
@@ -91,10 +96,6 @@ export default function Register() {
 
                         </div>
 
-                        {err && (
-                            <p className='text-2xl font-bold text-red-600 p-4'>{err}</p>
-                        )}
-
                         <div className="mt-12">
                             <p className="text-m  font-semibold font-kreon italic">Creating acount will allow you to enjoy the convenience of shopping.</p>
 
@@ -108,6 +109,21 @@ export default function Register() {
                     </div>
                 </div>
             </div>
+
+            {modal && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-6 rounded shadow-md">
+                        <h2 className="text-xl font-bold mb-4">Register error</h2>
+                        <p className="text-gray-700 mb-4">{error}</p>
+                        <button
+                            onClick={() => setModal(false)}
+                            className="px-4 py-2 bg-red-500 text-white rounded"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

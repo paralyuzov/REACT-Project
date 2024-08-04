@@ -2,10 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useLogin } from "../../../hooks/useAuth";
 import { useForm } from "../../../hooks/useForm";
+import { useState } from "react";
 
 const initialValues = { email: "", password: "" }
 
 export default function Login() {
+
+    const [error, setError] = useState("");
+    const [modal, setModal] = useState(false);
 
     const login = useLogin();
     const navigate = useNavigate();
@@ -15,7 +19,8 @@ export default function Login() {
             await login(email, password);
             navigate('/');
         } catch (error) {
-            console.log(error.message)
+            setError(error.message);
+            setModal(true);
         }
     }
 
@@ -64,6 +69,23 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+
+            {modal && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-6 rounded shadow-md">
+                        <h2 className="text-xl font-bold mb-4">Login Error</h2>
+                        <p className="text-gray-700 mb-4">{error}</p>
+                        <button 
+                            onClick={() => setModal(false)} 
+                            className="px-4 py-2 bg-red-500 text-white rounded"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+
+
         </div>
     );
 }
