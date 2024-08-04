@@ -36,9 +36,10 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h2 className="text-2xl border-b-[1px] border-black">Support</h2>
+                        <h2 className="text-2xl border-b-[1px] border-black">Stories about the tea</h2>
                         <div className="flex flex-col gap-5 pt-5 text-xl ">
-                            <a className="hover:font-semibold" href="">Contact us</a>
+                            <Link className="hover:font-semibold" to={"/blog/recipe"}>Food pairing pointers</Link>
+                            <Link className="hover:font-semibold" to={"/blog/story"}>Different ways to enjoy Japanese tea</Link>
                         </div>
                     </div>
                 </div>
@@ -46,10 +47,10 @@ export default function Footer() {
             <div className="bg-[#F0EBE0]">
 
                 <div className="flex text-xl justify-around pt-5">
-                    <Link href="/"><i className="fa-brands fa-instagram"></i></Link>
-                    <Link href="/"><i className="fa-brands fa-square-facebook"></i></Link>
-                    <Link href="/"><i className="fa-brands fa-x-twitter"></i></Link>
-                    <Link href="/"><i className="fa-brands fa-youtube"></i></Link>
+                    <Link href="#"><i className="fa-brands fa-instagram"></i></Link>
+                    <Link href="#"><i className="fa-brands fa-square-facebook"></i></Link>
+                    <Link href="#"><i className="fa-brands fa-x-twitter"></i></Link>
+                    <Link href="#"><i className="fa-brands fa-youtube"></i></Link>
                 </div>
                 <div>
                     <p className="text-center text-l mt-5">© Copyright 2024</p>
