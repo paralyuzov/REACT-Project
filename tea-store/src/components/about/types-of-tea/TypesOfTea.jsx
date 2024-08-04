@@ -68,7 +68,7 @@ export default function TypesOfTea() {
                     <h3 className="text-3xl">One-Cup Teabags</h3>
                     <p>One-Cup Teabags are packed with the shoots and buds that are left over from the tea manufacturing process. The roundish little clumps have a slightly bitter taste with lots of umami. One-Cup Teabags come in three flavors, gyokuro, sencha, and hojicha, and come in very handy on the road, at the office, or when you're running late in the morning.</p>
                     <div className="flex justify-center  gap-10">
-                        <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/collection/teabags"}>Products</Link>
+                        <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/collection/teabag"}>Products</Link>
                         <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/preparing-tea/one-cup-teabags"}>Preparing Tea</Link>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ export default function TypesOfTea() {
                     <p>(for making large batches of tea)</p>
                     <p>One-Cup Teabags are packed with the shoots and buds that are left over from the tea manufacturing process. The roundish little clumps have a slightly bitter taste with lots of umami. One-Cup Teabags come in three flavors, gyokuro, sencha, and hojicha, and come in very handy on the road, at the office, or when you're running late in the morning.</p>
                     <div className="flex justify-center  gap-10">
-                        <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/collection/teabags"}>Products</Link>
+                        <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/collection/teabag"}>Products</Link>
                         <Link className="px-5 py-2 bg-lime-200 rounded-3xl hover:bg-lime-300" to={"/preparing-tea/one-pot-teabags"}>Preparing Tea</Link>
                     </div>
                 </div>
