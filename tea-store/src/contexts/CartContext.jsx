@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import ModalCart from "../components/modal/ModalCart";
+import ModalCart from "../components/modals/ModalCart";
 
 
 export const CartContext = createContext();

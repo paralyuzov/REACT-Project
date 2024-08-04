@@ -3,6 +3,8 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../../../hooks/useForm";
 import requester from "../../../api/requester";
+import ProfileModal from "../../modals/ProfileModal";
+import ConfirmModal from "../../modals/ConfirmModal";
 
 
 
@@ -10,31 +12,44 @@ import requester from "../../../api/requester";
 export default function Profile() {
     const { _id, username, email, tel, accessToken, changeAuthState } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [error, setError] = useState('');
+    const [modal, setModal] = useState({ open: false, title: "", message: "" });
+    const [confirm, setConfirm] = useState({ open: false, title: "", message: "", onConfirm: null });
+
+
 
 
     const submitCallback = async (values) => {
 
-        try {
-            const updatedUser = await requester.put(`http://localhost:3030/users/update/${_id}`, {
-                username: values.username,
-                email: values.email,
-                tel: values.tel,
-            }, {
-                'X-Authorization': accessToken
-            });
+        setConfirm({
+            open: true,
+            title: "Confirm update",
+            message: "Are you sure you want to update your profile?",
+            onConfirm: async () => {
+                try {
+                    await requester.put(`http://localhost:3030/users/update/${_id}`, {
+                        username: values.username,
+                        email: values.email,
+                        tel: values.tel,
+                    }, {
+                        'X-Authorization': accessToken
+                    });
 
-            changeAuthState({ ...updatedUser, accessToken });
-            setError('');
-            alert('Profile updated successfully');
-            localStorage.removeItem('accessToken');
-            changeAuthState({});
-            navigate('/signin');
+                    setModal({ open: true, title: "Profile Updated", message: "Your profile has been updated successfully.You will be redirected to signin page..." });
+                    setTimeout(() => {
+                        localStorage.removeItem('accessToken');
+                        changeAuthState({});
+                        navigate('/signin');
+                    }, 3000)
 
-        } catch (error) {
-            console.error('Failed to update profile', error);
-            setError(error.message);
-        }
+                } catch (error) {
+                    console.error('Failed to update profile', error);
+                    setModal({ open: true, title: "Update Failed", message: error.message });
+                }
+                setConfirm({ ...confirm, open: false })
+            }
+        })
+
+
     };
 
     const { values, changeHandler, submitHandler, updateValues } = useForm({
@@ -53,27 +68,43 @@ export default function Profile() {
 
     const removeUser = async (e) => {
         e.preventDefault();
-        if (!window.confirm('Are you sure you want to delete your account?')) return;
+        setConfirm({
+            open: true,
+            title: "Confirm REMOVE account",
+            message: "Are you sure you want to delete your account?",
+            onConfirm: async () => {
 
-        try {
-            await requester.del(`http://localhost:3030/users/delete/${_id}`, null, {
-                'X-Authorization': accessToken
-            });
+                try {
+                    await requester.del(`http://localhost:3030/users/delete/${_id}`, null, {
+                        'X-Authorization': accessToken
+                    });
 
-            changeAuthState({
-                _id: "",
-                username: "",
-                email: "",
-                tel: "",
-                accessToken: "",
-                isAuthenticated: false
-            });
-            localStorage.removeItem('accessToken');
-            navigate('/');
-        } catch (error) {
-            console.error('Failed to delete account', error);
-            setError(error.message);
-        }
+                    changeAuthState({
+                        _id: "",
+                        username: "",
+                        email: "",
+                        tel: "",
+                        accessToken: "",
+                        isAuthenticated: false
+                    });
+
+                    setModal({ open: true, title: "Account Deleted", message: "Your account has been deleted successfully.You will be redirected to home page..." });
+                    setTimeout(() => {
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }, 3000);
+
+                } catch (error) {
+                    console.error('Failed to delete account', error);
+                    setModal({ open: true, title: "Failed to delete account", message: error.message });
+                }
+
+                setModal({ ...modal, open: false });
+            }
+        })
+
+
+
     };
 
     return (
@@ -120,9 +151,6 @@ export default function Profile() {
                                 />
                             </div>
                         </div>
-                        {error && (
-                            <p className='text-2xl font-bold text-red-600 p-4'>{error}</p>
-                        )}
                         <div className="mt-12 flex justify-center items-center gap-10">
                             <button
                                 type="submit"
@@ -144,6 +172,23 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+
+            {modal.open && (
+                <ProfileModal
+                    title={modal.title}
+                    message={modal.message}
+                    onClose={() => setModal({ ...modal, open: false })}
+                />
+            )}
+            {confirm.open && (
+                <ConfirmModal
+                    title={confirm.title}
+                    message={confirm.message}
+                    onConfirm={confirm.onConfirm}
+                    onCancel={() => setConfirm({ ...confirm, open: false })}
+                />
+            )}
+
         </div>
     );
 }
