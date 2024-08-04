@@ -15,6 +15,8 @@ favorites.post('/add-favorite', async (req, res) => {
         const user = await User.findById(userId);
         const tea = await Tea.findById(teaId);
 
+        const result = await Tea.findById(teaId).lean();
+
         if (!user.favorite.includes(teaId)) {
             user.favorite.push(teaId);
             await user.save();
@@ -24,7 +26,7 @@ favorites.post('/add-favorite', async (req, res) => {
                 await tea.save();
             }
         }
-        res.status(200).json({ message: 'Added to favorites' });
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
@@ -32,11 +34,12 @@ favorites.post('/add-favorite', async (req, res) => {
 
 favorites.post('/remove-favorite', async (req, res) => {
     const { userId, teaId } = req.body;
-    console.log("TEST")
 
     try {
         const user = await User.findById(userId);
         const tea = await Tea.findById(teaId);
+
+        const result = await Tea.findById(teaId);
 
         user.favorite = user.favorite.filter(id => id.toString() !== teaId);
         await user.save();
@@ -44,7 +47,7 @@ favorites.post('/remove-favorite', async (req, res) => {
         tea.favorite = tea.favorite.filter(id => id.toString() !== userId);
         await tea.save();
 
-        res.status(200).json({ message: 'Removed from favorites' });
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
