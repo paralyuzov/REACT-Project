@@ -1,12 +1,12 @@
 import { createContext, useState, useContext } from "react";
-import Popup from "../components/popup/Popup";
+import ModalCart from "../components/modal/ModalCart";
 
 
 export const CartContext = createContext();
 
 export function CardProvider(props) {
     const [cart, setCart] = useState([]);
-    const [popup, setPopup] = useState(null);
+    const [modal, setModal] = useState(null);
 
     const addToCart = (product) => {
         setCart((prevCart) => {
@@ -24,8 +24,7 @@ export function CardProvider(props) {
             }
 
         });
-        setPopup({ title: product.title, quantity: product.quantity || 1, image: product.image });
-        setTimeout(() => setPopup(null), 3000);
+        setModal({ title: product.title, quantity: product.quantity || 1, image: product.image });
     }
 
     const updateCartItemQuantity = (productId, quantity) => {
@@ -53,9 +52,9 @@ export function CardProvider(props) {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, popup, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity }}>
+        <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity }}>
             {props.children}
-            {popup && <Popup title={popup.title} quantity={popup.quantity} image={popup.image} />}
+            {modal && <ModalCart title={modal.title} quantity={modal.quantity} image={modal.image} onClose={() => setModal(null)} />}
         </CartContext.Provider>
     )
 
