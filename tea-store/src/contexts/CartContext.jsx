@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import ModalCart from "../components/modals/ModalCart";
+import CartModal from "../components/modals/CartModal";
 
 
 export const CartContext = createContext();
@@ -58,7 +58,7 @@ export function CardProvider(props) {
     return (
         <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity, emptyCart }}>
             {props.children}
-            {modal && <ModalCart title={modal.title} quantity={modal.quantity} image={modal.image} onClose={() => setModal(null)} />}
+            {modal && <CartModal title={modal.title} quantity={modal.quantity} image={modal.image} onClose={() => setModal(null)} />}
         </CartContext.Provider>
     )
 
