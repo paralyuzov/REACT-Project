@@ -12,7 +12,7 @@ export default function OrganicDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const isAuthenticated = useContext(AuthContext);
+    const {isAuthenticated} = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
@@ -41,7 +41,7 @@ export default function OrganicDetails() {
     };
 
     const handleAddToCart = () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }
@@ -50,7 +50,7 @@ export default function OrganicDetails() {
 
 
     const handleClick = async () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }

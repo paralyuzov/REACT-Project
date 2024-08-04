@@ -11,13 +11,12 @@ export default function UtensilsDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const isAuthenticated = useContext(AuthContext);
+    const {isAuthenticated} = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
-    const { addFavorite, removeFavorite, isFavorite } = useFavorites();
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
-    const favorite = item ? isFavorite(item._id) : false;
+   
 
 
     useEffect(() => {
@@ -31,14 +30,14 @@ export default function UtensilsDetails() {
         };
 
         fetchItems()
-    }, [id, isFavorite])
+    }, [id])
 
     const handleQuantityChange = (delta) => {
         setQuantity((prevQuantity) => Math.max(1, prevQuantity + delta));
     }
 
     const handleAddToCart = () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }

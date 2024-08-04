@@ -11,7 +11,7 @@ export default function HojichaDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const isAuthenticated = useContext(AuthContext);
+    const {isAuthenticated} = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
@@ -40,7 +40,7 @@ export default function HojichaDetails() {
     };
 
     const handleAddToCart = () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }
@@ -49,7 +49,7 @@ export default function HojichaDetails() {
 
 
     const handleClick = async () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }

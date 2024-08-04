@@ -11,14 +11,13 @@ export default function GyokuroDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const isAuthenticated = useContext(AuthContext);
+    const {isAuthenticated} = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
     const favorite = item ? isFavorite(item._id) : false;
-
 
 
 
@@ -42,7 +41,7 @@ export default function GyokuroDetails() {
     };
 
     const handleAddToCart = () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }
@@ -51,7 +50,7 @@ export default function GyokuroDetails() {
 
 
     const handleClick = async () => {
-        if (!isAuthenticated.accessToken) {
+        if (!isAuthenticated) {
             navigate("/signin")
             return;
         }
