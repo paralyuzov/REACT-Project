@@ -42,6 +42,22 @@ export function AuthContextProvider(props) {
         });
     };
 
+    useEffect(() => {
+        const handleStorageChange = (e) => {
+            if (e.key === 'accessToken') {
+                if (e.newValue === null) {
+                    setAuthState({});
+                }
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
+
     const verifyToken = async (token) => {
         try {
             const response = await fetch(`${BASE_URL}/api/auth/verify`, {
