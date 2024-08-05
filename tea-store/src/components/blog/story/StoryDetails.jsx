@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import requester from "../../../api/requester";
+import Spinner from "../../../shared/Spinner";
 
 
 export default function StoryDetails() {
@@ -29,7 +30,7 @@ export default function StoryDetails() {
     }, [])
 
     if (loading) {
-        return (<p>Loading...</p>);
+        return (<Spinner />);
     }
 
     return (
