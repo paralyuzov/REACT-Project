@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+
+
 
 export default function Footer() {
+
+    const { isAuthenticated } = useContext(AuthContext);
+    
     return (
         <div>
             <div className="bg-[#F0EBE0] mt-16 pt-10 px-10 pb-20 border-b-[1px] border-black">
@@ -30,8 +37,12 @@ export default function Footer() {
                     <div>
                         <h2 className="text-2xl border-b-[1px] border-black">Account Settings</h2>
                         <div className="flex flex-col gap-5 pt-5 text-xl">
-                            <Link className="hover:font-semibold" to="/signin">Sign in</Link>
-                            <Link className="hover:font-semibold" to="/signup">Sign up</Link>
+                            {isAuthenticated ?
+                                (<Link className="hover:font-semibold" to="/profile">Profile</Link>)
+                                :
+                                (<><Link className="hover:font-semibold" to="/signin">Sign in</Link>
+                                    <Link className="hover:font-semibold" to="/signup">Sign up</Link></>)}
+
                         </div>
                     </div>
 
