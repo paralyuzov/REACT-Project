@@ -44,6 +44,8 @@ import ScrollToTop from './shared/scrollToTop';
 import Profile from './components/user/profile/Profile';
 import AuthGuard from './components/guard/AuthGuard';
 import PageNotFound from './components/page-not-found/PageNotFound';
+import PaymentSuccess from './components/payment/PaymentSuccess';
+import PaymentDecline from './components/payment/PaymentDecline';
 
 
 
@@ -96,6 +98,9 @@ function App() {
                                     <Route path='/profile' element={<Profile />} />
                                     <Route path='/favorites' element={<Favorites />} />
                                 </Route>
+                                <Route path='/payment-success' element={<PaymentSuccess />} />
+                                <Route path='/payment-decline' element={<PaymentDecline />} />
+
                                 <Route path='*' element={<PageNotFound />} />
                                 
                             </Routes>
