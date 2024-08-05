@@ -109,7 +109,7 @@ homeRouter.get('/hojicha/:id',validateObjectId(), async (req, res) => {
     }
 })
 
-homeRouter.get('/teabags',validateObjectId(), async (req, res) => {
+homeRouter.get('/teabags', async (req, res) => {
     try {
         const items = await Tea.find({ type: 'teabag' });
         res.status(200).json(items);
