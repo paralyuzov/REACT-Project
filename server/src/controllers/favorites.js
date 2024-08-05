@@ -54,7 +54,7 @@ favorites.post('/remove-favorite', async (req, res) => {
 
 });
 
-favorites.get('/:userId', async (req, res) => {
+favorites.get('/:userId', validateObjectId(), async (req, res) => {
 
     try {
         const { userId } = req.params;

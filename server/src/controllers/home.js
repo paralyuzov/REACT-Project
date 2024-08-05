@@ -5,6 +5,7 @@ const { Utensils } = require('../models/Utensils');
 const { default: mongoose } = require('mongoose');
 const { Recipe } = require('../models/Recipe');
 const { Story } = require('../models/Story');
+const { validateObjectId } = require('../middlewares/guards');
 
 const homeRouter = Router();
 
@@ -17,7 +18,7 @@ homeRouter.get('/matcha', async (req, res) => {
     }
 })
 
-homeRouter.get('/matcha/:id', async (req, res) => {
+homeRouter.get('/matcha/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -42,7 +43,7 @@ homeRouter.get('/gyokuro', async (req, res) => {
     }
 })
 
-homeRouter.get('/gyokuro/:id', async (req, res) => {
+homeRouter.get('/gyokuro/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -67,7 +68,7 @@ homeRouter.get('/sencha', async (req, res) => {
     }
 })
 
-homeRouter.get('/sencha/:id', async (req, res) => {
+homeRouter.get('/sencha/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -92,7 +93,7 @@ homeRouter.get('/hojicha', async (req, res) => {
     }
 })
 
-homeRouter.get('/hojicha/:id', async (req, res) => {
+homeRouter.get('/hojicha/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -108,7 +109,7 @@ homeRouter.get('/hojicha/:id', async (req, res) => {
     }
 })
 
-homeRouter.get('/teabags', async (req, res) => {
+homeRouter.get('/teabags',validateObjectId(), async (req, res) => {
     try {
         const items = await Tea.find({ type: 'teabag' });
         res.status(200).json(items);
@@ -117,7 +118,7 @@ homeRouter.get('/teabags', async (req, res) => {
     }
 })
 
-homeRouter.get('/teabags/:id', async (req, res) => {
+homeRouter.get('/teabags/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -142,7 +143,7 @@ homeRouter.get('/organic', async (req, res) => {
     }
 })
 
-homeRouter.get('/organic/:id', async (req, res) => {
+homeRouter.get('/organic/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -167,7 +168,7 @@ homeRouter.get('/utensils', async (req, res) => {
     }
 })
 
-homeRouter.get('/utensils/:id', async (req, res) => {
+homeRouter.get('/utensils/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Utensils.findById(req.params.id.trim()).lean();
@@ -217,7 +218,7 @@ homeRouter.get('/recipes', async (req, res) => {
     }
 })
 
-homeRouter.get('/recipes/:id', async (req, res) => {
+homeRouter.get('/recipes/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Recipe.findById(req.params.id.trim()).lean();
@@ -242,7 +243,7 @@ homeRouter.get('/story', async (req, res) => {
     }
 })
 
-homeRouter.get('/story/:id', async (req, res) => {
+homeRouter.get('/story/:id',validateObjectId(), async (req, res) => {
 
     try {
         const item = await Story.findById(req.params.id.trim()).lean();

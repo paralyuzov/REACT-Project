@@ -12,7 +12,7 @@ const { verifyRouter } = require('../controllers/verify');
 
 function configRoutes(app) {
     app.use('/api/auth/verify', verifyRouter)
-    app.use('/api/collection', homeRouter)
+    app.use('/api/collection' , homeRouter)
     app.use('/users', userRouter);
     app.use('/data', createTea);
     app.use('/data', createUtensils);
