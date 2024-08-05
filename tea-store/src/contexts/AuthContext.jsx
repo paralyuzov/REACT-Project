@@ -17,6 +17,7 @@ export const AuthContext = createContext({
 export function AuthContextProvider(props) {
 
     const [authState, setAuthState] = useState({});
+    console.log(authState)
 
     useEffect(() => {
         const storedAccessToken = localStorage.getItem('accessToken');

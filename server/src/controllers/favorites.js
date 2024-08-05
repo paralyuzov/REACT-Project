@@ -1,6 +1,7 @@
 const { User } = require('../models/User');
 const { Tea } = require('../models/Data');
 const { Router } = require('express');
+const { default: mongoose } = require('mongoose');
 
 
 
