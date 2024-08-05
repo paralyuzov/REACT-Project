@@ -62,7 +62,7 @@ userRouter.post('/register',
         }
     })
 
-userRouter.put('/update/:id',validateObjectId(), body('email').trim().isEmail().withMessage('Please enter valid email'),
+userRouter.put('/update/:id', body('email').trim().isEmail().withMessage('Please enter valid email'),
     body('username').optional().trim().notEmpty().withMessage('Username cannot be empty'),
     async (req, res) => {
         try {
