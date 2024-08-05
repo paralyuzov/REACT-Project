@@ -58,12 +58,12 @@ export default function Cart() {
 											<h3 className="text-2xl font-medium font-laila">{item.title}</h3>
 											<p className="text-lg text-slate-700">€{item.price} x {item.quantity}</p>
 										</div>
-										<div className="flex gap-5 justify-center items-center border-2 border-[#898170] rounded-full px-3">
-											<button onClick={() => handleQuantityChange(item._id, item.quantity - 1)}>-</button>
-											<span>{item.quantity}</span>
-											<button onClick={() => handleQuantityChange(item._id, item.quantity + 1)}>+</button>
+										<div className="flex gap-2 justify-center items-center border-2 border-[#898170] rounded-2xl bg-slate-100 px-5">
+											<button className="px-2 rounded-full" onClick={() => handleQuantityChange(item._id, item.quantity - 1)}>-</button>
+											<span className="text-xl">{item.quantity}</span>
+											<button className="px-2 rounded-full" onClick={() => handleQuantityChange(item._id, item.quantity + 1)}>+</button>
 										</div>
-										<button onClick={() => handleRemoveItem(item._id)} className="text-red-500">Remove</button>
+										<button onClick={() => handleRemoveItem(item._id)} className="text-white bg-red-400 px-5 border-2 rounded-lg hover:bg-red-500">Remove</button>
 									</div>
 								</div>
 								<div>
