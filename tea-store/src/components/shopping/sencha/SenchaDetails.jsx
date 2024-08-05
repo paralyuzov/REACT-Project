@@ -26,7 +26,9 @@ export default function SenchaDetails() {
                 const data = await requester.get(`http://localhost:3030/api/collection/sencha/${id}`);
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 

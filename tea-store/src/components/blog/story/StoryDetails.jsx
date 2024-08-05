@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import requester from "../../../api/requester";
 
 
 export default function StoryDetails() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [item, setItem] = useState([]);
 
     const [loading, setLoading] = useState(true);
-    
+
     useEffect(() => {
         const fetchItem = async () => {
             try {
@@ -18,7 +19,9 @@ export default function StoryDetails() {
                 setLoading(false);
                 setItem(data);
             } catch (error) {
-                console.log(error);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         }
 

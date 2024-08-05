@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import requester from "../../../api/requester";
 
 
 export default function RecipeDetails() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [item, setItem] = useState([]);
 
@@ -18,7 +19,9 @@ export default function RecipeDetails() {
                 setLoading(false)
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 

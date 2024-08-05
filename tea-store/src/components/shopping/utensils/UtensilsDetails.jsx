@@ -11,12 +11,12 @@ export default function UtensilsDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const {isAuthenticated} = useContext(AuthContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
     const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
-   
+
 
 
     useEffect(() => {
@@ -25,7 +25,9 @@ export default function UtensilsDetails() {
                 const data = await requester.get(`http://localhost:3030/api/collection/utensils/${id}`);
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 
@@ -44,7 +46,7 @@ export default function UtensilsDetails() {
         addToCart({ ...item, quantity })
     }
 
-   
+
 
     return (
         <div>

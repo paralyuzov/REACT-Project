@@ -27,7 +27,9 @@ export default function GyokuroDetails() {
                 const data = await requester.get(`http://localhost:3030/api/collection/gyokuro/${id}`);
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 

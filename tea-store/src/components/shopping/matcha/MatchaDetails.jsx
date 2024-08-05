@@ -11,7 +11,7 @@ export default function MatchaDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const {isAuthenticated} = useContext(AuthContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
     const [item, setItem] = useState([]);
     const { addFavorite, removeFavorite, isFavorite } = useFavorites();
@@ -26,7 +26,9 @@ export default function MatchaDetails() {
                 const data = await requester.get(`http://localhost:3030/api/collection/matcha/${id}`);
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 

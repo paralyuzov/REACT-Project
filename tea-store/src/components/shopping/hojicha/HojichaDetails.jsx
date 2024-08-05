@@ -26,7 +26,9 @@ export default function HojichaDetails() {
                 const data = await requester.get(`http://localhost:3030/api/collection/hojicha/${id}`);
                 setItem(data);
             } catch (err) {
-                console.log(err);
+                if (err.message == "Invalid ID") {
+                    navigate('/page-not-found');
+                }
             }
         };
 
