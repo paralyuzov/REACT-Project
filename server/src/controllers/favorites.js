@@ -4,6 +4,7 @@ const { Router } = require('express');
 
 
 
+
 const favorites = Router();
 
 
@@ -54,10 +55,15 @@ favorites.post('/remove-favorite', async (req, res) => {
 
 });
 
-favorites.get('/:userId', validateObjectId(), async (req, res) => {
+favorites.get('/:userId', async (req, res) => {
 
     try {
         const { userId } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ message: 'Invalid ID' });
+        }
+
         const user = await User.findById(userId).populate('favorite');
 
         if (!user) {
