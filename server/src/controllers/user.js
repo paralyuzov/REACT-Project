@@ -90,7 +90,7 @@ userRouter.put('/update/:id', body('email').trim().isEmail().withMessage('Please
         }
     })
 
-userRouter.delete('/delete/:id',validateObjectId(), async (req, res) => {
+userRouter.delete('/delete/:id', async (req, res) => {
     try {
 
         const userId = req.params.id.toString();
