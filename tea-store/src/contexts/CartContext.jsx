@@ -1,5 +1,6 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import CartModal from "../components/modals/CartModal";
+import { AuthContext } from "./AuthContext";
 
 
 export const CartContext = createContext();
@@ -7,6 +8,7 @@ export const CartContext = createContext();
 export function CardProvider(props) {
     const [cart, setCart] = useState([]);
     const [modal, setModal] = useState(null);
+    const { isAuthenticated } = useContext(AuthContext)
 
     const addToCart = (product) => {
         setCart((prevCart) => {
@@ -54,6 +56,12 @@ export function CardProvider(props) {
     const emptyCart = () => {
         setCart([])
     }
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            emptyCart();
+        }
+    }, [isAuthenticated])
 
     return (
         <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity, emptyCart }}>
