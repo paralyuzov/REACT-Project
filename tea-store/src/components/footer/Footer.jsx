@@ -28,7 +28,7 @@ export default function Footer() {
                             <Link className="hover:font-semibold" to={"/collection/gyokuro"}>Gyokuro</Link>
                             <Link className="hover:font-semibold" to={"/collection/sencha"}>Sencha</Link>
                             <Link className="hover:font-semibold" to={"/collection/hojicha"}>Hojicha,Genmaicha</Link>
-                            <Link className="hover:font-semibold" to={"/collection/teabags"}>Teabags</Link>
+                            <Link className="hover:font-semibold" to={"/collection/teabag"}>Teabags</Link>
                             <Link className="hover:font-semibold" to={"/collection/organic"}>Organic</Link>
                             <Link className="hover:font-semibold" to={"/collection/utensils"}>Utensils</Link>
                         </div>
