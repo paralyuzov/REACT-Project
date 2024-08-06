@@ -8,7 +8,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 ## Technologies Used:
 
 - ReactJS v18 - frontend
-- ExpressJS /w Mongoose - backend
+- ExpressJS / Mongoose - backend
 - MongoDB - database
 - Stripe - for payment
 - Tailwind CSS - for styling
