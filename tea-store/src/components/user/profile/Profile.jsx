@@ -167,7 +167,7 @@ export default function Profile() {
                             </button>
                         </div>
                     </form>
-                    <div className="h-full max-lg:mt-12">
+                    <div className="h-3/4 max-lg:mt-12">
                         <img src="https://assets.website-files.com/59b1fc9cda04fb0001efe609/59d322c8b1646100011ef57b_old_gravures_01.jpg" className="w-full h-full object-cover" alt="Dining Experience" />
                     </div>
                 </div>
