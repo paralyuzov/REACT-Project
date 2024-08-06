@@ -1,6 +1,6 @@
 # Tea Store
 
-Softuni ReactJS course project
+Softuni ReactJS course project.
 An online store for Japanese tea where visitors can purchase and learn about Japanese tea, its types, brewing methods, and recipes.
 
 ![Example GIF](tea-store/src/assets/home-page.gif)
