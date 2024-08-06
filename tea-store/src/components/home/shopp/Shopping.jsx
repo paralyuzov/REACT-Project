@@ -50,7 +50,7 @@ export default function Shopping() {
                     </div>
                 </Link>
 
-                <Link to={"/collection/teabags"}>
+                <Link to={"/collection/teabag"}>
                     <div className="flex flex-col gap-5 hover:scale-105 hover:text-[#b59654]">
                         <div>
                             <img src="\src\assets\category5.png" alt="" />
