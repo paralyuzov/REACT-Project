@@ -122,4 +122,4 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 - On card information field you can use card number : 4242 4242 4242 4242
 - Use a valid future date, such as 12/34.
 - Use any three-digit CVC,such as 343.
-- for more information you can use this documentation: https://docs.stripe.com/testing
+- For more information you can use this documentation: https://docs.stripe.com/testing
