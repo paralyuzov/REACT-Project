@@ -100,7 +100,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 - scrollToTop : Functionality where, upon changing pages by the user, the page scrolls to the top.
 - spinner : showing while waiting for data from the server.
 
-## Instalation
+## Installation
 
 - server :
 
