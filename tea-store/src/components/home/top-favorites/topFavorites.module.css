@@ -3,7 +3,7 @@
   }
 
 .cardHolder {
-    @apply flex flex-wrap justify-evenly
+    @apply grid grid-cols-4 gap-7
 }
 
 .card {
