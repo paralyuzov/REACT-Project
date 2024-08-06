@@ -1,0 +1,69 @@
+[{
+  "_id": {
+    "$oid": "66aabef9bba5b770e5f196a5"
+  },
+  "story": {
+    "title": "Japanese tea I like to drink after meals",
+    "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/story31-thumbnail_1000x.png?v=1702427386",
+    "aditional": {
+      "head": {
+        "image": "https://cdn.shopify.com/s/files/1/0531/8718/2743/files/story31-img-person-01.png?v=1702427324",
+        "area": "Department store in the Ikebukuro area",
+        "info": "Giving it my all every day to improve the shop and selection of teas."
+      },
+      "enjoy": {
+        "info": "After breakfast, I drink matcha to wake myself up and get my motor going. After trying different kinds of matcha, our family chose Hatsu-mukashi as our morning tea because it has a lightness that is just right for the morning. The light sharpness and subtle sweetness are perfect for waking us up."
+      },
+      "prepare": {
+        "info": "We have fun preparing it in different ways depending on how we feel or the season, sometimes adding hot milk or oat milk to the matcha, or, if we have our favourite canelé pastries, we might prepare the matcha slightly on the thick side. Sometimes, we serve the matcha in our favourite tea bowls, cups, or glasses to make the time after a meal even more fun."
+      }
+    }
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aac1fc651a095113a3159f"
+  },
+  "story": {
+    "title": "Japanese teas to enjoy while staying cozy during winter",
+    "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/story33-thumbnail_1000x.jpg?v=1705364835",
+    "aditional": {
+      "head": {
+        "image": "https://cdn.shopify.com/s/files/1/0531/8718/2743/files/story33-img-person-01.png?v=1705364762",
+        "area": "Department store near the Bank of Japan in Tokyo",
+        "info": "Handling everything skilfully, from sales to coordination."
+      },
+      "enjoy": {
+        "info": "I am very sensitive to the cold, so, as a general rule, I don’t like to move away from the warmth during the cold winter. When I’m taking it easy, relaxing on my warm electric carpet while watching TV or reading, I keep hot water and One-Cup Teabag Hojicha close at hand. I also love to finish my day with a cup of hot hojicha."
+      },
+      "prepare": {
+        "info": "One of the great things about One-Cup Teabags is that you don’t have to worry about how to prepare the tea. I love hojicha, and at the end of the day I drink it to wind down and forget all my worries. So, I want it to be very simple to prepare. One-Cup Teabag Hojicha is the perfect choice for someone like me."
+      }
+    }
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aac2d0651a095113a38239"
+  },
+  "story": {
+    "title": "Japanese teas I like as summer approaches",
+    "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/story36-thumbnail_1000x.jpg?v=1715904884",
+    "aditional": {
+      "head": {
+        "image": "https://cdn.shopify.com/s/files/1/0525/9958/7002/files/story36-img-person-01.png?v=1715905968",
+        "area": "Department store in the Kyoto area",
+        "info": "Speaking English, I present a big smile and try to ensure customers from abroad enjoy shopping."
+      },
+      "enjoy": {
+        "info": "I really like Majko's Bottle, and use it all the time at home. It's heat-resistant, so it's easy to use for both hot tea and cold-brewed tea prepared in the refrigerator, which makes it great for the run-up to summer, when I like to drink both. One-Pot Teabags are perfect for this teapot, and make preparing Japanese tea easy. On my days off in May, I like to enjoy shincha with seasonal sweets that suit how I feel at the time, like mitarashi dango (Japanese rice flour dumplings with a sweet sauce) or fruit daifuku (round mochi with soft fruit and bean paste filling)."
+      },
+      "prepare": {
+        "info": "One of the great things about One-Cup Teabags is that you don’t have to worry about how to prepare the tea. I love hojicha, and at the end of the day I drink it to wind down and forget all my worries. So, I want it to be very simple to prepare. One-Cup Teabag Hojicha is the perfect choice for someone like me."
+      }
+    }
+  },
+  "__v": 0
+}]

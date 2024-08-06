@@ -1,0 +1,99 @@
+[{
+  "_id": {
+    "$oid": "66a90e83ddf1c0c51a6f40b5"
+  },
+  "username": "Miroslav Paralyuzov",
+  "email": "blazini@abv.bg",
+  "password": "$2b$10$6gnUcN0aOwRRoa/vNjNOVeG0f2cGqakb/Do07AsBbIHZlgkE91xAG",
+  "tel": "+359896235421",
+  "favorite": [
+    {
+      "$oid": "669bec7a9bc0457a91aaa0b3"
+    },
+    {
+      "$oid": "669bece29bc0457a91aaa0b5"
+    },
+    {
+      "$oid": "669bed219bc0457a91aaa0b7"
+    }
+  ],
+  "__v": 153
+},
+{
+  "_id": {
+    "$oid": "66ac0cffa18b4bf8e9f54e72"
+  },
+  "username": "Test test",
+  "email": "test_test@abv.bg",
+  "password": "$2b$10$pDAqCmuZvTTxQPwEPKoGiu75z1fSU1nEDd5y9YlVGEVPNEGJgxsYe",
+  "tel": "+359888111111",
+  "favorite": [
+    {
+      "$oid": "669e5815023a879734f3cdcb"
+    },
+    {
+      "$oid": "66a4de0bc1e3853ef0088a66"
+    },
+    {
+      "$oid": "669ecee16de3f5daa8c84e04"
+    },
+    {
+      "$oid": "669bece29bc0457a91aaa0b5"
+    },
+    {
+      "$oid": "669eb94a023a879734f3cdf3"
+    }
+  ],
+  "__v": 19
+},
+{
+  "_id": {
+    "$oid": "66ad6eebf3075162e54fe765"
+  },
+  "username": "Mariq Ilieva",
+  "email": "mariq@abv.bg",
+  "password": "$2b$10$QeYzVw0TgSRnZacLstd7E.1rKG74297tnDwEG4yn6VooVF9/sw5xu",
+  "tel": "+359888323232",
+  "favorite": [
+    {
+      "$oid": "669a857e1dd487fa29bb21ea"
+    }
+  ],
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "66af9d83ea961b63a8f76502"
+  },
+  "username": "miri",
+  "email": "miroslav@abv.bg",
+  "password": "$2b$10$Bom45fXsnyJ4vi3bZGZJUONAuG.1PQS9SP.SgZtsup5xdqV6d/8Wi",
+  "tel": "+359896232332",
+  "favorite": [
+    {
+      "$oid": "669e5815023a879734f3cdcb"
+    },
+    {
+      "$oid": "669bece29bc0457a91aaa0b5"
+    },
+    {
+      "$oid": "669e57e2023a879734f3cdc9"
+    }
+  ],
+  "__v": 63
+},
+{
+  "_id": {
+    "$oid": "66b1599bb05086b6261b93c1"
+  },
+  "username": "Georgi",
+  "email": "gosh@abv.bg",
+  "password": "$2b$10$JAkYKQ6rLcvSa7/nUJkvl.ZOJn/Tu.5/ouoNPNcG6fyEwtBlBxFxO",
+  "tel": "+3598231234",
+  "favorite": [
+    {
+      "$oid": "669ec9c9587e831c20ed8087"
+    }
+  ],
+  "__v": 1
+}]

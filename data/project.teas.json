@@ -1,0 +1,670 @@
+[{
+  "_id": {
+    "$oid": "669a83641dd487fa29bb21e6"
+  },
+  "title": "Kanza",
+  "type": "matcha",
+  "price": "34.99",
+  "package": "Dia.5.3 x H5.2 cm",
+  "weight": "20",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/387024-01_640x.png?v=1655967626",
+  "life": "180 days",
+  "description": "A mature flavour rich in umami and fragrance",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669a83d41dd487fa29bb21e8"
+  },
+  "title": "Kuon",
+  "type": "matcha",
+  "price": "20.43",
+  "package": "Dia.5.3 x H5.2 cm",
+  "weight": "20",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/306024-01_640x.png?v=1678326067",
+  "life": "180 days",
+  "description": "Resplendent fragrance, and refreshing aftertaste",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669a857e1dd487fa29bb21ea"
+  },
+  "title": "Ummon-no-mukashi",
+  "type": "matcha",
+  "price": "11.67",
+  "package": "Dia.5.3 x H5.2 cm",
+  "weight": "20",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/101024-01_600x.png?v=1627455940",
+  "life": "180 days",
+  "description": "Prominent umami flavour and smooth taste",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66ad6eebf3075162e54fe765"
+    }
+  ],
+  "__v": 31
+},
+{
+  "_id": {
+    "$oid": "669a86701dd487fa29bb21ec"
+  },
+  "title": "Seiun",
+  "type": "matcha",
+  "price": "17.51",
+  "package": "Dia.5.3 x H6.5 cm",
+  "weight": "40",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/102044-01_640x.png?v=1627455935",
+  "life": "180 days",
+  "description": "Strong umami flavour and an aftertaste with depth",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66ad501b52b93ace8bd123aa"
+    }
+  ],
+  "__v": 7
+},
+{
+  "_id": {
+    "$oid": "669a87701dd487fa29bb21ee"
+  },
+  "title": "Sayaka-no-mukashi",
+  "type": "matcha",
+  "price": "14.01",
+  "package": "Dia.5.3 x H6.5 cm",
+  "weight": "40",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/103644-01_640x.png?v=1627455949",
+  "life": "180 days",
+  "description": "Mellow flavour with just the right amount of umami",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669a88001dd487fa29bb21f0"
+  },
+  "title": "Kan-no-shiro",
+  "type": "matcha",
+  "price": "7.88",
+  "package": "W5.2 x D5.0 x H6.5 cm",
+  "weight": "30",
+  "serving": "2 grams (usucha) 4 grams (koicha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/104033-01_640x.png?v=1627455926",
+  "life": "180 days",
+  "description": "Rich, substantial taste",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669beb3b71581256ba9a564f"
+  },
+  "title": "Kanro",
+  "type": "gyokuro",
+  "price": "11.66",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/files/403052-01_10a2c19f-6682-4690-a526-9e57de9c5f96_640x.png?v=1717558616",
+  "life": "180 days",
+  "description": "Magnificent fragrance and mellow umami flavour.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 22
+},
+{
+  "_id": {
+    "$oid": "669bebda71581256ba9a5651"
+  },
+  "title": "Tenka-ichi",
+  "type": "gyokuro",
+  "price": "29.14",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/yo1UHoJg_640x.png?v=1631781640",
+  "life": "180 days",
+  "description": "Prominent umami flavour concentrated in every drop.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66a8d7567048015d83adef09"
+    }
+  ],
+  "__v": 5,
+  "favoriteCount": 0
+},
+{
+  "_id": {
+    "$oid": "669bec7a9bc0457a91aaa0b3"
+  },
+  "title": "Tenka-ichi w/box",
+  "type": "gyokuro",
+  "price": "116.58",
+  "package": "W8.6 x D8.2 x H14.1 cm",
+  "weight": "180",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/401226-01_640x.png?v=1627456021",
+  "life": "180 days",
+  "description": "Prominent umami flavour concentrated in every drop.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66a8d7567048015d83adef09"
+    },
+    {
+      "$oid": "66a90e83ddf1c0c51a6f40b5"
+    }
+  ],
+  "__v": 98,
+  "favoriteCount": 0
+},
+{
+  "_id": {
+    "$oid": "669bece29bc0457a91aaa0b5"
+  },
+  "title": "Ippoen",
+  "type": "gyokuro",
+  "price": "17.49",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/v4dagrEw_640x.png?v=1631781507",
+  "life": "180 days",
+  "description": "Clear, pure umami flavour.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66a90e83ddf1c0c51a6f40b5"
+    },
+    {
+      "$oid": "66ac0cffa18b4bf8e9f54e72"
+    },
+    {
+      "$oid": "66af9d83ea961b63a8f76502"
+    }
+  ],
+  "__v": 65
+},
+{
+  "_id": {
+    "$oid": "669bed219bc0457a91aaa0b7"
+  },
+  "title": "Tekiro",
+  "type": "gyokuro",
+  "price": "7.58",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/v4dagrEw_640x.png?v=1631781507",
+  "life": "180 days",
+  "description": "Clear, pure umami flavour.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66a90e83ddf1c0c51a6f40b5"
+    }
+  ],
+  "__v": 17
+},
+{
+  "_id": {
+    "$oid": "669bed6c9bc0457a91aaa0b9"
+  },
+  "title": "Montoku",
+  "type": "gyokuro",
+  "price": "5.83",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/mantoku50_640x.png?v=1633046796",
+  "life": "180 days",
+  "description": "Refreshing taste that is easy to drink.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 12
+},
+{
+  "_id": {
+    "$oid": "669e5789023a879734f3cdc7"
+  },
+  "title": "Kaboku",
+  "type": "sencha",
+  "price": "5.83",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/1UUIydDw_640x.png?v=1633046424",
+  "life": "180 days",
+  "description": "Refreshing taste that is easy to drink.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669e57e2023a879734f3cdc9"
+  },
+  "title": "Kumpu",
+  "type": "sencha",
+  "price": "11.72",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/kumpu80g_640x.png?v=1632535658",
+  "life": "180 days",
+  "description": "Flavour with depth and a luxurious aftertaste.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66af9d83ea961b63a8f76502"
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "669e5815023a879734f3cdcb"
+  },
+  "title": "Hosen",
+  "type": "sencha",
+  "price": "8.79",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/hosen80g_640x.png?v=1632535916",
+  "life": "180 days",
+  "description": "Refined and well-balanced umami and sharpness.",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66ac0cffa18b4bf8e9f54e72"
+    },
+    {
+      "$oid": "66af9d83ea961b63a8f76502"
+    }
+  ],
+  "__v": 8
+},
+{
+  "_id": {
+    "$oid": "669e584b023a879734f3cdcd"
+  },
+  "title": "Nichigetsu",
+  "type": "sencha",
+  "price": "5.86",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/nichigetsu80g_640x.png?v=1632536542",
+  "life": "180 days",
+  "description": "Refreshing sharpness and sweetness that bathe the palate.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669e58ac023a879734f3cdcf"
+  },
+  "title": "Kuki Sencha",
+  "type": "sencha",
+  "price": "4.10",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/kukisencha80g_640x.png?v=1632538077",
+  "life": "180 days",
+  "description": "Fresh sweetness characteristic of stems.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669e58e0023a879734f3cdd1"
+  },
+  "title": "Unro",
+  "type": "sencha",
+  "price": "4.69",
+  "package": "W12.0 x D3.5 x H21.5 cm",
+  "weight": "80",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/unro80g_640x.png?v=1632536716",
+  "life": "180 days",
+  "description": "Refreshing sharpness and rich aftertaste.",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669eb8b9023a879734f3cdf1"
+  },
+  "title": "Gokujo Hojicha (Roasted Tea)",
+  "type": "hojicha",
+  "price": "3.51",
+  "package": "W8.0 x D4.5 x H31.5 cm",
+  "weight": "100",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/601102-01_640x.png?v=1627455989",
+  "life": "180 days",
+  "description": "Rich, mellow taste",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669eb94a023a879734f3cdf3"
+  },
+  "title": "Gokujo Genmaicha",
+  "type": "hojicha",
+  "price": "2.92",
+  "package": "W6.5 x D4.5 x H23 cm",
+  "weight": "100",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/606612-01_640x.png?v=1627824667",
+  "life": "180 days",
+  "description": "Mild taste that is easy to drink",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66ac0cffa18b4bf8e9f54e72"
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "669eb98a023a879734f3cdf5"
+  },
+  "title": "Kuki Hojicha",
+  "type": "hojicha",
+  "price": "2.92",
+  "package": "W8.5×D6.0×H37.0 cm",
+  "weight": "200",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/602202-01_640x.png?v=1627456019",
+  "life": "180 days",
+  "description": "Rich, roasted aroma and light taste",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669eb9f7023a879734f3cdf7"
+  },
+  "title": "Hanako",
+  "type": "hojicha",
+  "price": "2.05",
+  "package": "W8.5×D6.0×H37.0 cm",
+  "weight": "200",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/625202-01_640x.png?v=1627456030",
+  "life": "180 days",
+  "description": "Prepare it easily like drip coffee using a tea strainer",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec4b6023a879734f3cdfb"
+  },
+  "title": "Hojiko",
+  "type": "hojicha",
+  "price": "5.85",
+  "package": "W8.5×D6.0×H37.0 cm",
+  "weight": "200",
+  "serving": "10 grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/606622-01_640x.png?v=1627456129",
+  "life": "180 days",
+  "description": "Mild taste that is easy to drink",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec883587e831c20ed8081"
+  },
+  "title": "One-Pot Teabag Gyokuro ",
+  "type": "teabag",
+  "price": "6.43",
+  "package": "W13.0 x D3.8 x H22.3 cm",
+  "weight": "42grams (7 grams x 6)",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/606622-01_640x.png?v=1627456129",
+  "life": "180 days",
+  "description": "Teabags for batches of tea with mellow sweetness",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec8e0587e831c20ed8083"
+  },
+  "title": "One-Pot Teabag Kuki Sencha ",
+  "type": "teabag",
+  "price": "5.85",
+  "package": "W15.0 x D4.1 x H24.3 cm",
+  "weight": "63grams (7 grams x 9)",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/593932-01_640x.png?v=1627456007",
+  "life": "180 days",
+  "description": "Teabags for batches of tea with slightly sweet sharpness",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec942587e831c20ed8085"
+  },
+  "title": "One-Pot Teabag Genmaicha ",
+  "type": "teabag",
+  "price": "4.68",
+  "package": "W15.0 x D4.1 x H24.3 cm",
+  "weight": "90grams (10 grams x 9)",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/606932-01_640x.png?v=1627456000",
+  "life": "180 days",
+  "description": "Teabags for batches of tea with aroma of roasted rice",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ec9c9587e831c20ed8087"
+  },
+  "title": "Drip Tea Bag Gyokuro ",
+  "type": "teabag",
+  "price": "7.02",
+  "package": "W10.3 x D5.0 x H14.0 cm",
+  "weight": "24 grams (4grams × 6)",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/files/494301-01_900bce45-b031-43c3-bf42-cc4c4ffbb1f5_640x.png?v=1706629543",
+  "life": "180 days",
+  "description": "Individual drip tea bags with mellow sweetness",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66b1599bb05086b6261b93c1"
+    }
+  ],
+  "__v": 3
+},
+{
+  "_id": {
+    "$oid": "669eca3c587e831c20ed8089"
+  },
+  "title": "Drip Tea Bag Gift Box (Sencha & Hojicha)",
+  "type": "teabag",
+  "price": "15.79",
+  "package": "W21.8 x D15.2 x H5.5cm",
+  "weight": "Sencha 4 grams x 6, Hojicha 5 grams x 6",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/files/651010_01_600x_f582fef7-1a10-44c0-aa11-42c2f5c4993f_640x.webp?v=1706715922",
+  "life": "180 days",
+  "description": "Set of individual drip tea bags, perfect as a gift",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ecabe587e831c20ed808b"
+  },
+  "title": "One-Cup Teabag Hojicha",
+  "type": "teabag",
+  "price": "22.23",
+  "package": "W25.5×D17.0× H10.0cm",
+  "weight": "216 grams (2 grams x 108)",
+  "serving": "1 teabag",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/691994-01_640x.png?v=1627456014",
+  "life": "150 days",
+  "description": "Individual teabags with wonderful roasted aroma",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ece0e6de3f5daa8c84e00"
+  },
+  "title": "Premium Organic Matcha",
+  "type": "organic",
+  "price": "17.56",
+  "package": "Dia.5.3 x H5.2 cm",
+  "weight": "20",
+  "serving": "2 grams (usucha)",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/145024-01_640x.png?v=1647939052",
+  "life": "180 days",
+  "description": "Its fresh, verdant fragrance envelops you",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ece7f6de3f5daa8c84e02"
+  },
+  "title": "Organic Gyokuro",
+  "type": "organic",
+  "price": "17.56",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/497752-01_640x.png?v=1644898533",
+  "life": "180 days",
+  "description": "Rustic flavour with JAS certification",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ecee16de3f5daa8c84e04"
+  },
+  "title": "Organic Sencha",
+  "type": "organic",
+  "price": "8.78",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/596062-01_640x.png?v=1648512548",
+  "life": "180 days",
+  "description": "Rustic flavour with JAS certification",
+  "bougthList": [],
+  "favorite": [
+    {
+      "$oid": "66ac0cffa18b4bf8e9f54e72"
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "669ecf3f6de3f5daa8c84e06"
+  },
+  "title": "Organic Genmaicha",
+  "type": "organic",
+  "price": "4.68",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/628995-01_8b89cd03-1c21-44ad-8016-a240b0c1c3c7_640x.png?v=1646181601",
+  "life": "180 days",
+  "description": "Mild flavour with JAS certification",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669ecf6b6de3f5daa8c84e08"
+  },
+  "title": "Organic Hojicha",
+  "type": "organic",
+  "price": "4.68",
+  "package": "W11.0 x D2.0 x H20.0 cm",
+  "weight": "50",
+  "serving": "10grams",
+  "ingredients": "Green tea (Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/626995-01_023bc904-29a5-456c-aae9-f47f306a89ba_640x.png?v=1646181840",
+  "life": "180 days",
+  "description": "Light taste with JAS certification",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+}]

@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "66aa6a0c71725d9f60bfadab"
+  },
+  "title": "Caprese salad withn cold-brewed Rimpo Gyokuro",
+  "info": "Cold Caprese salad is an excellent choice for dinner on sweltering hot days. The umami flavour of cold-brewed Rimpo Gyokuro goes wonderfully with that of the tomatoes and cheese. The combination makes for a refreshing meal on a summer night.",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/ippodo_web_FoodPairing91_1000x.png?v=1721987826",
+  "preparing": {
+    "quantity": "2 tbsp.(10g)",
+    "amount": "Chilled water (210ml)",
+    "time": "20 min",
+    "aditional": "You can make multiple pots of cold-brewed tea using the same tea leaves. Brew the second pot for 10 minutes, and the third pot for 5 minutes, halving the time with each pot."
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa6aba71725d9f60bfadad"
+  },
+  "title": "Nikujaga with iced Sencha",
+  "info": "New potatoes are great for nikujaga (Japanese meat and potato stew). In Kyoto, we prepare it on the sweet side. The dish goes well with Matsu-no-midori Sencha, which has a refreshing sharpness. For an invigorating taste experience, prepare the sencha with boiling hot water, and then pour it over a glass full of ice to cool it right down. It really helps to cool you down and reduce perspiration.",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/ippodo_web_FoodPairing90_f0041355-f876-4c12-a001-8f60c7ed18fd_1000x.png?v=1718954305",
+  "preparing": {
+    "quantity": "2 tbsp.(10g)",
+    "amount": "Boiling hot water (210ml)",
+    "time": "1 min",
+    "aditional": "The key is to cool the tea down right away. Fill a glass with lots of ice, and as soon as you pour on the tea, stir it well with a stirrer. It's ready to drink once the outside of the glass has become very cold."
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aa6b1171725d9f60bfadaf"
+  },
+  "title": "Sushi roll with Tekiro Gyokuro",
+  "info": "Tekiro Gyokuro prepared with boiling hot water has a deep fragrance and refreshing taste that is a little complex and mature. It pairs wonderfully with sushi rolls, which evoke the scent of the seashore.",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/food-pairing-049-main_1000x.png?v=1640610663",
+  "preparing": {
+    "quantity": "2 tbsp.(10g)",
+    "amount": "Boiling hot water (210ml)",
+    "time": "30 seconds",
+    "aditional": "Start timing the brew from the moment you begin pouring boiling hot water in the kyusu. This is important, because it affects how the tea will taste."
+  },
+  "__v": 0
+}]

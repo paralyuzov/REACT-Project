@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "66a4dd50c1e3853ef0088a62"
+  },
+  "title": "Matcha Starter Kit",
+  "price": "41.99",
+  "package": "W22.6×D16.9×H10.9cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/files/911011-01_640x.png?v=1693558807",
+  "description": "All you need to prepare matcha exccept the hot water",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4dda0c1e3853ef0088a64"
+  },
+  "title": "Travel Bottle (355ml)",
+  "price": "29.99",
+  "package": "W7.0 x D7.0 x H23.5 cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/files/907001-01_640x.png?v=1716426711",
+  "description": "Convenient for carbonated drinks as well as tea",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4de0bc1e3853ef0088a66"
+  },
+  "title": "Matcha sieve",
+  "price": "9",
+  "package": "Dia. 6.8× H8.5cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/901013-01_640x.png?v=1627455898",
+  "description": "Sifts a lot of matcha at once",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4de51c1e3853ef0088a68"
+  },
+  "title": "Yakishime Kyusu Teapot",
+  "price": "89.97",
+  "package": "W14.2×D9.5× H12.8 cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/902053-01_640x.png?v=1627455914",
+  "description": "Becomes softer to the touch the more you use it",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4de74c1e3853ef0088a6a"
+  },
+  "title": "Left-handed Yakishime Kyusu Teapot",
+  "price": "89.97",
+  "package": "W14.2×D9.5× H12.8 cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/902054-01_640x.png?v=1627455905",
+  "description": "Becomes softer to the touch the more you use it",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a4dea4c1e3853ef0088a6c"
+  },
+  "title": "Small White Porcelain Kyusu Teapot",
+  "price": "71.97",
+  "package": "W15.5×D15.5× H8.5cm",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/902057-01_640x.png?v=1627455920",
+  "description": "For slowly savouring small amounts of rich umami",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+}]
