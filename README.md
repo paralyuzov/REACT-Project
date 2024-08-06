@@ -11,6 +11,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 - ExpressJS /w Mongoose - backend
 - MongoDB - database
 - Stripe - for payment
+- Tailwind CSS - for styling
 
 ## Short info and functionalities:
 
