@@ -36,6 +36,7 @@ userRouter.post('/register',
     body('email').trim().isEmail().withMessage('Please enter valid email'),
     body('password').trim().isLength({ min: 6 }).withMessage('Password must be atleast 6 characters'),
     body('username').trim().isLength({ min: 4 }).withMessage('Username must be atleast 4 characters'),
+    body('tel').trim().notEmpty().withMessage('Telphone number canot be empty'),
     async (req, res) => {
         try {
             const validation = validationResult(req);
@@ -63,7 +64,8 @@ userRouter.post('/register',
     })
 
 userRouter.put('/update/:id', body('email').trim().isEmail().withMessage('Please enter valid email'),
-    body('username').optional().trim().notEmpty().withMessage('Username cannot be empty'),
+    body('username').trim().isLength({ min: 4 }).withMessage('Username must be atleast 4 characters'),
+    body('tel').trim().notEmpty().withMessage('Telphone number canot be empty'),
     async (req, res) => {
         try {
             const validation = validationResult(req);
