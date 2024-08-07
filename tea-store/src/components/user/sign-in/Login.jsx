@@ -61,7 +61,7 @@ export default function Login() {
                         <div className="mt-12">
                             <input type="submit" value="Login" className="py-4 px-8 text-xl font-semibold text-black tracking-wide bg-lime-200 hover:bg-lime-300 focus:outline-none" />
                         </div>
-                        <p className="text-xl text-gray-800 mt-6">Sign up <Link to="/signup" className="text-blue-600 font-semibold hover:underline ml-1">Login here</Link></p>
+                        <p className="text-xl text-gray-800 mt-6">You dont have a registration?<Link to="/signup" className="text-blue-600 font-semibold hover:underline ml-1">Sign up</Link></p>
                     </form>
 
                     <div className="h-full max-lg:mt-12">
