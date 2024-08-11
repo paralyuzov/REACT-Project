@@ -46,7 +46,10 @@ import AuthGuard from './components/guard/AuthGuard';
 import PageNotFound from './components/page-not-found/PageNotFound';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentDecline from './components/payment/PaymentDecline';
-import CreateItem from './components/user/admin/CreateItem';
+import ControlPanel from './components/user/admin/ControlPanel';
+import Teas from './components/user/admin/teas/Teas';
+import CreateTea from './components/user/admin/teas/CreateTea';
+import EditTea from './components/user/admin/teas/EditTea';
 
 
 
@@ -101,7 +104,10 @@ function App() {
                                 </Route>
                                 <Route path='/payment-success' element={<PaymentSuccess />} />
                                 <Route path='/payment-decline' element={<PaymentDecline />} />
-                                <Route path='/admin/create' element={<CreateItem />} />
+                                <Route path='/admin' element={<ControlPanel />} />
+                                <Route path='/admin/teas' element={<Teas />} />
+                                <Route path='/admin/teas/add' element={<CreateTea />} />
+                                <Route path='/admin/teas/edit/:id' element={<EditTea />} />
 
                                 <Route path='*' element={<PageNotFound />} />
                                 
