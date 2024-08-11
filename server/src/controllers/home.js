@@ -18,7 +18,7 @@ homeRouter.get('/matcha', async (req, res) => {
     }
 })
 
-homeRouter.get('/matcha/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/matcha/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -43,7 +43,7 @@ homeRouter.get('/gyokuro', async (req, res) => {
     }
 })
 
-homeRouter.get('/gyokuro/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/gyokuro/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -68,7 +68,7 @@ homeRouter.get('/sencha', async (req, res) => {
     }
 })
 
-homeRouter.get('/sencha/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/sencha/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -93,7 +93,7 @@ homeRouter.get('/hojicha', async (req, res) => {
     }
 })
 
-homeRouter.get('/hojicha/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/hojicha/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -118,7 +118,7 @@ homeRouter.get('/teabags', async (req, res) => {
     }
 })
 
-homeRouter.get('/teabags/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/teabags/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -143,7 +143,7 @@ homeRouter.get('/organic', async (req, res) => {
     }
 })
 
-homeRouter.get('/organic/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/organic/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Tea.findById(req.params.id.trim()).lean();
@@ -168,7 +168,7 @@ homeRouter.get('/utensils', async (req, res) => {
     }
 })
 
-homeRouter.get('/utensils/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/utensils/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Utensils.findById(req.params.id.trim()).lean();
@@ -218,7 +218,7 @@ homeRouter.get('/recipes', async (req, res) => {
     }
 })
 
-homeRouter.get('/recipes/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/recipes/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Recipe.findById(req.params.id.trim()).lean();
@@ -243,7 +243,7 @@ homeRouter.get('/story', async (req, res) => {
     }
 })
 
-homeRouter.get('/story/:id',validateObjectId(), async (req, res) => {
+homeRouter.get('/story/:id', validateObjectId(), async (req, res) => {
 
     try {
         const item = await Story.findById(req.params.id.trim()).lean();
@@ -258,6 +258,52 @@ homeRouter.get('/story/:id',validateObjectId(), async (req, res) => {
         res.status(500).send({ code: 500, error: parseError(err) });
     }
 })
+
+
+homeRouter.get('/teas', async (req, res) => {
+    try {
+        const items = await Tea.find({});
+        res.status(200).json(items);
+    } catch (err) {
+        res.status(500).send({ code: 500, error: parseError(err) });
+    }
+})
+
+homeRouter.put('/teas/edit/:id', async (req, res) => {
+    try {
+        const teaId = req.params.id;
+        const updatedTeaData = req.body;
+
+        console.log("Received Update Data:", updatedTeaData);
+        console.log("Tea ID:", teaId);
+
+        // Validate if teaId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(teaId)) {
+            return res.status(400).json({ message: 'Invalid Tea ID' });
+        }
+
+        // Fetch the document by ID
+        const tea = await Tea.findById(teaId);
+
+        if (!tea) {
+            return res.status(404).json({ message: 'Tea not found' });
+        }
+
+        // Update fields on the fetched document
+        Object.assign(tea, updatedTeaData);
+
+        // Save the updated document
+        const updatedTea = await tea.save();
+
+        console.log("Updated Tea:", updatedTea);
+
+        res.status(200).json(updatedTea);
+    } catch (error) {
+        console.error("Update Error:", error);
+        res.status(500).json({ message: 'An error occurred while updating the tea', error: error.message });
+    }
+})
+
 
 
 
