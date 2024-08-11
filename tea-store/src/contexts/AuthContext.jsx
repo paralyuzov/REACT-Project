@@ -8,6 +8,7 @@ export const AuthContext = createContext({
     username: "",
     email: "",
     tel: "",
+    role: "",
     accessToken: "",
     isAuthenticated: false,
     changeAuthState: (authState = {}) => null
@@ -37,6 +38,7 @@ export function AuthContextProvider(props) {
             username: state.username,
             email: state.email,
             tel: state.tel,
+            role: state.role,
             accessToken: state.accessToken,
             isAuthenticated: !!state.email,
         });
@@ -76,6 +78,7 @@ export function AuthContextProvider(props) {
                 username: data.username,
                 email: data.email,
                 tel: data.tel,
+                role: data.role,
                 accessToken: token,
                 isAuthenticated: true,
             });
@@ -86,6 +89,7 @@ export function AuthContextProvider(props) {
                 username: "",
                 email: "",
                 tel: "",
+                role: "",
                 accessToken: "",
                 isAuthenticated: false,
             });
@@ -98,6 +102,7 @@ export function AuthContextProvider(props) {
         username: authState.username,
         email: authState.email,
         tel: authState.tel,
+        role: authState.role,
         accessToken: authState.accessToken,
         isAuthenticated: authState.isAuthenticated,
         changeAuthState
