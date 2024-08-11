@@ -6,10 +6,29 @@ import { useState } from "react";
 
 const initialValues = { email: "", password: "" }
 
-export default function Login() {
+const validateForm = ({ email, password }) => {
+    const errors = {};
 
-    const [error, setError] = useState("");
+    if (!email) {
+        errors.email = "Email is required.";
+    } else if (email.length < 10) {
+        errors.email = "Email must be at least 10 characters"
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        errors.email = "Please enter a valid email address.";
+    }
+
+    if (!password) {
+        errors.password = "Password is required.";
+    } else if (password.length < 6) {
+        errors.password = "Password must be at least 6 characters long.";
+    }
+
+    return errors;
+};
+
+export default function Login() {
     const [modal, setModal] = useState(false);
+    const [modalContent, setModalContent] = useState("");
 
     const login = useLogin();
     const navigate = useNavigate();
@@ -19,18 +38,26 @@ export default function Login() {
             await login(email, password);
             navigate('/');
         } catch (error) {
-            setError(error.message);
+            setModalContent(error.message);
             setModal(true);
         }
-    }
+    };
 
-    const { values, changeHandler, submitHandler } = useForm(initialValues, loginHandler);
+    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, loginHandler, validateForm);
+
+    const handleSubmit = (e) => {
+        submitHandler(e);
+        if (Object.keys(errors).length > 0) {
+            setModalContent(Object.values(errors).join(" "));
+            setModal(true);
+        }
+    };
 
     return (
         <div className="font-laila border-x-2 my-10">
             <div className="flex fle-col items-center justify-center p-6">
                 <div className="grid lg:grid-cols-2 items-center gap-6 max-w-7xl max-lg:max-w-xl w-full">
-                    <form id="login" className="lg:max-w-md w-full" onSubmit={submitHandler}>
+                    <form id="login" className="lg:max-w-md w-full" onSubmit={handleSubmit}>
                         <h3 className="text-gray-800 text-3xl font-extrabold mb-12">Sign in</h3>
                         <div className="space-y-6">
                             <div>
@@ -39,7 +66,7 @@ export default function Login() {
                                     name="email"
                                     id="email"
                                     type="email"
-                                    value={values.emai}
+                                    value={values.email}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter your email"
@@ -53,15 +80,16 @@ export default function Login() {
                                     type="password"
                                     value={values.password}
                                     onChange={changeHandler}
-                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" placeholder="Enter password" />
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
+                                    placeholder="Enter password"
+                                />
                             </div>
-
                         </div>
 
                         <div className="mt-12">
                             <input type="submit" value="Login" className="py-4 px-8 text-xl font-semibold text-black tracking-wide bg-lime-200 hover:bg-lime-300 focus:outline-none" />
                         </div>
-                        <p className="text-xl text-gray-800 mt-6">You dont have a registration?<Link to="/signup" className="text-blue-600 font-semibold hover:underline ml-1">Sign up</Link></p>
+                        <p className="text-xl text-gray-800 mt-6">You don't have a registration?<Link to="/signup" className="text-blue-600 font-semibold hover:underline ml-1">Sign up</Link></p>
                     </form>
 
                     <div className="h-full max-lg:mt-12">
@@ -74,9 +102,9 @@ export default function Login() {
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded shadow-md">
                         <h2 className="text-xl font-bold mb-4">Login Error</h2>
-                        <p className="text-gray-700 mb-4">{error}</p>
-                        <button 
-                            onClick={() => setModal(false)} 
+                        <p className="text-gray-700 mb-4">{modalContent}</p>
+                        <button
+                            onClick={() => setModal(false)}
                             className="px-4 py-2 bg-red-500 text-white rounded"
                         >
                             Close
@@ -84,8 +112,6 @@ export default function Login() {
                     </div>
                 </div>
             )}
-
-
         </div>
     );
 }
