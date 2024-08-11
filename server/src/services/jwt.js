@@ -9,6 +9,7 @@ function createToken(userData) {
         email: userData.email,
         tel: userData.tel,
         id: userData._id,
+        role: userData.role
 
     }
 

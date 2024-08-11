@@ -23,7 +23,12 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
-    favorite: { type: [Schema.Types.ObjectId], ref: 'Teas', default: [] }
+    favorite: { type: [Schema.Types.ObjectId], ref: 'Teas', default: [] },
+    role: {
+        type: String,
+        enum: ['admin', 'user'],
+        default: 'user'
+    }
 
 
 });

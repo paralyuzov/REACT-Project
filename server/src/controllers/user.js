@@ -21,6 +21,7 @@ userRouter.post('/login',
                 username: result.username,
                 email: result.email,
                 tel: result.tel,
+                role: result.role,
                 accessToken
 
             })
@@ -37,6 +38,7 @@ userRouter.post('/register',
     body('password').trim().isLength({ min: 6 }).withMessage('Password must be atleast 6 characters'),
     body('username').trim().isLength({ min: 4 }).withMessage('Username must be atleast 4 characters'),
     body('tel').trim().notEmpty().withMessage('Telphone number canot be empty'),
+    body('role').optional().isIn(['admin', 'user']).withMessage('Invalid role'),
     async (req, res) => {
         try {
             const validation = validationResult(req);
@@ -45,14 +47,18 @@ userRouter.post('/register',
                 throw validation.errors
             }
 
+            const { username, email, password, tel, role } = req.body;
 
-            const result = await register(req.body.username, req.body.email, req.body.password, req.body.tel);
+            const userRole = role || 'user';
+
+            const result = await register(username, email, password, tel, userRole);
             const accessToken = createToken(result);
             res.status(201).json({
                 _id: result._id,
                 username: result.username,
                 email: result.email,
                 tel: result.tel,
+                role: userRole,
                 accessToken
 
             })

@@ -1,7 +1,7 @@
 const { User } = require("../models/User");
 const bcrypt = require('bcrypt');
 
-async function register(username, email, password, tel) {
+async function register(username, email, password, tel,role) {
     const existingEmail = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
     const existingUsername = await User.findOne({ username }).collation({ locale: 'en', strength: 2 })
 
@@ -17,7 +17,8 @@ async function register(username, email, password, tel) {
         username,
         email,
         password: await bcrypt.hash(password, 10),
-        tel
+        tel,
+        role
 
     })
 
