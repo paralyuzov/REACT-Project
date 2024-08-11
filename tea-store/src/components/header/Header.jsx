@@ -7,7 +7,7 @@ import Search from "./Search";
 import { useFavorites } from "../../contexts/FavoritesContext";
 
 export default function Header() {
-  const { isAuthenticated, changeAuthState } = useContext(AuthContext)
+  const { isAuthenticated, changeAuthState,role } = useContext(AuthContext)
   const { calcTotalQuantity, emptyCart } = useCart();
   const navigate = useNavigate();
   const { favoriteCount } = useFavorites();
@@ -116,6 +116,14 @@ export default function Header() {
               {calcTotalQuantity()}
             </div>
           </button>
+          {isAuthenticated && role === 'admin' && (
+            <button
+              className="relative text-xl rounded-full p-2 hover:bg-gray-300"
+              onClick={() => handleClick('/admin')}
+            >
+              <i className="fa-solid fa-hammer"></i>
+            </button>
+          )}
 
         </div>
       </div>
