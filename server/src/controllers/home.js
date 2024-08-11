@@ -277,22 +277,18 @@ homeRouter.put('/teas/edit/:id', async (req, res) => {
         console.log("Received Update Data:", updatedTeaData);
         console.log("Tea ID:", teaId);
 
-        // Validate if teaId is a valid ObjectId
         if (!mongoose.Types.ObjectId.isValid(teaId)) {
             return res.status(400).json({ message: 'Invalid Tea ID' });
         }
 
-        // Fetch the document by ID
         const tea = await Tea.findById(teaId);
 
         if (!tea) {
             return res.status(404).json({ message: 'Tea not found' });
         }
 
-        // Update fields on the fetched document
         Object.assign(tea, updatedTeaData);
 
-        // Save the updated document
         const updatedTea = await tea.save();
 
         console.log("Updated Tea:", updatedTea);
