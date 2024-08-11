@@ -46,6 +46,7 @@ import AuthGuard from './components/guard/AuthGuard';
 import PageNotFound from './components/page-not-found/PageNotFound';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentDecline from './components/payment/PaymentDecline';
+import CreateItem from './components/user/admin/CreateItem';
 
 
 
@@ -100,6 +101,7 @@ function App() {
                                 </Route>
                                 <Route path='/payment-success' element={<PaymentSuccess />} />
                                 <Route path='/payment-decline' element={<PaymentDecline />} />
+                                <Route path='/admin/create' element={<CreateItem />} />
 
                                 <Route path='*' element={<PageNotFound />} />
                                 
