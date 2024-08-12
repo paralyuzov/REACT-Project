@@ -3,9 +3,9 @@ import { useForm } from "../../../../hooks/useForm";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
-import { validateRecipe } from "./validateRecipe.js";
 import ErrorModal from "../../../modals/ErrorFormModal.jsx";
 import SuccessModal from "../../../modals/UponRequest.jsx";
+import { validateRecipe } from "./validateRecipe.js";
 
 export default function EditRecipe() {
 
@@ -15,7 +15,7 @@ export default function EditRecipe() {
     const navigate = useNavigate();
 
     const [errModal, setErrModal] = useState(false);
-    const [succModal, setSuccModal] = useState(false);
+    const [reqModal, setReqModal] = useState(false);
     const [message, setMessage] = useState("");
 
     const initialValues = {
@@ -37,12 +37,12 @@ export default function EditRecipe() {
                 'X-Authorization': accessToken
             });
             setMessage('Recipe updated successfully!');
-            setSuccModal(true)
+            setReqModal(true)
 
         } catch (error) {
             console.error('Error updating recipe:', error);
             setMessage('Failed to update the recipe.');
-            setSuccModal(true)
+            setReqModal(true)
         }
     };
 
@@ -58,7 +58,7 @@ export default function EditRecipe() {
     };
 
     const closeSuccModal = () => {
-        setSuccModal(false);
+        setReqModal(false);
         navigate('/admin/recipes')
     }
 
@@ -180,7 +180,7 @@ export default function EditRecipe() {
                     </div>
                 </div>
             </div>
-            {succModal && <SuccessModal message={message} onClose={closeSuccModal} />}
+            {reqModal && <SuccessModal message={message} onClose={closeSuccModal} />}
             {errModal && <ErrorModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
