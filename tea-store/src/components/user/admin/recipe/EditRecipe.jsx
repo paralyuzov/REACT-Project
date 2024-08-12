@@ -57,7 +57,7 @@ export default function EditRecipe() {
         }
     };
 
-    const closeSuccModal = () => {
+    const closeReqModal = () => {
         setReqModal(false);
         navigate('/admin/recipes')
     }
@@ -180,7 +180,7 @@ export default function EditRecipe() {
                     </div>
                 </div>
             </div>
-            {reqModal && <SuccessModal message={message} onClose={closeSuccModal} />}
+            {reqModal && <SuccessModal message={message} onClose={closeReqModal} />}
             {errModal && <ErrorModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
