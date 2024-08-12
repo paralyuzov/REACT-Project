@@ -4,6 +4,7 @@ const { createToken } = require('../services/jwt');
 const { login, register, update } = require('../services/user');
 const { parseError } = require('../utils/parseError');
 const { User } = require('../models/User');
+const { validateObjectId } = require('../middlewares/guards');
 
 
 const userRouter = Router();
@@ -110,5 +111,38 @@ userRouter.delete('/delete/:id', async (req, res) => {
         res.status(403).json({ code: 403, message: parsed.message });
     }
 });
+
+userRouter.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to retrieve users', error: error.message });
+    }
+})
+
+userRouter.put('/:id', validateObjectId(), async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const updatedData = req.body;
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        Object.assign(user, updatedData);
+
+        const updatedUser = await user.save();
+
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        console.error("Update Error:", error);
+        res.status(500).json({ message: 'An error occurred while updating the user', error: error.message });
+    }
+})
+
+
 
 module.exports = { userRouter };
