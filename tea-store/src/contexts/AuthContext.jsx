@@ -11,19 +11,34 @@ export const AuthContext = createContext({
     role: "",
     accessToken: "",
     isAuthenticated: false,
+    loading: true,
     changeAuthState: (authState = {}) => null
 });
 
 
 export function AuthContextProvider(props) {
 
-    const [authState, setAuthState] = useState({});
+    const [authState, setAuthState] = useState({
+        _id: "",
+        username: "",
+        email: "",
+        tel: "",
+        role: "",
+        accessToken: "",
+        isAuthenticated: false,
+        loading: true,
+    });
     console.log(authState)
 
     useEffect(() => {
         const storedAccessToken = localStorage.getItem('accessToken');
         if (storedAccessToken) {
             verifyToken(storedAccessToken);
+        } else {
+            setAuthState((prevState) => ({
+                ...prevState,
+                loading: false,
+            }));
         }
     }, []);
 
@@ -41,6 +56,7 @@ export function AuthContextProvider(props) {
             role: state.role,
             accessToken: state.accessToken,
             isAuthenticated: !!state.email,
+            loading: false
         });
     };
 
@@ -81,6 +97,7 @@ export function AuthContextProvider(props) {
                 role: data.role,
                 accessToken: token,
                 isAuthenticated: true,
+                loading: false
             });
         } catch (error) {
             console.error('Token verification failed', error);
@@ -92,6 +109,7 @@ export function AuthContextProvider(props) {
                 role: "",
                 accessToken: "",
                 isAuthenticated: false,
+                loading: false
             });
         }
     };
@@ -105,6 +123,7 @@ export function AuthContextProvider(props) {
         role: authState.role,
         accessToken: authState.accessToken,
         isAuthenticated: authState.isAuthenticated,
+        loading: authState.loading,
         changeAuthState
     }
 
