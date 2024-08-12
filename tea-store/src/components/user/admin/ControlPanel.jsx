@@ -35,12 +35,14 @@ export default function ControlPanel() {
                     </div>
                 </Link>
 
-                <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105  hover:bg-slate-50">
-                    <div>
-                        <img className="w-44 h-44" src="\src\assets\admin-panel\users.webp" alt="" />
+                <Link to={'/admin/users'}>
+                    <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105  hover:bg-slate-50">
+                        <div>
+                            <img className="w-44 h-44" src="\src\assets\admin-panel\users.webp" alt="" />
+                        </div>
+                        <p className="py-2">Users</p>
                     </div>
-                    <p className="py-2">Users</p>
-                </div>
+                </Link>
             </div>
 
 
