@@ -1,14 +1,22 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
+import { validateUtensil } from "./validateUtensils";
+import UponRequest from "../../../modals/UponRequest";
+import ErrorFormModal from "../../../modals/ErrorFormModal";
 
 export default function EditUtensils() {
 
     const { accessToken } = useContext(AuthContext)
     const location = useLocation();
     const UtensilsData = location.state || {};
+    const navigate = useNavigate();
+    const [errModal, setErrModal] = useState(false);
+    const [reqModal, setReqModal] = useState(false);
+    const [message, setMessage] = useState("");
+
     const initialValues = {
         title: UtensilsData.title || '',
         price: UtensilsData.price || '',
@@ -17,32 +25,48 @@ export default function EditUtensils() {
         description: UtensilsData.description || '',
     };
 
-    const validate = (values) => {
-        const errors = {};
-        if (!values.title) errors.title = 'Tea name is required';
-        if (!values.price) errors.price = 'Price is required';
-        return errors;
-    };
-
     const submitCallback = async (updated) => {
         const id = UtensilsData._id;
         try {
-            await requester.put(`http://localhost:3030/api/collection/utensils/edit/${id}`,  updated , {
+            await requester.put(`http://localhost:3030/api/collection/utensils/edit/${id}`, updated, {
                 'X-Authorization': accessToken
             });
+            setMessage('Utensil updated successfully!');
+            setReqModal(true)
 
         } catch (error) {
-            console.error('Error updating tea:', error);
+            console.error('Error updating utensil:', error);
+            setMessage('Failed to update the utensil.');
+            setReqModal(true)
         }
     };
 
-    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validate);
+    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validateUtensil);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (Object.keys(errors).length > 0) {
+            setErrModal(true);
+        } else {
+            submitHandler(e);
+        }
+    };
+
+    const closeReqModal = () => {
+        setReqModal(false);
+        navigate('/admin/utensils')
+    }
+
+
+    const closeErrModal = () => {
+        setErrModal(false);
+    };
 
     return (
         <div className="font-laila border-x-2 my-10">
             <div className="flex flex-col items-center justify-center p-6">
                 <div className="grid lg:grid-cols-2 items-center gap-2 max-w-7xl max-lg:max-w-xl w-full">
-                    <form className="lg:max-w-md w-full" onSubmit={submitHandler}>
+                    <form className="lg:max-w-md w-full" onSubmit={handleSubmit}>
                         <h3 className="text-gray-800 text-3xl font-extrabold mb-12">Edit Utensils</h3>
                         <div className="space-y-3">
                             <div>
@@ -63,7 +87,7 @@ export default function EditUtensils() {
                                 <input
                                     name="price"
                                     id='price'
-                                    type="text"
+                                    type="number"
                                     value={values.price}
                                     onChange={changeHandler}
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
@@ -82,7 +106,7 @@ export default function EditUtensils() {
                                     placeholder="example : W8.6 x D8.2 x H14.1 cm"
                                 />
                             </div>
-                    
+
                             <div>
                                 <label htmlFor='image' className="text-gray-800 text-xl mb-2 block">Image URL</label>
                                 <input
@@ -127,6 +151,8 @@ export default function EditUtensils() {
                     </div>
                 </div>
             </div>
+            {reqModal && <UponRequest message={message} onClose={closeReqModal} />}
+            {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
 }
