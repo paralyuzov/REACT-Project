@@ -110,7 +110,7 @@ export default function EditTea() {
                                 <input
                                     name="price"
                                     id='price'
-                                    type="text"
+                                    type="number"
                                     value={values.price}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
