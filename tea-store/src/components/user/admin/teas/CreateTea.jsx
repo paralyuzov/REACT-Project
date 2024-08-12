@@ -50,7 +50,7 @@ export default function CreateTea() {
         }
     };
 
-    const closeSuccModal = () => {
+    const closeReqModal = () => {
         setReqModal(false);
     }
 
@@ -221,7 +221,7 @@ export default function CreateTea() {
                     </div>
                 </div>
             </div>
-            {reqModal && <UponRequest message={message} onClose={closeSuccModal} />}
+            {reqModal && <UponRequest message={message} onClose={closeReqModal} />}
             {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
