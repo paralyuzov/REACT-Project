@@ -189,7 +189,7 @@ export default function EditTea() {
 
                     <div className="h-3/4 max-lg:mt-12">
                         <img
-                            src="https://janabouc.com/wp-content/uploads/2011/06/20110622_jap-teagarden.jpg"
+                            src={teaData.image}
                             className="w-full h-full object-fill"
                             alt="Tea"
                         />
