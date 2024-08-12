@@ -6,7 +6,25 @@ import requester from "../../../api/requester";
 import ProfileModal from "../../modals/ProfileModal";
 import ConfirmModal from "../../modals/ConfirmModal";
 
-
+const validateProfile = (values) => {
+    const errors = {};
+    if (!values.username) {
+        errors.username = 'Username is required';
+    } else if (values.username.length < 4) {
+        errors.username = "Username must be at least 4 characters";
+    }
+    if (!values.email) {
+        errors.email = 'Email is required';
+    } else if (values.email.length < 10) {
+        errors.email = "Email must be at least 10 characters";
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+        errors.email = 'Email address is invalid';
+    }
+    if (!values.tel) {
+        errors.tel = 'Telephone is required';
+    }
+    return errors;
+};
 
 
 export default function Profile() {
@@ -15,14 +33,10 @@ export default function Profile() {
     const [modal, setModal] = useState({ open: false, title: "", message: "" });
     const [confirm, setConfirm] = useState({ open: false, title: "", message: "", onConfirm: null });
 
-
-
-
     const submitCallback = async (values) => {
-
         setConfirm({
             open: true,
-            title: "Confirm update",
+            title: "Confirm Update",
             message: "Are you sure you want to update your profile?",
             onConfirm: async () => {
                 try {
@@ -34,29 +48,27 @@ export default function Profile() {
                         'X-Authorization': accessToken
                     });
 
-                    setModal({ open: true, title: "Profile Updated", message: "Your profile has been updated successfully.You will be redirected to signin page..." });
+                    setModal({ open: true, title: "Profile Updated", message: "Your profile has been updated successfully. You will be redirected to the sign-in page shortly..." });
                     setTimeout(() => {
                         localStorage.removeItem('accessToken');
                         changeAuthState({});
                         navigate('/signin');
-                    }, 3000)
+                    }, 3000);
 
                 } catch (error) {
                     console.error('Failed to update profile', error);
                     setModal({ open: true, title: "Update Failed", message: error.message });
                 }
-                setConfirm({ ...confirm, open: false })
+                setConfirm({ ...confirm, open: false });
             }
-        })
-
-
+        });
     };
 
-    const { values, changeHandler, submitHandler, updateValues } = useForm({
+    const { values, changeHandler, submitHandler, updateValues, errors } = useForm({
         username: username || '',
         email: email || '',
         tel: tel || '',
-    }, submitCallback);
+    }, submitCallback, validateProfile);
 
     useEffect(() => {
         updateValues({
@@ -66,14 +78,15 @@ export default function Profile() {
         });
     }, [username, email, tel]);
 
+
+
     const removeUser = async (e) => {
         e.preventDefault();
         setConfirm({
             open: true,
-            title: "Confirm REMOVE account",
+            title: "Confirm Account Removal",
             message: "Are you sure you want to delete your account?",
             onConfirm: async () => {
-
                 try {
                     await requester.del(`http://localhost:3030/users/delete/${_id}`, null, {
                         'X-Authorization': accessToken
@@ -88,7 +101,7 @@ export default function Profile() {
                         isAuthenticated: false
                     });
 
-                    setModal({ open: true, title: "Account Deleted", message: "Your account has been deleted successfully.You will be redirected to home page..." });
+                    setModal({ open: true, title: "Account Deleted", message: "Your account has been deleted successfully. You will be redirected to the home page shortly..." });
                     setTimeout(() => {
                         localStorage.removeItem('accessToken');
                         navigate('/');
@@ -96,15 +109,11 @@ export default function Profile() {
 
                 } catch (error) {
                     console.error('Failed to delete account', error);
-                    setModal({ open: true, title: "Failed to delete account", message: error.message });
+                    setModal({ open: true, title: "Failed to Delete Account", message: error.message });
                 }
-
-                setModal({ ...modal, open: false });
+                setConfirm({ ...confirm, open: false });
             }
-        })
-
-
-
+        });
     };
 
     return (
@@ -122,9 +131,10 @@ export default function Profile() {
                                     type="text"
                                     value={values.username}
                                     onChange={changeHandler}
-                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
+                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 ${errors.username ? 'border-red-500' : ''} focus:bg-transparent outline-lime-200 transition-all`}
                                     placeholder="Enter your name"
                                 />
+                                {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username}</p>}
                             </div>
                             <div>
                                 <label htmlFor='email' className="text-gray-800 text-xl mb-2 block">Email</label>
@@ -134,9 +144,10 @@ export default function Profile() {
                                     type="email"
                                     value={values.email}
                                     onChange={changeHandler}
-                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
+                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 ${errors.email ? 'border-red-500' : ''} focus:bg-transparent outline-lime-200 transition-all`}
                                     placeholder="Enter your email"
                                 />
+                                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                             </div>
                             <div>
                                 <label htmlFor='tel' className="text-gray-800 text-xl mb-2 block">Mobile phone number</label>
@@ -146,9 +157,10 @@ export default function Profile() {
                                     type="tel"
                                     value={values.tel}
                                     onChange={changeHandler}
-                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
+                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 ${errors.tel ? 'border-red-500' : ''} focus:bg-transparent outline-lime-200 transition-all`}
                                     placeholder="+359XXXXXXXXX"
                                 />
+                                {errors.tel && <p className="text-red-500 text-sm mt-1">{errors.tel}</p>}
                             </div>
                         </div>
                         <div className="mt-12 flex justify-center items-center gap-10">
@@ -188,7 +200,6 @@ export default function Profile() {
                     onCancel={() => setConfirm({ ...confirm, open: false })}
                 />
             )}
-
         </div>
     );
 }
