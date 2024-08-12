@@ -1,9 +1,9 @@
 import { useForm } from "../../../../hooks/useForm";
 import { post } from "../../../../api/requester";
 import { useState } from "react";
-import { validateRecipe } from "./validateRecipe";
 import UponRequest from "../../../modals/UponRequest";
 import ErrorFormModal from "../../../modals/ErrorFormModal";
+import { validateRecipe } from "./validateRecipe";
 
 
 const initialValues = {
@@ -21,19 +21,19 @@ const initialValues = {
 export default function CreateRecipe() {
 
     const [errModal, setErrModal] = useState(false);
-    const [succModal, setSuccModal] = useState(false);
+    const [reqModal, setReqModal] = useState(false);
     const [message, setMessage] = useState("");
 
     const submitCallback = async (formValues) => {
         try {
             await post('http://localhost:3030/data/recipes', formValues);
             setMessage('Recipe added successfully!');
-            setSuccModal(true)
+            setReqModal(true)
             updateValues(initialValues);
         } catch (err) {
             console.error('Error updating recipe:', err);
-            setMessage('Failed to update the recipe.');
-            setSuccModal(true)
+            setMessage('Failed to add the recipe.');
+            setReqModal(true)
         }
     };
 
@@ -49,7 +49,7 @@ export default function CreateRecipe() {
     };
 
     const closeSuccModal = () => {
-        setSuccModal(false);
+        setReqModal(false);
     }
 
 
@@ -183,7 +183,7 @@ export default function CreateRecipe() {
                 </div>
             </div>
 
-            {succModal && <UponRequest message={message} onClose={closeSuccModal} />}
+            {reqModal && <UponRequest message={message} onClose={closeSuccModal} />}
             {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
 
         </div>
