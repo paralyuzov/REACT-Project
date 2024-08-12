@@ -300,6 +300,21 @@ homeRouter.put('/teas/edit/:id', async (req, res) => {
     }
 })
 
+homeRouter.delete('/teas/:id', async (req, res) => {
+    try {
+        const teaId = req.params.id.toString();
+        const deletedTea = await Tea.findByIdAndDelete(teaId);
+
+        if (!deletedTea) {
+            return res.status(404).json({ message: 'Tea not found' });
+        }
+
+        res.status(200).json({ message: 'Tea successfully deleted' });
+    } catch (error) {
+        res.status(500).json({ message: 'An error occurred while deleting the tea', error: error.message });
+    }
+});
+
 
 
 
