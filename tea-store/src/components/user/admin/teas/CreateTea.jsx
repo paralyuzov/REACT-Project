@@ -74,7 +74,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.title}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.title ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter tea name"
                                 />
 
@@ -86,7 +86,7 @@ export default function CreateTea() {
                                     name="type"
                                     value={values.type}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.type ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                 >
                                     <option value="">Select type</option>
                                     <option value="matcha">Matcha</option>
@@ -106,7 +106,7 @@ export default function CreateTea() {
                                     type="number"
                                     value={values.price}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter price"
                                 />
 
@@ -119,7 +119,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.package}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.package ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="example : W8.6 x D8.2 x H14.1 cm"
                                 />
 
@@ -132,7 +132,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.weight}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.weight ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter package weight"
                                 />
 
@@ -145,7 +145,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.serving}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.serving ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter tea serving (grams for preparing)"
                                 />
 
@@ -158,7 +158,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.ingredients}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.ingredients ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Green tea (Japan)"
                                 />
 
@@ -171,7 +171,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.image}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.image ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter image URL https://...."
                                 />
 
@@ -184,7 +184,7 @@ export default function CreateTea() {
                                     type="text"
                                     value={values.life}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.life ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent" 
                                     placeholder="Enter shelf life (e.g., 180 days)"
                                 />
 
@@ -196,7 +196,7 @@ export default function CreateTea() {
                                     id='description'
                                     value={values.description}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
                                     placeholder="Enter description"
                                 />
 
