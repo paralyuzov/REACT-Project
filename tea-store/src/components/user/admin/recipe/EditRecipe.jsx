@@ -1,14 +1,23 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
+import { validateRecipe } from "./validateRecipe.js";
+import ErrorModal from "../../../modals/ErrorModal";
+import SuccessModal from "../../../modals/SuccessModal";
 
 export default function EditRecipe() {
 
     const { accessToken } = useContext(AuthContext)
     const location = useLocation();
     const RecipeData = location.state || {};
+    const navigate = useNavigate();
+
+    const [errModal, setErrModal] = useState(false);
+    const [succModal, setSuccModal] = useState(false);
+    const [message, setMessage] = useState("");
+
     const initialValues = {
         title: RecipeData.title || '',
         info: RecipeData.info || '',
@@ -20,11 +29,6 @@ export default function EditRecipe() {
 
     };
 
-    const validate = (values) => {
-        const errors = {};
-        if (!values.title) errors.title = 'Recipe name is required';
-        return errors;
-    };
 
     const submitCallback = async (updated) => {
         const id = RecipeData._id;
@@ -32,19 +36,42 @@ export default function EditRecipe() {
             await requester.put(`http://localhost:3030/api/collection/recipes/edit/${id}`, updated, {
                 'X-Authorization': accessToken
             });
+            setMessage('Recipe updated successfully!');
+            setSuccModal(true)
 
         } catch (error) {
-            console.error('Error updating tea:', error);
+            console.error('Error updating recipe:', error);
+            setMessage('Failed to update the recipe.');
+            setSuccModal(true)
         }
     };
 
-    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validate);
+    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validateRecipe);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (Object.keys(errors).length > 0) {
+            setErrModal(true);
+        } else {
+            submitHandler(e);
+        }
+    };
+
+    const closeSuccModal = () => {
+        setSuccModal(false);
+        navigate('/admin/recipes')
+    }
+
+
+    const closeErrModal = () => {
+        setErrModal(false);
+    };
 
     return (
         <div className="font-laila border-x-2 my-10">
             <div className="flex flex-col items-center justify-center p-6">
                 <div className="grid lg:grid-cols-2 items-center gap-2 max-w-7xl max-lg:max-w-xl w-full">
-                    <form className="lg:max-w-md w-full" onSubmit={submitHandler}>
+                    <form className="lg:max-w-md w-full" onSubmit={handleSubmit}>
                         <h3 className="text-gray-800 text-3xl font-extrabold mb-12">Edit Recipe</h3>
                         <div className="space-y-3">
                             <div>
@@ -82,7 +109,7 @@ export default function EditRecipe() {
                                     value={values.image}
                                     onChange={changeHandler}
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.image ? 'border-red-500' : ''}`}
-                                    placeholder="Enter image URL https://...."
+                                    placeholder="Enter image URL http:// or https://"
                                 />
                             </div>
 
@@ -153,6 +180,8 @@ export default function EditRecipe() {
                     </div>
                 </div>
             </div>
+            {succModal && <SuccessModal message={message} onClose={closeSuccModal} />}
+            {errModal && <ErrorModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
 }
