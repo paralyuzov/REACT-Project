@@ -7,7 +7,7 @@ import requester from "../../../api/requester";
 export default function ShopSencha() {
 
     const { addToCart } = useCart();
-    const {isAuthenticated} = useContext(AuthContext)
+    const isAuthenticated = useContext(AuthContext)
 
     const [items, setItems] = useState([]);
 
