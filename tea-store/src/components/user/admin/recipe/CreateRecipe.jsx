@@ -72,7 +72,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.title}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.title ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter tea name"
                                 />
 
@@ -86,7 +86,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.info}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
                                     placeholder="Enter recipe information"
                                 />
 
@@ -100,7 +100,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.image}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.image ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter image URL https://...."
                                 />
 
@@ -114,7 +114,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.quantity}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
                                     placeholder="Enter quantity"
                                 />
 
@@ -128,7 +128,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.amount}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all "
                                     placeholder="Enter amount"
                                 />
 
@@ -142,7 +142,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.time}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter preparing time"
                                 />
 
@@ -156,7 +156,7 @@ export default function CreateRecipe() {
                                     type="text"
                                     value={values.aditional}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter aditional info"
                                 />
 
