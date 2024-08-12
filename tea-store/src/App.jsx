@@ -50,6 +50,12 @@ import ControlPanel from './components/user/admin/ControlPanel';
 import Teas from './components/user/admin/teas/Teas';
 import CreateTea from './components/user/admin/teas/CreateTea';
 import EditTea from './components/user/admin/teas/EditTea';
+import Utensils from './components/user/admin/utensils/Utensils';
+import EditUtensils from './components/user/admin/utensils/EditUtensils';
+import CreateUtensil from './components/user/admin/utensils/CreateUtensil';
+import Recipes from './components/user/admin/recipe/Recipes'
+import EditRecipe from './components/user/admin/recipe/EditRecipe';
+import CreateRecipe from './components/user/admin/recipe/CreateRecipe';
 
 
 
@@ -104,13 +110,24 @@ function App() {
                                 </Route>
                                 <Route path='/payment-success' element={<PaymentSuccess />} />
                                 <Route path='/payment-decline' element={<PaymentDecline />} />
+
                                 <Route path='/admin' element={<ControlPanel />} />
                                 <Route path='/admin/teas' element={<Teas />} />
                                 <Route path='/admin/teas/add' element={<CreateTea />} />
                                 <Route path='/admin/teas/edit/:id' element={<EditTea />} />
+                                <Route path='/admin/utensils' element={<Utensils />} />
+                                <Route path='/admin/utensils/add' element={<CreateUtensil />} />
+                                <Route path='/admin/utensils/edit/:id' element={<EditUtensils />} />
+                                <Route path='/admin/recipes' element={<Recipes />} />
+                                <Route path='/admin/recipes/add' element={<CreateRecipe />} />
+                                <Route path='/admin/recipes/edit/:id' element={<EditRecipe />} />
+
+
+
+
 
                                 <Route path='*' element={<PageNotFound />} />
-                                
+
                             </Routes>
                         </div>
                         <Footer />
