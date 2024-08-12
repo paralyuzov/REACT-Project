@@ -1,6 +1,10 @@
 import { useForm } from "../../../../hooks/useForm";
 import { post } from "../../../../api/requester";
 import { useState } from "react";
+import { validateRecipe } from "./validateRecipe";
+import UponRequest from "../../../modals/UponRequest";
+import ErrorFormModal from "../../../modals/ErrorFormModal";
+
 
 const initialValues = {
     title: '',
@@ -13,60 +17,44 @@ const initialValues = {
 
 };
 
-const validate = (values) => {
-    const errors = {};
-
-    if (!values.title) errors.title = 'Title is required';
-  
-
-    return errors;
-};
 
 export default function CreateRecipe() {
 
-    const [modal, setModal] = useState({ visible: false, content: '', type: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errModal, setErrModal] = useState(false);
+    const [succModal, setSuccModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const submitCallback = async (formValues) => {
         try {
-            setIsSubmitting(true);
             await post('http://localhost:3030/data/recipes', formValues);
-            setModal({
-                visible: true,
-                content: 'Recipe added successfully!',
-                type: 'success',
-            });
+            setMessage('Recipe added successfully!');
+            setSuccModal(true)
             updateValues(initialValues);
         } catch (err) {
-            setModal({
-                visible: true,
-                content: 'Error adding recipe. Please try again.',
-                type: 'error',
-            });
-        } finally {
-            setIsSubmitting(false);
+            console.error('Error updating recipe:', err);
+            setMessage('Failed to update the recipe.');
+            setSuccModal(true)
         }
     };
 
-    const { values, changeHandler, submitHandler, updateValues, errors } = useForm(initialValues, submitCallback, validate);
+    const { values, changeHandler, submitHandler, updateValues, errors } = useForm(initialValues, submitCallback, validateRecipe);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const formErrors = validate(values);
-        if (Object.keys(formErrors).length > 0) {
-            setModal({
-                visible: true,
-                content: Object.values(formErrors).join(', '),
-                type: 'error',
-            });
+        if (Object.keys(errors).length > 0) {
+            setErrModal(true);
         } else {
             submitHandler(e);
         }
     };
 
-    const closeModal = () => {
-        setModal({ ...modal, visible: false });
+    const closeSuccModal = () => {
+        setSuccModal(false);
+    }
+
+
+    const closeErrModal = () => {
+        setErrModal(false);
     };
 
     return (
@@ -87,7 +75,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.title ? 'border-red-500' : ''}`}
                                     placeholder="Enter tea name"
                                 />
-                                {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
+
                             </div>
 
                             <div>
@@ -101,7 +89,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
                                     placeholder="Enter recipe information"
                                 />
-                                {errors.info && <p className="text-red-500 text-sm">{errors.info}</p>}
+
                             </div>
 
                             <div>
@@ -115,7 +103,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.image ? 'border-red-500' : ''}`}
                                     placeholder="Enter image URL https://...."
                                 />
-                                {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
+
                             </div>
 
                             <div>
@@ -129,7 +117,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
                                     placeholder="Enter quantity"
                                 />
-                                {errors.quantity && <p className="text-red-500 text-sm">{errors.quantity}</p>}
+
                             </div>
 
                             <div>
@@ -143,7 +131,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
                                     placeholder="Enter amount"
                                 />
-                                {errors.amount && <p className="text-red-500 text-sm">{errors.amount}</p>}
+
                             </div>
 
                             <div>
@@ -157,7 +145,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
                                     placeholder="Enter preparing time"
                                 />
-                                {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+
                             </div>
 
                             <div>
@@ -171,7 +159,7 @@ export default function CreateRecipe() {
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
                                     placeholder="Enter aditional info"
                                 />
-                                {errors.aditional && <p className="text-red-500 text-sm">{errors.aditional}</p>}
+
                             </div>
 
                         </div>
@@ -179,9 +167,8 @@ export default function CreateRecipe() {
                         <div className="mt-12">
                             <input
                                 type="submit"
-                                value={isSubmitting ? "Adding..." : "Add Recipe"}
+                                value="Add Recipe"
                                 className="py-4 px-8 text-xl font-semibold text-black tracking-wide bg-lime-200 hover:bg-lime-300 focus:outline-none"
-                                disabled={isSubmitting}
                             />
                         </div>
                     </form>
@@ -190,26 +177,15 @@ export default function CreateRecipe() {
                         <img
                             src="https://janabouc.com/wp-content/uploads/2011/06/20110622_jap-teagarden.jpg"
                             className="w-full h-full object-fill"
-                            alt="Tea"
+                            alt="Recipe"
                         />
                     </div>
                 </div>
             </div>
 
-            {modal.visible && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-6 rounded shadow-md">
-                        <h2 className="text-xl font-bold mb-4">{modal.type === 'success' ? 'Success' : 'Error'}</h2>
-                        <p className="text-gray-700 mb-4">{modal.content}</p>
-                        <button
-                            onClick={closeModal}
-                            className="px-4 py-2 bg-red-500 text-white rounded"
-                        >
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
+            {succModal && <UponRequest message={message} onClose={closeSuccModal} />}
+            {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
+
         </div>
     );
 }
