@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import requester from "../../../../api/requester";
 import Spinner from "../../../../shared/Spinner";
+import ConfirmModal from "../../../modals/ConfirmModal";
 
 
 
@@ -10,6 +11,8 @@ export default function Teas() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [items, setItems] = useState([]);
+    const [deleteItemId, setDeleteItemId] = useState(null);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,14 +33,28 @@ export default function Teas() {
         navigate(`/admin/teas/edit/${item._id}`, { state: { ...item } });
     };
 
-    const handleDelete = async (itemId) => {
+    const handleDeleteClick = (itemId) => {
+        setDeleteItemId(itemId);
+        setShowConfirmModal(true);
+    };
+
+    const confirmDelete = async () => {
         try {
-            await requester.del(`http://localhost:3030/api/collection/teas/${itemId}`);
-            setItems(items.filter(item => item._id !== itemId));
+            await requester.del(`http://localhost:3030/api/collection/teas/${deleteItemId}`);
+            setItems(items.filter(item => item._id !== deleteItemId));
         } catch (err) {
             console.error("Failed to delete the item:", err);
+        } finally {
+            setShowConfirmModal(false);
+            setDeleteItemId(null);
         }
     };
+
+    const cancelDelete = () => {
+        setShowConfirmModal(false);
+        setDeleteItemId(null);
+    };
+
 
     if (isLoading) {
         return (
@@ -69,7 +86,7 @@ export default function Teas() {
                                 <button onClick={() => handleEditClick(item)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-blue-300 hover:ease-in-out duration-700">
                                     <i className="fa-regular fa-pen-to-square"></i>Edit
                                 </button>
-                                <button onClick={() => handleDelete(item._id)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
+                                <button onClick={() => handleDeleteClick(item._id)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
                                     <i className="fa-solid fa-trash"></i>Delete
                                 </button>
                             </div>
@@ -79,6 +96,14 @@ export default function Teas() {
                     </div>
                 ))}
             </div>
+            {showConfirmModal && (
+                <ConfirmModal
+                    title="Remove Tea"
+                    message="Are you sure you want to delete this tea?"
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                />
+            )}
         </div>
     );
 }
