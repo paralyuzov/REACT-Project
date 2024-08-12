@@ -1,25 +1,28 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
+import { validateUser } from "./validateUser";
+import UponRequest from "../../../modals/UponRequest";
+import ErrorFormModal from "../../../modals/ErrorFormModal";
 
 export default function EditTea() {
 
     const { accessToken } = useContext(AuthContext)
     const location = useLocation();
     const userData = location.state || {};
+    const navigate = useNavigate();
+
+    const [errModal, setErrModal] = useState(false);
+    const [reqModal, setReqModal] = useState(false);
+    const [message, setMessage] = useState("");
+
     const initialValues = {
         username: userData.username || '',
         email: userData.email || '',
         tel: userData.tel || "",
         role: userData.role || '',
-    };
-
-    const validate = (values) => {
-        const errors = {};
-        if (!values.username) errors.title = 'Username is required';
-        return errors;
     };
 
     const submitCallback = async (updated) => {
@@ -28,19 +31,42 @@ export default function EditTea() {
             await requester.put(`http://localhost:3030/users/${id}`, updated, {
                 'X-Authorization': accessToken
             });
+            setMessage('User updated successfully!');
+            setReqModal(true)
 
         } catch (error) {
             console.error('Error updating user:', error);
+            setMessage('Failed to update the user.');
+            setReqModal(true)
         }
     };
 
-    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validate);
+    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validateUser);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (Object.keys(errors).length > 0) {
+            setErrModal(true);
+        } else {
+            submitHandler(e);
+        }
+    };
+
+    const closeReqModal = () => {
+        setReqModal(false);
+        navigate('/admin/users')
+    }
+
+
+    const closeErrModal = () => {
+        setErrModal(false);
+    };
 
     return (
         <div className="font-laila border-x-2 my-10">
             <div className="flex flex-col items-center justify-center p-6">
                 <div className="grid lg:grid-cols-2 items-center gap-2 max-w-7xl max-lg:max-w-xl w-full">
-                    <form className="lg:max-w-md w-full" onSubmit={submitHandler}>
+                    <form className="lg:max-w-md w-full" onSubmit={handleSubmit}>
                         <h3 className="text-gray-800 text-3xl font-extrabold mb-12">Edit User</h3>
                         <div className="space-y-3">
                             <div>
@@ -51,7 +77,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.username}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.title ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter username"
                                 />
                             </div>
@@ -64,7 +90,7 @@ export default function EditTea() {
                                     type="tel"
                                     value={values.tel}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter telephone"
                                 />
                             </div>
@@ -73,10 +99,10 @@ export default function EditTea() {
                                 <input
                                     name="email"
                                     id='email'
-                                    type="text"
+                                    type="email"
                                     value={values.email}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.package ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all "
                                     placeholder="Enter email"
                                 />
                             </div>
@@ -88,7 +114,7 @@ export default function EditTea() {
                                     name="role"
                                     value={values.role}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.type ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                 >
                                     <option value="">Select Role</option>
                                     <option value="user">User</option>
@@ -116,6 +142,8 @@ export default function EditTea() {
                     </div>
                 </div>
             </div>
+            {reqModal && <UponRequest message={message} onClose={closeReqModal} />}
+            {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
 }
