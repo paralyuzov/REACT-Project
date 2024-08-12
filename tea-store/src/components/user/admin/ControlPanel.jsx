@@ -17,19 +17,23 @@ export default function ControlPanel() {
                     </div>
                 </Link>
 
-                <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105 hover:bg-slate-50 ">
-                    <div >
-                        <img className="w-44 h-44" src="\src\assets\admin-panel\add-utensils.jpg" alt="" />
+                <Link to={'/admin/utensils'}>
+                    <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105 hover:bg-slate-50 ">
+                        <div >
+                            <img className="w-44 h-44" src="\src\assets\admin-panel\add-utensils.jpg" alt="" />
+                        </div>
+                        <p className="py-2">Utensils</p>
                     </div>
-                    <p className="py-2">Utensils</p>
-                </div>
+                </Link>
 
-                <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105  hover:bg-slate-50">
-                    <div>
-                        <img className="w-44 h-44" src="\src\assets\admin-panel\add-recipe.avif" alt="" />
+                <Link to={'/admin/recipes'}>
+                    <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105  hover:bg-slate-50">
+                        <div>
+                            <img className="w-44 h-44" src="\src\assets\admin-panel\add-recipe.avif" alt="" />
+                        </div>
+                        <p className="py-2">Recipes</p>
                     </div>
-                    <p className="py-2">Recipes</p>
-                </div>
+                </Link>
 
                 <div className="flex flex-col justify-center items-center gap-5 border-2 rounded-full hover:scale-105  hover:bg-slate-50">
                     <div>
