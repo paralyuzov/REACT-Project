@@ -269,17 +269,13 @@ homeRouter.get('/teas', async (req, res) => {
     }
 })
 
-homeRouter.put('/teas/edit/:id', async (req, res) => {
+homeRouter.put('/teas/edit/:id', validateObjectId(), async (req, res) => {
     try {
         const teaId = req.params.id;
         const updatedTeaData = req.body;
 
         console.log("Received Update Data:", updatedTeaData);
         console.log("Tea ID:", teaId);
-
-        if (!mongoose.Types.ObjectId.isValid(teaId)) {
-            return res.status(400).json({ message: 'Invalid Tea ID' });
-        }
 
         const tea = await Tea.findById(teaId);
 
@@ -300,7 +296,7 @@ homeRouter.put('/teas/edit/:id', async (req, res) => {
     }
 })
 
-homeRouter.delete('/teas/:id', async (req, res) => {
+homeRouter.delete('/teas/:id', validateObjectId(), async (req, res) => {
     try {
         const teaId = req.params.id.toString();
         const deletedTea = await Tea.findByIdAndDelete(teaId);
@@ -312,6 +308,106 @@ homeRouter.delete('/teas/:id', async (req, res) => {
         res.status(200).json({ message: 'Tea successfully deleted' });
     } catch (error) {
         res.status(500).json({ message: 'An error occurred while deleting the tea', error: error.message });
+    }
+});
+
+homeRouter.get('/utensils', async (req, res) => {
+    try {
+        const items = await Utensils.find({});
+        res.status(200).json(items);
+    } catch (err) {
+        res.status(500).send({ code: 500, error: parseError(err) });
+    }
+})
+
+homeRouter.put('/utensils/edit/:id', validateObjectId(), async (req, res) => {
+    try {
+        const utensilId = req.params.id;
+        const updatedData = req.body;
+
+        const utensils = await Utensils.findById(utensilId);
+
+        if (!utensils) {
+            return res.status(404).json({ message: 'Utensils not found' });
+        }
+
+        Object.assign(utensils, updatedData);
+
+        const updatedUtensil = await utensils.save();
+
+
+
+        res.status(200).json(updatedUtensil);
+    } catch (error) {
+        console.error("Update Error:", error);
+        res.status(500).json({ message: 'An error occurred while updating the utensil', error: error.message });
+    }
+})
+
+homeRouter.delete('/utensils/:id', validateObjectId(), async (req, res) => {
+    try {
+        const utensilId = req.params.id.toString();
+        const deletedUtensil = await Utensils.findByIdAndDelete(utensilId);
+
+        if (!deletedUtensil) {
+            return res.status(404).json({ message: 'Utensil not found' });
+        }
+
+        res.status(200).json({ message: 'Utensil successfully deleted' });
+    } catch (error) {
+        res.status(500).json({ message: 'An error occurred while deleting the utensil', error: error.message });
+    }
+});
+
+homeRouter.put('/recipes/edit/:id', validateObjectId(), async (req, res) => {
+    try {
+        const recipeId = req.params.id;
+        const data = req.body;
+
+        const updatedData = {
+            title: data.title,
+            info: data.info,
+            image: data.image,
+            preparing: {
+                quantity: data.quantity,
+                amount: data.amount,
+                time: data.time,
+                aditional: data.aditional
+
+            }
+        }
+
+        const recipe = await Recipe.findById(recipeId);
+
+        if (!recipe) {
+            return res.status(404).json({ message: 'Recipe not found' });
+        }
+
+        Object.assign(recipe, updatedData);
+
+        const updatedRecipe = await recipe.save();
+
+
+
+        res.status(200).json(updatedRecipe);
+    } catch (error) {
+        console.error("Update Error:", error);
+        res.status(500).json({ message: 'An error occurred while updating the utensil', error: error.message });
+    }
+})
+
+homeRouter.delete('/recipes/:id', validateObjectId(), async (req, res) => {
+    try {
+        const recipeId = req.params.id.toString();
+        const deltedRecipe = await Recipe.findByIdAndDelete(recipeId);
+
+        if (!deltedRecipe) {
+            return res.status(404).json({ message: 'Recipe not found' });
+        }
+
+        res.status(200).json({ message: 'Recipe successfully deleted' });
+    } catch (error) {
+        res.status(500).json({ message: 'An error occurred while deleting the recipe', error: error.message });
     }
 });
 
