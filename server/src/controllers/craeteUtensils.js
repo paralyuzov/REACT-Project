@@ -11,7 +11,7 @@ createUtensils.post('/utensils', async (req, res) => {
 
     try {
         await createUtensilsModel({ title, price, package, image, description });
-        res.send('Succsefull')
+        res.status(200).json("Successfull!")
 
     } catch (error) {
         console.log(error)
