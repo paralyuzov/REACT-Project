@@ -56,6 +56,10 @@ import CreateUtensil from './components/user/admin/utensils/CreateUtensil';
 import Recipes from './components/user/admin/recipe/Recipes'
 import EditRecipe from './components/user/admin/recipe/EditRecipe';
 import CreateRecipe from './components/user/admin/recipe/CreateRecipe';
+import AdminGuard from './components/guard/AdminGuard';
+import Loader from './shared/Loader';
+import Unauthorized from './components/unauthorized/Unauthorized';
+import GuestGuard from './components/guard/GuestGuard';
 
 
 
@@ -64,75 +68,80 @@ function App() {
     return (
         <>
             <AuthContextProvider>
-                <CardProvider>
-                    <FavoriteProvider>
-                        <Header />
-                        <ScrollToTop />
-                        <div>
-                            <Routes>
+                <Loader>
+                    <CardProvider>
+                        <FavoriteProvider>
+                            <Header />
+                            <ScrollToTop />
+                            <div>
+                                <Routes>
 
-                                <Route path='/' element={<Main />} />
-                                <Route path='/about-the-tea' element={<AboutTheTea />} />
-                                <Route path='/preparing-tea' element={<Preparing />} />
-                                <Route path='/preparing-tea/sencha' element={<PrepSencha />} />
-                                <Route path='/preparing-tea/gyokuro' element={<PrepGyokuro />} />
-                                <Route path='/preparing-tea/matcha' element={<PrepMatcha />} />
-                                <Route path='/preparing-tea/hojicha' element={<PrepHojicha />} />
-                                <Route path='/preparing-tea/one-cup-teabags' element={<PrepOneCup />} />
-                                <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
-                                <Route path='/types-of-tea' element={<TypesOfTea />} />
-                                <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
-                                <Route path='/collection/gyokuro/:id' element={<GyokuroDetails />} />
-                                <Route path='/collection/sencha' element={<ShopSencha />} />
-                                <Route path='/collection/sencha/:id' element={<SenchaDetails />} />
-                                <Route path='/collection/matcha' element={<ShopMatcha />} />
-                                <Route path='/collection/matcha/:id' element={<MatchaDetails />} />
-                                <Route path='/collection/hojicha' element={<ShopHojicha />} />
-                                <Route path='/collection/hojicha/:id' element={<HojichaDetails />} />
-                                <Route path='/collection/organic' element={<ShopOrganic />} />
-                                <Route path='/collection/organic/:id' element={<OrganicDetails />} />
-                                <Route path='/collection/teabag' element={<ShopTeabags />} />
-                                <Route path='/collection/teabag/:id' element={<TeabagsDetails />} />
-                                <Route path='/collection/utensils' element={<ShopUtensils />} />
-                                <Route path='/collection/utensils/:id' element={<UtensilsDetails />} />
-                                <Route path='/signup' element={<Register />} />
-                                <Route path='/signin' element={<Login />} />
-                                <Route path='/search' element={<SearchResult />} />
-                                <Route path='/blog/recipe' element={<Recipe />} />
-                                <Route path='/blog/recipe/:id' element={<RecipeDetails />} />
-                                <Route path='/blog/story' element={<Story />} />
-                                <Route path='/blog/story/:id' element={<StoryDetails />} />
+                                    <Route path='/' element={<Main />} />
+                                    <Route path='/about-the-tea' element={<AboutTheTea />} />
+                                    <Route path='/preparing-tea' element={<Preparing />} />
+                                    <Route path='/preparing-tea/sencha' element={<PrepSencha />} />
+                                    <Route path='/preparing-tea/gyokuro' element={<PrepGyokuro />} />
+                                    <Route path='/preparing-tea/matcha' element={<PrepMatcha />} />
+                                    <Route path='/preparing-tea/hojicha' element={<PrepHojicha />} />
+                                    <Route path='/preparing-tea/one-cup-teabags' element={<PrepOneCup />} />
+                                    <Route path='/preparing-tea/one-pot-teabags' element={<PrepOnePot />} />
+                                    <Route path='/types-of-tea' element={<TypesOfTea />} />
+                                    <Route path='/collection/gyokuro' element={<ShopGyokuro />} />
+                                    <Route path='/collection/gyokuro/:id' element={<GyokuroDetails />} />
+                                    <Route path='/collection/sencha' element={<ShopSencha />} />
+                                    <Route path='/collection/sencha/:id' element={<SenchaDetails />} />
+                                    <Route path='/collection/matcha' element={<ShopMatcha />} />
+                                    <Route path='/collection/matcha/:id' element={<MatchaDetails />} />
+                                    <Route path='/collection/hojicha' element={<ShopHojicha />} />
+                                    <Route path='/collection/hojicha/:id' element={<HojichaDetails />} />
+                                    <Route path='/collection/organic' element={<ShopOrganic />} />
+                                    <Route path='/collection/organic/:id' element={<OrganicDetails />} />
+                                    <Route path='/collection/teabag' element={<ShopTeabags />} />
+                                    <Route path='/collection/teabag/:id' element={<TeabagsDetails />} />
+                                    <Route path='/collection/utensils' element={<ShopUtensils />} />
+                                    <Route path='/collection/utensils/:id' element={<UtensilsDetails />} />
 
-                                <Route element={<AuthGuard />} >
-                                    <Route path='/cart' element={<Cart />} />
-                                    <Route path='/profile' element={<Profile />} />
-                                    <Route path='/favorites' element={<Favorites />} />
-                                </Route>
-                                <Route path='/payment-success' element={<PaymentSuccess />} />
-                                <Route path='/payment-decline' element={<PaymentDecline />} />
+                                    <Route element={<GuestGuard />}>
+                                        <Route path='/signup' element={<Register />} />
+                                        <Route path='/signin' element={<Login />} />
+                                    </Route>
+                                    
+                                    <Route path='/search' element={<SearchResult />} />
+                                    <Route path='/blog/recipe' element={<Recipe />} />
+                                    <Route path='/blog/recipe/:id' element={<RecipeDetails />} />
+                                    <Route path='/blog/story' element={<Story />} />
+                                    <Route path='/blog/story/:id' element={<StoryDetails />} />
 
-                                <Route path='/admin' element={<ControlPanel />} />
-                                <Route path='/admin/teas' element={<Teas />} />
-                                <Route path='/admin/teas/add' element={<CreateTea />} />
-                                <Route path='/admin/teas/edit/:id' element={<EditTea />} />
-                                <Route path='/admin/utensils' element={<Utensils />} />
-                                <Route path='/admin/utensils/add' element={<CreateUtensil />} />
-                                <Route path='/admin/utensils/edit/:id' element={<EditUtensils />} />
-                                <Route path='/admin/recipes' element={<Recipes />} />
-                                <Route path='/admin/recipes/add' element={<CreateRecipe />} />
-                                <Route path='/admin/recipes/edit/:id' element={<EditRecipe />} />
+                                    <Route element={<AuthGuard />} >
+                                        <Route path='/cart' element={<Cart />} />
+                                        <Route path='/profile' element={<Profile />} />
+                                        <Route path='/favorites' element={<Favorites />} />
+                                    </Route>
+                                    <Route path='/payment-success' element={<PaymentSuccess />} />
+                                    <Route path='/payment-decline' element={<PaymentDecline />} />
 
+                                    <Route element={<AdminGuard />}>
+                                        <Route path='/admin' element={<ControlPanel />} />
+                                        <Route path='/admin/teas' element={<Teas />} />
+                                        <Route path='/admin/teas/add' element={<CreateTea />} />
+                                        <Route path='/admin/teas/edit/:id' element={<EditTea />} />
+                                        <Route path='/admin/utensils' element={<Utensils />} />
+                                        <Route path='/admin/utensils/add' element={<CreateUtensil />} />
+                                        <Route path='/admin/utensils/edit/:id' element={<EditUtensils />} />
+                                        <Route path='/admin/recipes' element={<Recipes />} />
+                                        <Route path='/admin/recipes/add' element={<CreateRecipe />} />
+                                        <Route path='/admin/recipes/edit/:id' element={<EditRecipe />} />
+                                    </Route>
 
+                                    <Route path='/unauthorized' element={<Unauthorized />} />
+                                    <Route path='*' element={<PageNotFound />} />
 
-
-
-                                <Route path='*' element={<PageNotFound />} />
-
-                            </Routes>
-                        </div>
-                        <Footer />
-                    </FavoriteProvider>
-                </CardProvider>
+                                </Routes>
+                            </div>
+                            <Footer />
+                        </FavoriteProvider>
+                    </CardProvider>
+                </Loader>
             </AuthContextProvider>
         </>
     )
