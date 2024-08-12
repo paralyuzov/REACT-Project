@@ -1,14 +1,23 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
+import { validateTea } from "./validateTea";
+import UponRequest from "../../../modals/UponRequest";
+import ErrorFormModal from "../../../modals/ErrorFormModal";
 
 export default function EditTea() {
 
     const { accessToken } = useContext(AuthContext)
     const location = useLocation();
     const teaData = location.state || {};
+    const navigate = useNavigate();
+
+    const [errModal, setErrModal] = useState(false);
+    const [reqModal, setReqModal] = useState(false);
+    const [message, setMessage] = useState("");
+
     const initialValues = {
         title: teaData.title || '',
         type: teaData.type || '',
@@ -22,33 +31,48 @@ export default function EditTea() {
         description: teaData.description || '',
     };
 
-    const validate = (values) => {
-        const errors = {};
-        if (!values.title) errors.title = 'Tea name is required';
-        if (!values.type) errors.type = 'Type of tea is required';
-        if (!values.price) errors.price = 'Price is required';
-        return errors;
-    };
-
     const submitCallback = async (updatedTea) => {
         const id = teaData._id;
         try {
-            await requester.put(`http://localhost:3030/api/collection/teas/edit/${id}`,  updatedTea , {
+            await requester.put(`http://localhost:3030/api/collection/teas/edit/${id}`, updatedTea, {
                 'X-Authorization': accessToken
             });
+            setMessage('Tea updated successfully!');
+            setReqModal(true)
 
         } catch (error) {
             console.error('Error updating tea:', error);
+            setMessage('Failed to update the tea.');
+            setReqModal(true)
         }
     };
 
-    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validate);
+    const { values, changeHandler, submitHandler, errors } = useForm(initialValues, submitCallback, validateTea);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (Object.keys(errors).length > 0) {
+            setErrModal(true);
+        } else {
+            submitHandler(e);
+        }
+    };
+
+    const closeSuccModal = () => {
+        setReqModal(false);
+        navigate('/admin/teas')
+    }
+
+
+    const closeErrModal = () => {
+        setErrModal(false);
+    };
 
     return (
         <div className="font-laila border-x-2 my-10">
             <div className="flex flex-col items-center justify-center p-6">
                 <div className="grid lg:grid-cols-2 items-center gap-2 max-w-7xl max-lg:max-w-xl w-full">
-                    <form className="lg:max-w-md w-full" onSubmit={submitHandler}>
+                    <form className="lg:max-w-md w-full" onSubmit={handleSubmit}>
                         <h3 className="text-gray-800 text-3xl font-extrabold mb-12">Edit tea</h3>
                         <div className="space-y-3">
                             <div>
@@ -196,6 +220,8 @@ export default function EditTea() {
                     </div>
                 </div>
             </div>
+            {reqModal && <UponRequest message={message} onClose={closeSuccModal} />}
+            {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
         </div>
     );
 }
