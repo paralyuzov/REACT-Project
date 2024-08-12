@@ -48,7 +48,7 @@ export default function CreateRecipe() {
         }
     };
 
-    const closeSuccModal = () => {
+    const closeReqModal = () => {
         setReqModal(false);
     }
 
@@ -183,7 +183,7 @@ export default function CreateRecipe() {
                 </div>
             </div>
 
-            {reqModal && <UponRequest message={message} onClose={closeSuccModal} />}
+            {reqModal && <UponRequest message={message} onClose={closeReqModal} />}
             {errModal && <ErrorFormModal errors={errors} onClose={closeErrModal} />}
 
         </div>
