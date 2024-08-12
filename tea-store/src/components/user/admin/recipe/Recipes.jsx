@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import requester from "../../../../api/requester";
 import Spinner from "../../../../shared/Spinner";
+import ConfirmModal from "../../../modals/ConfirmModal";
 
 
 
@@ -10,6 +11,8 @@ export default function Recipes() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [items, setItems] = useState([]);
+    const [deleteItemId, setDeleteItemId] = useState(null); 
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,20 +26,33 @@ export default function Recipes() {
             }
         };
 
-        fetchItems()
-    }, [])
+        fetchItems();
+    }, []);
 
     const handleEditClick = (item) => {
         navigate(`/admin/recipes/edit/${item._id}`, { state: { ...item } });
     };
 
-    const handleDelete = async (itemId) => {
+    const handleDeleteClick = (itemId) => {
+        setDeleteItemId(itemId);
+        setShowConfirmModal(true); 
+    };
+
+    const confirmDelete = async () => {
         try {
-            await requester.del(`http://localhost:3030/api/collection/recipes/${itemId}`);
-            setItems(items.filter(item => item._id !== itemId));
+            await requester.del(`http://localhost:3030/api/collection/recipes/${deleteItemId}`);
+            setItems(items.filter(item => item._id !== deleteItemId));
         } catch (err) {
             console.error("Failed to delete the item:", err);
+        } finally {
+            setShowConfirmModal(false);
+            setDeleteItemId(null); 
         }
+    };
+
+    const cancelDelete = () => {
+        setShowConfirmModal(false);
+        setDeleteItemId(null);
     };
 
     if (isLoading) {
@@ -55,29 +71,34 @@ export default function Recipes() {
                 </div>
             </Link>
             <div className="grid grid-cols-3 gap-10 my-20 font-laila">
-
                 {items.map(item => (
-
                     <div key={item._id} className="border-2 rounded-xl border-black">
                         <div>
                             <img src={item.image} alt="" />
                         </div>
-                        <div className=" text-xl p-10">
+                        <div className="text-xl p-10">
                             <p>{item.title}</p>
                         </div>
                         <div className="flex justify-center items-center gap-5 py-5">
                             <button onClick={() => handleEditClick(item)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-blue-300 hover:ease-in-out duration-700">
                                 <i className="fa-regular fa-pen-to-square"></i>Edit
                             </button>
-                            <button onClick={() => handleDelete(item._id)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
+                            <button onClick={() => handleDeleteClick(item._id)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
                                 <i className="fa-solid fa-trash"></i>Delete
                             </button>
                         </div>
                     </div>
-
                 ))}
-
             </div>
+
+            {showConfirmModal && (
+                <ConfirmModal
+                    title="Remove Recipe"
+                    message="Are you sure you want to delete this recipe?"
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                />
+            )}
         </div>
     );
 }
