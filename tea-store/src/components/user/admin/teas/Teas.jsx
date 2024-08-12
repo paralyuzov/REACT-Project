@@ -30,6 +30,15 @@ export default function Teas() {
         navigate(`/admin/teas/edit/${item._id}`, { state: { ...item } });
     };
 
+    const handleDelete = async (itemId) => {
+        try {
+            await requester.del(`http://localhost:3030/api/collection/teas/${itemId}`);
+            setItems(items.filter(item => item._id !== itemId));
+        } catch (err) {
+            console.error("Failed to delete the item:", err);
+        }
+    };
+
     if (isLoading) {
         return (
             <div className="my-20">
@@ -60,7 +69,7 @@ export default function Teas() {
                                 <button onClick={() => handleEditClick(item)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-blue-300 hover:ease-in-out duration-700">
                                     <i className="fa-regular fa-pen-to-square"></i>Edit
                                 </button>
-                                <button className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
+                                <button onClick={() => handleDelete(item._id)} className="px-5 self-start py-3 border rounded-full text-xl text-black hover:bg-red-300 hover:ease-in-out duration-700">
                                     <i className="fa-solid fa-trash"></i>Delete
                                 </button>
                             </div>
