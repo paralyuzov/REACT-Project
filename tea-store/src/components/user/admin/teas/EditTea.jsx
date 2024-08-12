@@ -83,7 +83,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.title}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.title ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter tea name"
                                 />
                             </div>
@@ -94,7 +94,7 @@ export default function EditTea() {
                                     name="type"
                                     value={values.type}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.type ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                 >
                                     <option value="">Select type</option>
                                     <option value="matcha">Matcha</option>
@@ -113,7 +113,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.price}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.price ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter price"
                                 />
                             </div>
@@ -125,7 +125,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.package}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.package ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="example : W8.6 x D8.2 x H14.1 cm"
                                 />
                             </div>
@@ -137,7 +137,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.weight}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.weight ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter package weight"
                                 />
                             </div>
@@ -149,7 +149,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.serving}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.serving ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
                                     placeholder="Enter tea serving (grams for preparing)"
                                 />
                             </div>
@@ -161,7 +161,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.ingredients}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.ingredients ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Green tea (Japan)"
                                 />
                             </div>
@@ -173,7 +173,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.image}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.image ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter image URL https://...."
                                 />
                             </div>
@@ -185,7 +185,7 @@ export default function EditTea() {
                                     type="text"
                                     value={values.life}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.life ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
                                     placeholder="Enter shelf life (e.g., 180 days)"
                                 />
                             </div>
@@ -196,7 +196,7 @@ export default function EditTea() {
                                     id='description'
                                     value={values.description}
                                     onChange={changeHandler}
-                                    className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}
+                                    className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
                                     placeholder="Enter description"
                                 />
                             </div>
