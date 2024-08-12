@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import requester from "../../../../api/requester";
 import { validateRecipe } from "./validateRecipe.js";
-import ErrorModal from "../../../modals/ErrorModal";
-import SuccessModal from "../../../modals/SuccessModal";
+import ErrorModal from "../../../modals/ErrorFormModal.jsx";
+import SuccessModal from "../../../modals/UponRequest.jsx";
 
 export default function EditRecipe() {
 
