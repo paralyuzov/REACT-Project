@@ -60,6 +60,8 @@ import AdminGuard from './components/guard/AdminGuard';
 import Loader from './shared/Loader';
 import Unauthorized from './components/unauthorized/Unauthorized';
 import GuestGuard from './components/guard/GuestGuard';
+import Users from './components/user/admin/users/Users';
+import EditUser from './components/user/admin/users/EditUser';
 
 
 
@@ -105,7 +107,7 @@ function App() {
                                         <Route path='/signup' element={<Register />} />
                                         <Route path='/signin' element={<Login />} />
                                     </Route>
-                                    
+
                                     <Route path='/search' element={<SearchResult />} />
                                     <Route path='/blog/recipe' element={<Recipe />} />
                                     <Route path='/blog/recipe/:id' element={<RecipeDetails />} />
@@ -131,6 +133,8 @@ function App() {
                                         <Route path='/admin/recipes' element={<Recipes />} />
                                         <Route path='/admin/recipes/add' element={<CreateRecipe />} />
                                         <Route path='/admin/recipes/edit/:id' element={<EditRecipe />} />
+                                        <Route path='/admin/users' element={<Users />} />
+                                        <Route path='/admin/users/edit/:id' element={<EditUser />} />
                                     </Route>
 
                                     <Route path='/unauthorized' element={<Unauthorized />} />
