@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
-import { useForm } from "../../../../hooks/useForm";
+import { useContext, useEffect, useState } from "react";
 import Spinner from "../../../../shared/Spinner";
 import requester from "../../../../api/requester";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../contexts/AuthContext";
 
 
 export default function Users() {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
+    const { _id } = useContext(AuthContext)
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
                 const data = await requester.get('http://localhost:3030/users');
-                setUsers(data);
+                const filtredUsers = data.filter(user => user._id !== _id)
+                setUsers(filtredUsers);
                 setIsLoading(false);
             } catch (err) {
                 console.log(err.message);
