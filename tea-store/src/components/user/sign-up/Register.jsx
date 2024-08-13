@@ -32,7 +32,7 @@ export default function Register() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const validationErrors = validate(values);
+        const validationErrors = validateRegister(values);
         if (Object.keys(validationErrors).length > 0) {
             setModalContent(Object.values(validationErrors).join(', '));
             setModal(true);
@@ -76,7 +76,7 @@ export default function Register() {
                                 <label htmlFor='password' className="text-gray-800 text-xl mb-2 block">Password</label>
                                 <input
                                     name="password"
-                                    id='register-password'
+                                    id='password'
                                     type="password"
                                     value={values.password}
                                     onChange={changeHandler}
@@ -88,7 +88,7 @@ export default function Register() {
                                 <label htmlFor='repass' className="text-gray-800 text-xl mb-2 block">Repeat password</label>
                                 <input
                                     name="repass"
-                                    id='confirm-pass'
+                                    id='repass'
                                     type="password"
                                     value={values.repass}
                                     onChange={changeHandler}
@@ -97,7 +97,7 @@ export default function Register() {
                                 />
                             </div>
                             <div>
-                                <label className="text-gray-800 text-xl mb-2 block">Mobile phone number</label>
+                                <label htmlFor='tel' className="text-gray-800 text-xl mb-2 block">Mobile phone number</label>
                                 <input
                                     name="tel"
                                     id='tel'
