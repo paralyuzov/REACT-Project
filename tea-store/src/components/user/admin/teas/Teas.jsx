@@ -44,12 +44,13 @@ export default function Teas() {
     const confirmDelete = async () => {
         try {
             await requester.del(`http://localhost:3030/api/collection/teas/${deleteItemId}`);
-            setItems(items.filter(item => item._id !== deleteItemId));
+            setFilteredItems(items.filter(item => item._id !== deleteItemId));
         } catch (err) {
             console.error("Failed to delete the item:", err);
         } finally {
             setShowConfirmModal(false);
             setDeleteItemId(null);
+            setActive("all")
         }
     };
 
