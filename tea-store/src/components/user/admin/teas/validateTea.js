@@ -33,8 +33,8 @@ export const validateTea = (values) => {
 
     if (!values.weight) {
         errors.weight = "Weight is required"
-    } else if (values.weight.length < 3) {
-        errors.weight = "Weight must be at least 3 characters long"
+    } else if (Number(values.weight) <= 0) {
+        errors.weight = "Weight must be a positive number"
     }
 
     if (!values.serving) errors.serving = 'Serving is required';
