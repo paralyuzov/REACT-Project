@@ -21,7 +21,7 @@
   "info": "New potatoes are great for nikujaga (Japanese meat and potato stew). In Kyoto, we prepare it on the sweet side. The dish goes well with Matsu-no-midori Sencha, which has a refreshing sharpness. For an invigorating taste experience, prepare the sencha with boiling hot water, and then pour it over a glass full of ice to cool it right down. It really helps to cool you down and reduce perspiration.",
   "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/ippodo_web_FoodPairing90_f0041355-f876-4c12-a001-8f60c7ed18fd_1000x.png?v=1718954305",
   "preparing": {
-    "quantity": "2 tbsp.(10g)",
+    "quantity": "2 tbsp.(18g)",
     "amount": "Boiling hot water (210ml)",
     "time": "1 min",
     "aditional": "The key is to cool the tea down right away. Fill a glass with lots of ice, and as soon as you pour on the tea, stir it well with a stirrer. It's ready to drink once the outside of the glass has become very cold."
@@ -40,6 +40,21 @@
     "amount": "Boiling hot water (210ml)",
     "time": "30 seconds",
     "aditional": "Start timing the brew from the moment you begin pouring boiling hot water in the kyusu. This is important, because it affects how the tea will taste."
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb5c982fdabc53682ccf51"
+  },
+  "title": "Waffles with Hojicha",
+  "info": "Plain waffles are perfect for munching on during a short break to tide you over until your next meal. They go well with One-Cup Teabag Hojicha, which is easy to prepare. Hojicha has wonderful aroma, and can be savoured with the waffles like you would black tea.",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/articles/ippodo_web_FoodPairing88_1000x.png?v=1711589535",
+  "preparing": {
+    "quantity": "1 teabag",
+    "amount": "Boiling hot water (160ml)",
+    "time": "60sec.",
+    "aditional": "Flavourful components from the tea leaves concentrate inside the teabag. Gently move it around in the water to help release them."
   },
   "__v": 0
 }]

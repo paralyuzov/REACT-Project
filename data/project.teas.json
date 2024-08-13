@@ -4,7 +4,7 @@
   },
   "title": "Kanza",
   "type": "matcha",
-  "price": "34.99",
+  "price": "35.01",
   "package": "Dia.5.3 x H5.2 cm",
   "weight": "20",
   "serving": "2 grams (usucha) 4 grams (koicha)",
@@ -52,9 +52,12 @@
   "favorite": [
     {
       "$oid": "66ad6eebf3075162e54fe765"
+    },
+    {
+      "$oid": "66bb42652fdabc53682cc603"
     }
   ],
-  "__v": 31
+  "__v": 34
 },
 {
   "_id": {
@@ -111,8 +114,15 @@
   "life": "180 days",
   "description": "Rich, substantial taste",
   "bougthList": [],
-  "favorite": [],
-  "__v": 0
+  "favorite": [
+    {
+      "$oid": "66ba3e312fdabc53682cc343"
+    },
+    {
+      "$oid": "66bb42652fdabc53682cc603"
+    }
+  ],
+  "__v": 2
 },
 {
   "_id": {
@@ -129,8 +139,12 @@
   "life": "180 days",
   "description": "Magnificent fragrance and mellow umami flavour.",
   "bougthList": [],
-  "favorite": [],
-  "__v": 22
+  "favorite": [
+    {
+      "$oid": "66ba3e312fdabc53682cc343"
+    }
+  ],
+  "__v": 23
 },
 {
   "_id": {
@@ -176,9 +190,12 @@
     },
     {
       "$oid": "66a90e83ddf1c0c51a6f40b5"
+    },
+    {
+      "$oid": "66ba3e312fdabc53682cc343"
     }
   ],
-  "__v": 98,
+  "__v": 99,
   "favoriteCount": 0
 },
 {
@@ -664,6 +681,24 @@
   "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/626995-01_023bc904-29a5-456c-aae9-f47f306a89ba_640x.png?v=1646181840",
   "life": "180 days",
   "description": "Light taste with JAS certification",
+  "bougthList": [],
+  "favorite": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb498f2fdabc53682cc65c"
+  },
+  "title": "Shoike-no-o",
+  "type": "sencha",
+  "price": "15.87",
+  "package": "W8.7xL3.5xH5.6",
+  "weight": "100",
+  "serving": "10grams",
+  "ingredients": "Green tea(Japan)",
+  "image": "https://global.ippodo-tea.co.jp/cdn/shop/products/shoike80g_600x.png?v=1632536309",
+  "life": "180 days",
+  "description": "A balance of light umami and sharpness.",
   "bougthList": [],
   "favorite": [],
   "__v": 0

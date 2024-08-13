@@ -1,99 +1,65 @@
 [{
   "_id": {
-    "$oid": "66a90e83ddf1c0c51a6f40b5"
+    "$oid": "66b8a9527e717c36f64d968b"
   },
-  "username": "Miroslav Paralyuzov",
-  "email": "blazini@abv.bg",
-  "password": "$2b$10$6gnUcN0aOwRRoa/vNjNOVeG0f2cGqakb/Do07AsBbIHZlgkE91xAG",
-  "tel": "+359896235421",
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2b$10$GEUJBgpKtiMu135Rt3UzXeCIl1.U/rD.W/Rea9sFxarc.Ey51SVNq",
+  "tel": "+359888222223",
+  "favorite": [],
+  "role": "admin",
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "66ba12df53308cccb5dbb05f"
+  },
+  "username": "Georgi Georgiev",
+  "email": "test_test@abv.bg",
+  "password": "$2b$10$7d8QKP25prCxKKuFkRGnYutmAIXy5Lngqcn40Na7UTcBUC4iSmTRG",
+  "tel": "+359896231231",
+  "favorite": [],
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ba3e312fdabc53682cc343"
+  },
+  "username": "Mariq",
+  "email": "mariq@gmail.com",
+  "password": "$2b$10$BVRHYSY0fy0HysunNIGB4.9BpVJ68GmYMmn7rnstHAU5erHchumQq",
+  "tel": "+359896111111",
   "favorite": [
     {
       "$oid": "669bec7a9bc0457a91aaa0b3"
     },
     {
-      "$oid": "669bece29bc0457a91aaa0b5"
+      "$oid": "669a88001dd487fa29bb21f0"
     },
     {
-      "$oid": "669bed219bc0457a91aaa0b7"
+      "$oid": "669beb3b71581256ba9a564f"
     }
   ],
-  "__v": 153
+  "role": "user",
+  "__v": 3
 },
 {
   "_id": {
-    "$oid": "66ac0cffa18b4bf8e9f54e72"
+    "$oid": "66bb42652fdabc53682cc603"
   },
-  "username": "Test test",
-  "email": "test_test@abv.bg",
-  "password": "$2b$10$pDAqCmuZvTTxQPwEPKoGiu75z1fSU1nEDd5y9YlVGEVPNEGJgxsYe",
-  "tel": "+359888111111",
+  "username": "John Oxford",
+  "email": "john@gmail.com",
+  "password": "$2b$10$slXTcTcp1WIBBqDhvmY6CudJTd22vdlDi7c1hlaWn1cUJLsaCTG9K",
+  "tel": "+359896222222",
   "favorite": [
     {
-      "$oid": "669e5815023a879734f3cdcb"
+      "$oid": "669a88001dd487fa29bb21f0"
     },
-    {
-      "$oid": "66a4de0bc1e3853ef0088a66"
-    },
-    {
-      "$oid": "669ecee16de3f5daa8c84e04"
-    },
-    {
-      "$oid": "669bece29bc0457a91aaa0b5"
-    },
-    {
-      "$oid": "669eb94a023a879734f3cdf3"
-    }
-  ],
-  "__v": 19
-},
-{
-  "_id": {
-    "$oid": "66ad6eebf3075162e54fe765"
-  },
-  "username": "Mariq Ilieva",
-  "email": "mariq@abv.bg",
-  "password": "$2b$10$QeYzVw0TgSRnZacLstd7E.1rKG74297tnDwEG4yn6VooVF9/sw5xu",
-  "tel": "+359888323232",
-  "favorite": [
     {
       "$oid": "669a857e1dd487fa29bb21ea"
     }
   ],
-  "__v": 5
-},
-{
-  "_id": {
-    "$oid": "66af9d83ea961b63a8f76502"
-  },
-  "username": "miri",
-  "email": "miroslav@abv.bg",
-  "password": "$2b$10$Bom45fXsnyJ4vi3bZGZJUONAuG.1PQS9SP.SgZtsup5xdqV6d/8Wi",
-  "tel": "+359896232332",
-  "favorite": [
-    {
-      "$oid": "669e5815023a879734f3cdcb"
-    },
-    {
-      "$oid": "669bece29bc0457a91aaa0b5"
-    },
-    {
-      "$oid": "669e57e2023a879734f3cdc9"
-    }
-  ],
-  "__v": 63
-},
-{
-  "_id": {
-    "$oid": "66b1599bb05086b6261b93c1"
-  },
-  "username": "Georgi",
-  "email": "gosh@abv.bg",
-  "password": "$2b$10$JAkYKQ6rLcvSa7/nUJkvl.ZOJn/Tu.5/ouoNPNcG6fyEwtBlBxFxO",
-  "tel": "+3598231234",
-  "favorite": [
-    {
-      "$oid": "669ec9c9587e831c20ed8087"
-    }
-  ],
-  "__v": 1
+  "role": "user",
+  "__v": 2
 }]
