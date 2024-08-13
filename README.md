@@ -17,6 +17,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 
 - Guest users can access all the information in the application without adding the product to the cart or to the favorites list.
 - Registered users can add items to their cart, their favorite list, and update their profile.
+- Admin users can add teas, utensils, and recipes to the application; also, the admin can modify any user and change their role(user or admin).
 
 ## Description of the components in the project:
 
@@ -45,7 +46,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 
 ### Guard
 
-- It does not allow unregistered users to access options that can only be used by registered users.
+- It does not allow unregistered users to access options that can only be used by registered users or admins.
 
 ### Header
 
@@ -79,7 +80,7 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 - It provides the user access to every available item in the database, its price, details for each product individually, the ability to add the product to the cart or to the list of favorite items.
 
 ### User
-
+- admin : Control panel for the admin providing functionality that allows adding, deleting, and updating any product or user(only update) in the application.
 - profile : Provides information about the registered user, the ability to change their name, email or phone number. Also the ability to delete the profile.
 - sign-in : A page that allows the user to log in.
 - sigin-up : Profile creation page
