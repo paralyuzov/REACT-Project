@@ -65,7 +65,7 @@ export default function Utensils() {
         <div className="my-10">
             <Link to={'/admin/utensils/add'}>
                 <div>
-                    <button className="text-3xl px-5 py-2 border-2 my-10 bg-green-200 rounded-xl hover:bg-green-400">ADD UTENSIL</button>
+                    <button className="text-3xl px-5 py-2 border-2 my-10 bg-slate-200 rounded-xl hover:bg-blue-400 duration-500">ADD UTENSIL</button>
                 </div>
             </Link>
             <div className="grid grid-cols-4 gap-7 font-laila text-start">
