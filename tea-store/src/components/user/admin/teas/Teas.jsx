@@ -13,6 +13,8 @@ export default function Teas() {
     const [items, setItems] = useState([]);
     const [deleteItemId, setDeleteItemId] = useState(null);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [active, setActive] = useState('all')
+    const [filteredItems, setFilteredItems] = useState([])
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,6 +23,7 @@ export default function Teas() {
                 const data = await requester.get(`http://localhost:3030/api/collection/teas`);
                 setItems(data);
                 setIsLoading(false);
+                setFilteredItems(data)
             } catch (err) {
                 console.log(err);
             }
@@ -55,6 +58,15 @@ export default function Teas() {
         setDeleteItemId(null);
     };
 
+    const handleFilter = (type) => {
+        setActive(type)
+        if (type === "all") {
+            setFilteredItems(items);
+        } else {
+            setFilteredItems(items.filter(item => item.type === type));
+        }
+    };
+
 
     if (isLoading) {
         return (
@@ -66,13 +78,62 @@ export default function Teas() {
 
     return (
         <div className="my-10">
-            <Link to={'/admin/teas/add'}>
-                <div>
-                    <button className="text-3xl px-5 py-2 border-2 my-10 bg-green-200 rounded-xl hover:bg-green-400">ADD TEA</button>
-                </div>
-            </Link>
+
+            <h2 className="text-2xl font-bold font-kreon">SORT BY TYPE</h2>
+            <div className="flex justify-evenly items-center my-10 font-kreon">
+                <Link to={'/admin/teas/add'}>
+                    <div className="inline">
+                        <button className="text-3xl px-5 py-2 border-2 my-10 bg-slate-200 rounded-xl hover:bg-blue-400 duration-500">ADD TEA</button>
+                    </div>
+                </Link>
+                <button
+                    onClick={() => handleFilter("matcha")}
+                    className={`px-5 py-2 rounded-xl  ${active === "matcha" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Matcha
+                </button>
+
+                <button
+                    onClick={() => handleFilter("gyokuro")}
+                    className={`px-5 py-2 rounded-xl  ${active === "gyokuro" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Gyokuro
+                </button>
+
+                <button
+                    onClick={() => handleFilter("sencha")}
+                    className={`px-5 py-2 rounded-xl  ${active === "sencha" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Sencha
+                </button>
+
+                <button
+                    onClick={() => handleFilter("hojicha")}
+                    className={`px-5 py-2 rounded-xl  ${active === "hojicha" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Hojicha
+                </button>
+                <button
+                    onClick={() => handleFilter("organic")}
+                    className={`px-5 py-2 rounded-xl  ${active === "organic" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Organic
+                </button>
+                <button
+                    onClick={() => handleFilter("teabag")}
+                    className={`px-5 py-2 rounded-xl  ${active === "teabag" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Teabags
+                </button>
+                <button
+                    onClick={() => handleFilter("all")}
+                    className={`px-5 py-2 rounded-xl  ${active === "all" ? "bg-green-300 duration-1000" : "bg-slate-200"}`}
+                >
+                    Show all
+                </button>
+            </div>
             <div className="grid grid-cols-4 gap-7 font-laila text-start">
-                {items.map(item => (
+                {filteredItems.map(item => (
 
                     <div key={item._id} className="flex flex-col gap-5 tracking-widest">
                         <div className="bg-gray-200  border-2 rounded-3xl">
