@@ -32,7 +32,7 @@ export default function TopFavorites() {
                             </Link>
                             <div className={styles.cardInfoHolder}>
                                 <p>{item.title} {item.weight}g</p>
-                                <p className={styles.cardInfoPrice}>${item.price}€</p>
+                                <p className={styles.cardInfoPrice}>{item.price} €</p>
                             </div>
                         </div>
 
