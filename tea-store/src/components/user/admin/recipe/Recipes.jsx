@@ -67,7 +67,7 @@ export default function Recipes() {
         <div className="my-10">
             <Link to={'/admin/recipes/add'}>
                 <div>
-                    <button className="text-3xl px-5 py-2 border-2 my-10 bg-green-200 rounded-xl hover:bg-green-400">ADD RECIPE</button>
+                    <button className="text-3xl px-5 py-2 border-2 my-10 bg-slate-200 rounded-xl hover:bg-blue-400 duration-500">ADD RECIPE</button>
                 </div>
             </Link>
             <div className="grid grid-cols-3 gap-10 my-20 font-laila">
