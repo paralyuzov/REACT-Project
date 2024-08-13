@@ -5,10 +5,20 @@ import { AuthContext } from "./AuthContext";
 
 export const CartContext = createContext();
 
-export function CardProvider(props) {
-    const [cart, setCart] = useState([]);
+const loadCartFromLocalStorage = () => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+
+};
+
+export function CartProvider(props) {
+    const [cart, setCart] = useState(() => loadCartFromLocalStorage());
     const [modal, setModal] = useState(null);
     const { isAuthenticated } = useContext(AuthContext)
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     const addToCart = (product) => {
         setCart((prevCart) => {
@@ -55,13 +65,15 @@ export function CardProvider(props) {
 
     const emptyCart = () => {
         setCart([])
+        localStorage.removeItem('cart')
     }
 
     useEffect(() => {
         if (!isAuthenticated) {
-            emptyCart();
+            emptyCart()
         }
     }, [isAuthenticated])
+
 
     return (
         <CartContext.Provider value={{ cart, addToCart, modal, calcTotalQuantity, calcTotalPrice, removeCartItem, updateCartItemQuantity, emptyCart }}>
