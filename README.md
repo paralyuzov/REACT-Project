@@ -118,6 +118,9 @@ An online store for Japanese tea where visitors can purchase and learn about Jap
 
 - For data you can import all the necessary collections(json files) in MongoDB Compass from the provided "data" folder
 
+## Testing Admin
+ - You can test admin role for the application using this profile : email: admin@gmail.com password: 123456
+
 ## Testing payment
 
 - On card information field you can use card number : 4242 4242 4242 4242
