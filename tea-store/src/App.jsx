@@ -1,7 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext'
-import { CardProvider } from './contexts/CartContext'
+import { CartProvider } from './contexts/CartContext'
 import { FavoriteProvider } from './contexts/FavoritesContext';
 
 import './App.css'
@@ -71,7 +71,7 @@ function App() {
         <>
             <AuthContextProvider>
                 <Loader>
-                    <CardProvider>
+                    <CartProvider>
                         <FavoriteProvider>
                             <Header />
                             <ScrollToTop />
@@ -144,7 +144,7 @@ function App() {
                             </div>
                             <Footer />
                         </FavoriteProvider>
-                    </CardProvider>
+                    </CartProvider>
                 </Loader>
             </AuthContextProvider>
         </>
