@@ -129,7 +129,7 @@ export default function CreateTea() {
                                 <input
                                     name="weight"
                                     id='weight'
-                                    type="text"
+                                    type="number"
                                     value={values.weight}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent"
