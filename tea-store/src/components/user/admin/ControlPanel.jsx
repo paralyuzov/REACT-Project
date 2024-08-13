@@ -5,7 +5,7 @@ export default function ControlPanel() {
     return (
         <div>
             <div>
-                <h2 className="text-5xl my-10">Control Panel</h2>
+                <h2 className="text-5xl my-10 font-kreon">Control Panel</h2>
             </div>
             <div className="grid grid-cols-4 items-center gap-5  p-5 text-2xl font-kreon">
                 <Link to={'/admin/teas'}>
