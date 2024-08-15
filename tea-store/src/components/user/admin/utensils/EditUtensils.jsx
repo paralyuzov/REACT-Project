@@ -125,6 +125,7 @@ export default function EditUtensils() {
                                 <textarea
                                     name="description"
                                     id='description'
+                                    type="text"
                                     value={values.description}
                                     onChange={changeHandler}
                                     className={`bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all ${errors.description ? 'border-red-500' : ''}`}

@@ -92,7 +92,7 @@ export default function EditRecipe() {
                                 <textarea
                                     name="info"
                                     id='info'
-                                    type="info"
+                                    type="text"
                                     value={values.info}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
@@ -118,6 +118,7 @@ export default function EditRecipe() {
                                 <input
                                     name="quantity"
                                     id='quantity'
+                                    type="text"
                                     value={values.quantity}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
@@ -130,6 +131,7 @@ export default function EditRecipe() {
                                 <input
                                     name="amount"
                                     id='amount'
+                                    type="text"
                                     value={values.amount}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
@@ -142,6 +144,7 @@ export default function EditRecipe() {
                                 <input
                                     name="time"
                                     id='time'
+                                    type="text"
                                     value={values.time}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all" 
@@ -154,6 +157,7 @@ export default function EditRecipe() {
                                 <textarea
                                     name="aditional"
                                     id='aditional'
+                                    type='text'
                                     value={values.aditional}
                                     onChange={changeHandler}
                                     className="bg-gray-100 w-full text-gray-800 text-xl px-4 py-4 focus:bg-transparent outline-lime-200 transition-all"
